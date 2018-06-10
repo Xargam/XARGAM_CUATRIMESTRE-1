@@ -1,0 +1,22 @@
+  system("color 0") ---> Negro.
+  system("color 1") ---> Azul.
+  system("color 2") ---> Verde.
+  system("color 3") ---> Aguamarina.
+  system("color 4") ---> Rojo.
+  system("color 5") ---> Púrpura.
+  system("color 6") ---> Amarillo.
+  system("color 7") ---> Blanco.
+  system("col.
+  system("color 9") ---> Azul claro.
+  system("color A") ---> Verde claro.
+  system("color B") ---> Aguamarina claro.
+  system("color C") ---> Púrpura claro.
+  system("color D") ---> Amarillo claro.
+  system("color F") ---> Blanco brillante.
+  system("COLOR"); ---> Si no se indican argumentos, este comando restaura el
+  color que tenía inicialmente.
+
+combinaciones:
+
+system("color F0") ---> Produce negro sobre blanco brillante.
+system("color 02") ---> Produce verde sobre negro. 

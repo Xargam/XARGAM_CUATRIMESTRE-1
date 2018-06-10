@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1523220495 source:c:\users\gbcat\downloads\cuatrimestre-1-master (1)\cuatrimestre-1-master\guias\tp_1_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+
+1523219913 source:c:\users\gbcat\downloads\cuatrimestre-1-master (1)\cuatrimestre-1-master\guias\tp_1_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1523219781 c:\users\gbcat\downloads\cuatrimestre-1-master (1)\cuatrimestre-1-master\guias\tp_1_cascara\funciones.h
+
+1523485380 source:c:\users\leo\desktop\xargam\ejercicios\tp_1_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+
+1523485380 source:c:\users\leo\desktop\xargam\ejercicios\tp_1_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1523485380 c:\users\leo\desktop\xargam\ejercicios\tp_1_cascara\funciones.h
+

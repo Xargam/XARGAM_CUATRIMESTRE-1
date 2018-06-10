@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1524660371 source:d:\hardcode\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	"empleado.h"
+
+1524660441 d:\hardcode\empleado.h
+
+1524661052 source:c:\users\alumno\desktop\xargam\guías\1 hoy\hardcode\main.c
+	<stdio.h>
+	<stdlib.h>
+	"empleado.h"
+
+1524660441 c:\users\alumno\desktop\xargam\guías\1 hoy\hardcode\empleado.h
+
+1524663002 source:c:\users\alumno\desktop\xargam\guías\1 hoy\hardcode\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	"empleado.h"
+

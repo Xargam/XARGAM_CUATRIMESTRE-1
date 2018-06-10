@@ -1,0 +1,280 @@
+# depslib dependency file v1.0
+1524940133 source:c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1524940133 source:c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1524940133 source:c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xmath.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<conio.h>
+	"xmath.h"
+
+1524940133 c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xmath.h
+
+1524940133 source:c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xperson.c
+	"xPerson.h"
+
+1524940133 c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xperson.h
+
+1524940133 source:c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"xstring.h"
+
+1524940133 c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xstring.h
+
+1524940133 source:c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"xvalidate.h"
+
+1524940133 c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xvalidate.h
+
+1524940133 source:c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1525020228 source:c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xPerson.h"
+	<string.h>
+	"xlook.h"
+	"xget.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xvector.h"
+
+1524940133 c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xlook.h
+
+1524940133 c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xget.h
+
+1524940133 c:\users\leo\desktop\xargam\ejercicios\tps\tp 2\trabajo 2\xvector.h
+
+1526094147 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xPerson.h"
+	<string.h>
+	"xlook.h"
+	"xget.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xvector.h"
+	"xget.h"
+	"xPerson.h"
+
+1526093954 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xperson.h
+
+1525660941 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xlook.h
+
+1526084657 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xget.h
+
+1525664217 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xvalidate.h
+
+1525661403 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xstring.h
+
+1525663915 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xvector.h
+
+1526086645 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1525664278 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1525664271 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1524940133 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xmath.h
+
+1526093954 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xperson.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xPerson.h"
+	"string.h"
+	"xvector.h"
+	"xvalidate.h"
+	"xget.h"
+	"xstring.h"
+	"xlook.h"
+
+1525664263 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1525664227 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1525664248 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp 2\trabajo 2\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1526094736 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xPerson.h"
+	<string.h>
+	"xlook.h"
+	"xget.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xvector.h"
+	"xget.h"
+	"xPerson.h"
+
+1526093954 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xperson.h
+
+1525660941 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xlook.h
+
+1526084657 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xget.h
+
+1525664217 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xvalidate.h
+
+1525661403 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xstring.h
+
+1525663915 c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xvector.h
+
+1526086645 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1525664278 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1525664271 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1526094735 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xperson.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xPerson.h"
+	"string.h"
+	"xvector.h"
+	"xvalidate.h"
+	"xget.h"
+	"xstring.h"
+	"xlook.h"
+
+1525664263 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1526094562 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+
+1525664248 source:c:\users\leo\desktop\xargam\ejercicios\tps\trabajos\tp2_labotaorio_1_leonardo_manassali\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1526094736 source:c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xPerson.h"
+	<string.h>
+	"xlook.h"
+	"xget.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xvector.h"
+	"xget.h"
+	"xPerson.h"
+
+1526093954 c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xperson.h
+
+1525660941 c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xlook.h
+
+1526084657 c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xget.h
+
+1525664217 c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xvalidate.h
+
+1525661403 c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xstring.h
+
+1525663915 c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xvector.h
+
+1526086645 source:c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1525664278 source:c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1525664271 source:c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1526094735 source:c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xperson.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xPerson.h"
+	"string.h"
+	"xvector.h"
+	"xvalidate.h"
+	"xget.h"
+	"xstring.h"
+	"xlook.h"
+
+1525664263 source:c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1526094562 source:c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+
+1525664248 source:c:\users\leo\desktop\tp2\tp2_labotaorio_1_leonardo_manassali\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

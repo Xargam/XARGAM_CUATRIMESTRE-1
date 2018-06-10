@@ -1,0 +1,52 @@
+# depslib dependency file v1.0
+1526786056 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 7e\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1526766919 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 7e\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1526766919 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 7e\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1526766919 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 7e\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1526766919 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 7e\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+
+1526766919 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 7e\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1526786216 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 7e\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xlook.h"
+	"xstring.h"
+	"xget.h"
+	"xvalidate.h"
+
+1526766919 c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 7e\xlook.h
+
+1526766919 c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 7e\xstring.h
+
+1526785742 c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 7e\xget.h
+
+1526766919 c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 7e\xvalidate.h
+

@@ -1,0 +1,194 @@
+# depslib dependency file v1.0
+1528338090 source:c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"xvalidate.h"
+
+1528210952 source:c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1528210952 source:c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1528210952 source:c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1528335046 source:c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+
+1528210952 source:c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1528337381 source:c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xlook.h"
+	"xvalidate.h"
+	"xget.h"
+	"xMovies.h"
+
+1528338193 source:c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xmovies.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xlook.h"
+	"xvalidate.h"
+	"xget.h"
+	"xstring.h"
+	"xMovies.h"
+
+1528210952 c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xlook.h
+
+1528334388 c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xvalidate.h
+
+1528210952 c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xget.h
+
+1528337077 c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xmovies.h
+
+1528210952 c:\users\leo\desktop\laboratorio1_tp3_leonardo_manassali_1a\xstring.h
+
+1528518841 source:c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xlook.h"
+	"xvalidate.h"
+	"xget.h"
+	"xMovies.h"
+
+1528492126 c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xlook.h
+
+1528475844 c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xvalidate.h
+
+1528481492 c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xget.h
+
+1528510366 c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xmovies.h
+
+1528498671 source:c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1528500535 source:c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1528475844 source:c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1528519266 source:c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xmovies.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xlook.h"
+	"xvalidate.h"
+	"xget.h"
+	"xstring.h"
+	"xMovies.h"
+
+1528475844 c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xstring.h
+
+1528517748 source:c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1528479148 source:c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+
+1528475844 source:c:\users\leo\desktop\xargam\laboratorio1_tp3_leonardo_manassali_1a\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1528661534 source:c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xlook.h"
+	"xvalidate.h"
+	"xget.h"
+	"xMovies.h"
+
+1528597899 c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xlook.h
+
+1528597899 c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xvalidate.h
+
+1528597899 c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xget.h
+
+1528661088 c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xmovies.h
+
+1528597899 source:c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1528597899 source:c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1528597899 source:c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1528662709 source:c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xmovies.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xlook.h"
+	"xvalidate.h"
+	"xget.h"
+	"xstring.h"
+	"xMovies.h"
+
+1528597899 c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xstring.h
+
+1528597899 source:c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1528597899 source:c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+
+1528597899 source:c:\users\leo\desktop\xargamn\laboratorio1_tp3_leonardo_manassali_1a\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

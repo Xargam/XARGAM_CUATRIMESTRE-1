@@ -1,0 +1,68 @@
+# depslib dependency file v1.0
+1526242063 source:c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"xget.h"
+	"xlook.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xEmpleados.h"
+
+1526084657 c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xget.h
+
+1526182662 c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xlook.h
+
+1525664217 c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xvalidate.h
+
+1525661403 c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xstring.h
+
+1526242248 c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xempleados.h
+
+1526086645 source:c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1526182662 source:c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1525664271 source:c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1525664263 source:c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1526185582 source:c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+
+1525664248 source:c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1526242117 source:c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\parcial1_timekiller.c
+
+1526243018 source:c:\users\leo\desktop\xargam\programas preparciales\preparcial 1\xempleados.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xEmpleados.h"
+	"xget.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xlook.h"
+

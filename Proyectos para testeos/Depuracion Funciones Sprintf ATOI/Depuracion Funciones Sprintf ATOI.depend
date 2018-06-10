@@ -1,0 +1,81 @@
+# depslib dependency file v1.0
+1524162048 source:c:\users\leo\desktop\xargam\ejercicios\práctica\depuracion funciones sprintf atoi\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1524162048 source:c:\users\leo\desktop\xargam\ejercicios\práctica\depuracion funciones sprintf atoi\xmath.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1524177449 source:c:\users\leo\desktop\xargam\ejercicios\práctica\depuracion funciones sprintf atoi\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1524243316 source:c:\users\leo\desktop\xargam\ejercicios\práctica\depuracion funciones sprintf atoi\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xget.h"
+	<string.h>
+	"xvector.h"
+
+1524162048 c:\users\leo\desktop\xargam\ejercicios\práctica\depuracion funciones sprintf atoi\xget.h
+
+1524176384 c:\users\leo\desktop\xargam\ejercicios\práctica\depuracion funciones sprintf atoi\xvector.h
+
+1525650813 source:c:\users\leo\desktop\xargam\depuracion y testeos\depuracion funciones sprintf atoi\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1524940133 source:c:\users\leo\desktop\xargam\depuracion y testeos\depuracion funciones sprintf atoi\xmath.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1524940133 source:c:\users\leo\desktop\xargam\depuracion y testeos\depuracion funciones sprintf atoi\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1525650769 source:c:\users\leo\desktop\xargam\depuracion y testeos\depuracion funciones sprintf atoi\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xget.h"
+
+1525636852 c:\users\leo\desktop\xargam\depuracion y testeos\depuracion funciones sprintf atoi\xget.h
+
+1524940133 c:\users\leo\desktop\xargam\depuracion y testeos\depuracion funciones sprintf atoi\xvector.h
+
+1525650769 source:c:\users\leo\desktop\nuevo\depuracion y testeos\depuracion funciones sprintf atoi\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xget.h"
+
+1525636852 c:\users\leo\desktop\nuevo\depuracion y testeos\depuracion funciones sprintf atoi\xget.h
+
+1525650813 source:c:\users\leo\desktop\nuevo\depuracion y testeos\depuracion funciones sprintf atoi\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1524940133 source:c:\users\leo\desktop\nuevo\depuracion y testeos\depuracion funciones sprintf atoi\xmath.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1524940133 source:c:\users\leo\desktop\nuevo\depuracion y testeos\depuracion funciones sprintf atoi\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1523891722 source:c:\users\alumno\desktop\arrayestructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1523891760 source:c:\users\alumno\desktop\xargam\guías\ejemplos\arrayestructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+

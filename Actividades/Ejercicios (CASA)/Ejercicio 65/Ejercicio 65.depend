@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1523661373 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 65\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+

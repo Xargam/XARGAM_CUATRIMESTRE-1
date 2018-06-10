@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1523557733 source:c:\users\leo\desktop\xargam\ejercicios\práctica\test\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1527477768 source:c:\users\leo\desktop\xargam\depuracion y testeos\test\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1527533053 source:c:\users\leo\desktop\xargam\depuracion y testeos\test\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xget.h"
+	<string.h>
+	<float.h>
+
+1527533058 c:\users\leo\desktop\xargam\depuracion y testeos\test\xget.h
+
+1527533058 source:c:\users\leo\desktop\xargam\depuracion y testeos\test\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1527533058 source:c:\users\leo\desktop\xargam\depuracion y testeos\test\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1527533058 source:c:\users\leo\desktop\xargam\depuracion y testeos\test\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+
+1527533058 source:c:\users\leo\desktop\xargam\depuracion y testeos\test\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1527533058 source:c:\users\leo\desktop\xargam\depuracion y testeos\test\xmath.c
+	<stdio.h>
+	<stdlib.h>
+

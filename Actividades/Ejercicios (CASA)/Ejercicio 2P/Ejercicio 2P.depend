@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1526317024 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 2p\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1526317024 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 2p\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+
+1526320287 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 2p\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xlook.h"
+	"xvalidate.h"
+
+1526317024 c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 2p\xlook.h
+
+1526317024 c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 2p\xvalidate.h
+

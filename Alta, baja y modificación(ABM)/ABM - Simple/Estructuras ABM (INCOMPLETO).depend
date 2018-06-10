@@ -1,0 +1,98 @@
+# depslib dependency file v1.0
+1524314590 source:c:\users\alumno\desktop\git\clases-sabados\estructuras abm (incompleto)\productos.c
+	<stdio.h>
+	"Productos.h"
+
+1524314590 c:\users\alumno\desktop\git\clases-sabados\estructuras abm (incompleto)\productos.h
+
+1524448516 source:c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\productos.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"Productos.h"
+	"xstring.h"
+	"xget.h"
+	"xmath.h"
+	"xvalidate.h"
+
+1524447844 c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\productos.h
+
+1524441060 source:c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"xget.h"
+
+1524439815 source:c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\xmath.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<conio.h>
+	"xmath.h"
+
+1524441060 source:c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"xstring.h"
+
+1524439815 source:c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"xvalidate.h"
+
+1524439815 source:c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xvector.h"
+
+1524449184 source:c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xmath.h"
+	"xvalidate.h"
+	"xget.h"
+	"Productos.h"
+
+1524427874 c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\xmath.h
+
+1524438443 c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\xvalidate.h
+
+1524436219 c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\xget.h
+
+1524427874 c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\xstring.h
+
+1524427874 c:\users\leo\desktop\xargam\ejercicios\clase sabado repaso\estructuras abm (incompleto)\xvector.h
+
+1527533053 source:c:\users\leo\desktop\xargam\abms\abm - simple\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xmath.h"
+	"xvalidate.h"
+	"xget.h"
+	"Productos.h"
+
+1527533058 c:\users\leo\desktop\xargam\abms\abm - simple\xmath.h
+
+1527533058 c:\users\leo\desktop\xargam\abms\abm - simple\xvalidate.h
+
+1527533058 c:\users\leo\desktop\xargam\abms\abm - simple\xget.h
+
+1527533053 c:\users\leo\desktop\xargam\abms\abm - simple\productos.h
+
+1527533053 source:c:\users\leo\desktop\xargam\abms\abm - simple\productos.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"Productos.h"
+	"xstring.h"
+	"xget.h"
+	"xmath.h"
+	"xvalidate.h"
+
+1527533058 c:\users\leo\desktop\xargam\abms\abm - simple\xstring.h
+

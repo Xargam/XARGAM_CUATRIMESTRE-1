@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1527106756 source:c:\users\leo\desktop\xargam\programas preparciales\ejercicio 1a\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1527265145 source:c:\users\leo\desktop\xargam\ejercicios\archivos\ejercicio 1a\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+

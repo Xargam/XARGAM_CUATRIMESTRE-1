@@ -1,0 +1,66 @@
+# depslib dependency file v1.0
+1524863830 source:c:\users\leo\desktop\xargam\ejercicios\clase 9\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"xmath.h"
+	"xget.h"
+	"xlook.h"
+	"xvalidate.h"
+	"string.h"
+	"xstring.h"
+	"xEmpleados.h"
+
+1524860088 c:\users\leo\desktop\xargam\ejercicios\clase 9\xmath.h
+
+1524860088 c:\users\leo\desktop\xargam\ejercicios\clase 9\xget.h
+
+1524860088 c:\users\leo\desktop\xargam\ejercicios\clase 9\xlook.h
+
+1524860088 c:\users\leo\desktop\xargam\ejercicios\clase 9\xvalidate.h
+
+1524860088 c:\users\leo\desktop\xargam\ejercicios\clase 9\xstring.h
+
+1524865327 c:\users\leo\desktop\xargam\ejercicios\clase 9\xempleados.h
+
+1524860088 source:c:\users\leo\desktop\xargam\ejercicios\clase 9\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"xget.h"
+	<conio.h>
+
+1524860088 source:c:\users\leo\desktop\xargam\ejercicios\clase 9\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1524860088 source:c:\users\leo\desktop\xargam\ejercicios\clase 9\xmath.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<conio.h>
+	"xmath.h"
+
+1524860088 source:c:\users\leo\desktop\xargam\ejercicios\clase 9\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"xstring.h"
+
+1524860088 source:c:\users\leo\desktop\xargam\ejercicios\clase 9\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"xvalidate.h"
+
+1524860088 source:c:\users\leo\desktop\xargam\ejercicios\clase 9\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xvector.h"
+
+1524860088 c:\users\leo\desktop\xargam\ejercicios\clase 9\xvector.h
+

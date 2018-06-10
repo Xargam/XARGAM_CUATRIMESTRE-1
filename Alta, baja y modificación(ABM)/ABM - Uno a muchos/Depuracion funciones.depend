@@ -1,0 +1,133 @@
+# depslib dependency file v1.0
+1525660700 source:c:\users\leo\desktop\xargam\depuracion y testeos\dep\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"xget.h"
+	"xlook.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xEmpleados.h"
+
+1525663963 c:\users\leo\desktop\xargam\depuracion y testeos\dep\xget.h
+
+1525660941 c:\users\leo\desktop\xargam\depuracion y testeos\dep\xlook.h
+
+1525664217 c:\users\leo\desktop\xargam\depuracion y testeos\dep\xvalidate.h
+
+1525661403 c:\users\leo\desktop\xargam\depuracion y testeos\dep\xstring.h
+
+1525663963 c:\users\leo\desktop\xargam\depuracion y testeos\dep\xempleados.h
+
+1525664027 source:c:\users\leo\desktop\xargam\depuracion y testeos\dep\xempleados.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xEmpleados.h"
+	"xget.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xlook.h"
+
+1525664295 source:c:\users\leo\desktop\xargam\depuracion y testeos\dep\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1525664278 source:c:\users\leo\desktop\xargam\depuracion y testeos\dep\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1525664271 source:c:\users\leo\desktop\xargam\depuracion y testeos\dep\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1525662698 c:\users\leo\desktop\xargam\depuracion y testeos\dep\xmath.h
+
+1525664263 source:c:\users\leo\desktop\xargam\depuracion y testeos\dep\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1525664227 source:c:\users\leo\desktop\xargam\depuracion y testeos\dep\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1525664248 source:c:\users\leo\desktop\xargam\depuracion y testeos\dep\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1525663915 c:\users\leo\desktop\xargam\depuracion y testeos\dep\xvector.h
+
+1525660700 source:c:\users\leo\desktop\nuevo\depuracion y testeos\dep\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"xget.h"
+	"xlook.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xEmpleados.h"
+
+1525663963 c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xget.h
+
+1525660941 c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xlook.h
+
+1525664217 c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xvalidate.h
+
+1525661403 c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xstring.h
+
+1525663963 c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xempleados.h
+
+1525664303 source:c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xempleados.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xEmpleados.h"
+	"xget.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xlook.h"
+
+1525664295 source:c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1525664278 source:c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1525664271 source:c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1525664263 source:c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1525664227 source:c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1525664248 source:c:\users\leo\desktop\nuevo\depuracion y testeos\dep\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

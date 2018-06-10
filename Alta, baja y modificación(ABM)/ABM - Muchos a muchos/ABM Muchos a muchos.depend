@@ -1,0 +1,67 @@
+# depslib dependency file v1.0
+1525830133 source:c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xpproductos.c
+
+1525827861 source:c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1525827861 source:c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1525827861 source:c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1525843671 source:c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xproveedores.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xProveedores.h"
+	"xget.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xlook.h"
+
+1525842132 c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xproveedores.h
+
+1525827861 c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xget.h
+
+1525827861 c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xvalidate.h
+
+1525827861 c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xstring.h
+
+1525827861 c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xlook.h
+
+1525827861 source:c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1525827861 source:c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1525827861 source:c:\users\leo\desktop\xargam\abms\abm muchos a muchos\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1525841398 source:c:\users\leo\desktop\xargam\abms\abm muchos a muchos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"xget.h"
+	"xlook.h"
+	"xvalidate.h"
+	"xstring.h"
+	"xProveedores.h"
+

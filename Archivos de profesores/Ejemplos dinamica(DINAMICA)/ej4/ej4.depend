@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1526910429 source:e:\utn\clase\5-mayo\21-5\ej4\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

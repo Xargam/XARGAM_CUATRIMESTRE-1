@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1523320374 source:d:\cadena\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1523894411 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 2e\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1523894411 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 2e\xmath.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1523894411 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 2e\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1523913822 source:c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 2e\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xget.h"
+	<conio.h>
+
+1523894411 c:\users\leo\desktop\xargam\ejercicios\práctica\ejercicio 2e\xget.h
+

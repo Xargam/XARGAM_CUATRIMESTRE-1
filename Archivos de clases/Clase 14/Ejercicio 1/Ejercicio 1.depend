@@ -1,0 +1,64 @@
+# depslib dependency file v1.0
+1526298021 source:c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1526298021 source:c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1526298021 source:c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1526298021 source:c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xperson.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xPerson.h"
+	"string.h"
+	"xvector.h"
+	"xvalidate.h"
+	"xget.h"
+	"xstring.h"
+	"xlook.h"
+
+1526298021 c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xperson.h
+
+1526298021 c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xvector.h
+
+1526298021 c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xvalidate.h
+
+1526298021 c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xget.h
+
+1526298021 c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xstring.h
+
+1526298021 c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xlook.h
+
+1526298021 source:c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1526298021 source:c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+
+1526298021 source:c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1526311373 source:c:\users\alumno\desktop\xargam\ejercicios\clase 14\ejercicio 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xget.h"
+
