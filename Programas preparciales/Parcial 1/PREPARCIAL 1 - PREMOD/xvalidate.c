@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <ctype.h>
+#include <string.h>
 
 
 //Validacion de salida:
@@ -10,20 +11,20 @@
 //XV1-1//
 /** \brief pide un caracter y verifica que sea la tecla ESCAPE
  *
- * \return devuelve 1 si el caracter solicitado es la tecla ESCAPE o 0 si no lo es.
+ * \return devuelve [1] si el caracter solicitado es la tecla ESCAPE o [0] si no lo es.
  *
  */
 
-int validateESCExit(void)
+int validateESCExit(char* text)
 {
-    int esc = 0;
+    int esc = 1;
     char letra;
 
-    printf("Presione la tecla ESC para salir u otra tecla para continuar...");
+    printf("%s",text);
     letra = getch();
-    if(letra == 27)
+    if(letra != 27)
     {
-        esc++;
+        esc = 0;
     }
     return esc;
 }
@@ -34,11 +35,11 @@ int validateESCExit(void)
  *
  * \param text: Texto a imprimir para pedir un caracter para salir.
  * \param Char: Caracter que se verificara si el usuario ingresa.
- * \return devuelve 1 si el caracter que ingresa el usuario es igual al parametro Char o 0 si no lo es.
+ * \return devuelve 1 si el caracter que ingreso el usuario es igual al parametro Char o 0 si no lo es.
  *
  */
 
-int validateExit(char text[],char Char)
+int validateExit(char* text,char Char)
 {
     char letra;
     int exit = 0;
@@ -57,8 +58,7 @@ int validateExit(char text[],char Char)
 
 
 //XV1-3//
-/** \brief Establece dos caracteres posibles, uno para continuar y otro para salir. Si el usuario ingresa uno distinto
- * \brief se le vuelve a pedir el ingreso de un caracter.
+/** \brief Establece dos caracteres posibles, uno para continuar y otro para salir.
  *
  * \param text: Texto mostrado al solicitar un caracter.
  * \param errorText: Texto mostrado en caso de colocar un caracter invalido.
@@ -67,25 +67,24 @@ int validateExit(char text[],char Char)
  * \return devuelve 1 si el usuario eligio el continueChar o 0 si eligio el exitChar.
  *
  */
-int validateDualExit(char text[],char errorText[],char continueChar, char exitChar)
+int validateDualExit(char* text,char* errorText,char continueChar, char exitChar)
 {
     char letra;
     int exit = 0;
-
-    printf("%s", text);
-    letra = getch();
-
-    letra = tolower(letra);
     continueChar = tolower(continueChar);
     exitChar = tolower(exitChar);
 
-
-    while(letra != continueChar && letra != exitChar)
+    do
     {
-        printf("\n%s", errorText);
+        printf("%s", text);
         letra = getch();
-
+        letra = tolower(letra);
+        if(letra != continueChar && letra != exitChar)
+        {
+            printf("\n%s\n\n", errorText);
+        }
     }
+    while(letra != continueChar && letra != exitChar);
 
     if(letra == continueChar)
     {
@@ -126,39 +125,39 @@ int validateLeapYear(int year)
  * \param year: año a validar.
  * \param minYear: año minimo que puede ser el año a validar.
  * \param maxYear: año maximo que puede ser el año a validar.
- * \return Devuelve 0 si la fecha es valida o un numero menor a 0 si no lo es.
+ * \return Devuelve [1] si la fecha es valida o [0] si no lo es.
  *
  */
 int validateDate(int day, int month,int year, int minYear,int maxYear)
 {
-    int valid = 0;
+    int valid = 1;
     if(year > maxYear || year < minYear || month < 1 || month > 12 || day < 1 || day > 31 )
     {
-        valid--;
+        valid = 0;
     }
     if(month == 4 && day > 30)
     {
-        valid--;
+        valid = 0;
     }
     if(month == 2 && validateLeapYear(year) == 1 && day > 29)
     {
-        valid--;
+        valid = 0;
     }
     if(month == 2 && validateLeapYear(year) == 0 && day > 28)
     {
-        valid--;
+        valid = 0;
     }
     if(month == 6 && day > 30)
     {
-        valid--;
+        valid = 0;
     }
     if(month == 9 && day >30)
     {
-        valid--;
+        valid = 0;
     }
     if(month == 11 && day > 30)
     {
-        valid--;
+        valid = 0;
     }
     return valid;
 }
@@ -222,7 +221,7 @@ int validateHasDecimals(float num)
     sprintf(numero,"%f", num);
     printf("Conversion a cadena: %s\n",numero);
 
-    for(int i = 0;numero[i] != '\0'; i++)
+    for(int i = 0; numero[i] != '\0'; i++)
     {
         if(numero[i] == '.')
         {
@@ -237,4 +236,218 @@ int validateHasDecimals(float num)
 
     }
     return comprobacion;
+}
+
+
+
+//Validacion de numeros:
+
+
+//XV1-8
+/** \brief Recibe un entero y verifica que este se encuentre dentro de un rango especifico.
+ *
+ * \param number : Numero entero a verificar.
+ * \param minNumber: Numero entero minimo del rango a fijar.
+ * \param maxNumber: Numero entero maximo del rango a fijar.
+ * \return Devuelve [1] si el numero es valido y esta en rango o [0] si el numero esta fuera de rango.
+ *
+ */
+int validateIntRange(int number,int minNumber, int maxNumber)
+{
+    int verify = 1;
+    if(number < minNumber || number > maxNumber )
+    {
+        verify = 0;
+    }
+    return verify;
+}
+
+
+//XV1-9
+/** \brief Recibe un long y verifica que este se encuentre dentro de un rango especifico.
+ *
+ * \param number : Numero long a verificar.
+ * \param minNumber: Numero long minimo del rango a fijar.
+ * \param maxNumber: Numero long maximo del rango a fijar.
+ * \return Devuelve [1] si el numero es valido y esta en rango o [0] si el numero esta fuera de rango.
+ *
+ */
+
+int validateLongRange(long number,long minNumber, long maxNumber)
+{
+    int verify = 1;
+    if(number < minNumber || number > maxNumber )
+    {
+        verify = 0;
+    }
+    return verify;
+}
+
+
+//XV2-1
+/** \brief Recibe un float y verifica que este se encuentre dentro de un rango especifico.
+ *
+ * \param number : Numero float a verificar.
+ * \param minNumber: Numero float minimo del rango a fijar.
+ * \param maxNumber: Numero float maximo del rango a fijar.
+ * \return Devuelve [1] si el numero es valido y esta en rango o [0] si el numero esta fuera de rango.
+ *
+ */
+
+int validateFloatRange(float number,float minNumber, float maxNumber)
+{
+    int verify = 1;
+    if(number < minNumber || number > maxNumber )
+    {
+        verify = 0;
+    }
+    return verify;
+}
+
+
+//XV2-2
+/** \brief Recibe un entero y verifica que este cumpla la condicion establecida respecto al numero de referencia.
+ *
+ * \param number : Numero entero a verificar.
+ * \param refNumber: Numero entero que se toma como referencia para establecer un rango.
+ * \param condition:[mayor a 0] Se verificara que el numero(number) sea MAYOR o IGUAL al numero de referencia(refNumber).
+ * \param condition:[0] Se verificara que el numero(number) sea IGUAL al numero de referencia(refNumber).
+ * \param condition:[menor a 0] Se verificara que el numero(number) sea MENOR o IGUAL al numero de referencia(refNumber).
+ * \return Devuelve [1] si el numero es valido y cumple la condicion establecida o [0] si no la cumple.
+ *
+ */
+
+int validateIntCondition(int number,int refNumber, int condition)
+{
+    int verify = 1;
+
+    if( condition > 0)
+    {
+        if(number < refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition == 0)
+    {
+        if(number != refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition < 0)
+    {
+        if(number > refNumber )
+        {
+            verify = 0;
+        }
+    }
+    return verify;
+}
+
+
+//XV2-3
+/** \brief Recibe un long y verifica que este cumpla la condicion establecida respecto al numero de referencia.
+ *
+ * \param number : Numero long a verificar.
+ * \param refNumber: Numero long que se toma como referencia para establecer un rango.
+ * \param condition:[mayor a 0] Se verificara que el numero(number) sea MAYOR o IGUAL al numero de referencia(refNumber).
+ * \param condition:[0] Se verificara que el numero(number) sea IGUAL al numero de referencia(refNumber).
+ * \param condition:[menor a 0] Se verificara que el numero(number) sea MENOR o IGUAL al numero de referencia(refNumber).
+ * \return Devuelve [1] si el numero es valido y cumple la condicion establecida o [0] si no la cumple.
+ *
+ */
+
+int validateLongCondition(long number,long refNumber, int condition)
+{
+    int verify = 1;
+
+    if( condition > 0)
+    {
+        if(number < refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition == 0)
+    {
+        if(number != refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition < 0)
+    {
+        if(number > refNumber )
+        {
+            verify = 0;
+        }
+    }
+    return verify;
+}
+
+
+//XV2-4
+/** \brief Recibe un float y verifica que este cumpla la condicion establecida respecto al numero de referencia.
+ *
+ * \param number : Numero float a verificar.
+ * \param refNumber: Numero float que se toma como referencia para establecer un rango.
+ * \param condition:[mayor a 0] Se verificara que el numero(number) sea MAYOR o IGUAL al numero de referencia(refNumber).
+ * \param condition:[0] Se verificara que el numero(number) sea IGUAL al numero de referencia(refNumber).
+ * \param condition:[menor a 0] Se verificara que el numero(number) sea MENOR o IGUAL al numero de referencia(refNumber).
+ * \return Devuelve [1] si el numero es valido y cumple la condicion establecida o [0] si no la cumple.
+ *
+ */
+
+int validateFloatCondition(float number,float refNumber, int condition)
+{
+    int verify = 1;
+
+    if( condition > 0)
+    {
+        if(number < refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition == 0)
+    {
+        if(number != refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition < 0)
+    {
+        if(number > refNumber )
+        {
+            verify = 0;
+        }
+    }
+    return verify;
+}
+
+
+
+//Validacion de string:
+
+
+ //XV2-5
+/** \brief Recibe una cadena de caracteres y verifica que cumpla con cierta cantidad de caracteres.
+ *
+ * \param cad : Cadena a verificar.
+ * \param minChars : cantidad minima de caracteres que puede tener la cadena.
+ * \param maxChars : cantidad maxima de caracteres que puede tener la cadena.
+ * \return Devuelve [1] si la cadena es valida y cumple con la cantidad de caracteres fijada o [0] si no es valida.
+ *
+ */
+
+int validateStringRange(char* cad , int minChars , int maxChars)
+{
+    int verify = 1;
+    if( strlen(cad) < minChars || strlen(cad) > maxChars)
+    {
+        verify = 0;
+    }
+    return verify ;
 }

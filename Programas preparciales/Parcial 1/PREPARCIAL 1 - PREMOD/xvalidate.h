@@ -4,7 +4,7 @@
 
 //Validacion de salida:
 
-int validateESCExit(void);  //XV1-1
+int validateESCExit(char* text);  //XV1-1
 int validateExit(char text[],char Char);   //XV1-2
 int validateDualExit(char text[],char errorText[],char continueChar, char exitChar); //XV1-3
 
@@ -17,8 +17,20 @@ int validateDate(int day, int month,int year, int minYear,int maxYear);  //XV1-5
 
 void getValidDate(char text[], char errorText[],int maxYear,int MinYear,int* daySave,int* monthSave,int* yearSave); //XV1-6
 
-//Validacion numeros:
+//Validacion de numeros:
 
 int validateHasDecimals(float num);  //XV1-7
+int validateIntRange(int number ,int minNumber, int maxNumber);    //XV1-8
+int validateLongRange(long number ,long minNumber, long maxNumber);    //XV1-9
+int validateFloatRange(float number ,float minNumber, float maxNumber);    //XV2-1
+
+int validateIntCondition(int number ,int refNumber, int condition);    //XV2-2
+int validateLongCondition(long number ,long refNumber, int condition);    //XV2-3
+int validateFloatCondition(float number ,float refNumber, int condition);    //XV2-4
+
+//Validacion de string:
+
+int validateStringRange(char* cad , int minChars , int maxChars);  //XV2-5
+
 
 #endif // XVALITADE_H_INCLUDED

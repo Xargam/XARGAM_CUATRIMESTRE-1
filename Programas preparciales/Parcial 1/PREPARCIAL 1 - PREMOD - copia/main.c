@@ -18,8 +18,8 @@ int main()
     int seleccion;
     int exit = 0;
 
-    inicializarEmpleados(prods,TAM);
-    inicializarSectores(provs,TAM);
+    inicializarProveedores(prods,TAM);
+    inicializarProductos(provs,TAM);
     harcodearSec(provs);
     harcodearEmp(prods);
 

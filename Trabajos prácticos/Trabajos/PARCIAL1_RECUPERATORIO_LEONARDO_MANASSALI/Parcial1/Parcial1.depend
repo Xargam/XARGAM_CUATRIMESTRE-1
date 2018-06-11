@@ -1,0 +1,98 @@
+# depslib dependency file v1.0
+1528671567 source:c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1528671567 source:c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1528671567 source:c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1528701756 source:c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xproductos.c
+	<stdio.h>
+	<stdlib.h>
+	"xget.h"
+	"xlook.h"
+	"xstring.h"
+	"xvalidate.h"
+	"xProductos.h"
+	"xProveedores.h"
+	"xProductos-Proveedores.h"
+
+1528701860 source:c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xproveedores.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xget.h"
+	"xlook.h"
+	"xstring.h"
+	"xvalidate.h"
+	"xProductos.h"
+	"xProveedores.h"
+	"xProductos-Proveedores.h"
+
+1528671567 source:c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1528671567 source:c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+
+1528671567 source:c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1528700473 source:c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xget.h"
+	"xlook.h"
+	"xstring.h"
+	"xvalidate.h"
+	"xProductos.h"
+	"xProveedores.h"
+	"xProductos-Proveedores.h"
+
+1528671567 c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xget.h
+
+1528671567 c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xlook.h
+
+1528671567 c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xstring.h
+
+1528678412 c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xproductos.h
+	"xProveedores.h"
+
+1528685864 c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xproveedores.h
+
+1528689749 c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xproductos-proveedores.h
+	"xProductos.h"
+	"xProveedores.h"
+
+1528706048 source:c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xproductos-proveedores.c
+	<stdio.h>
+	<stdlib.h>
+	"xget.h"
+	"xlook.h"
+	"xstring.h"
+	"xProductos-Proveedores.h"
+	"xProductos.h"
+	"xProveedores.h"
+
+1528671567 c:\users\leo\desktop\xargam\trabajos prácticos\trabajos\parcial1_recuperatorio_leonardo_manassali\parcial1\xvalidate.h
+
