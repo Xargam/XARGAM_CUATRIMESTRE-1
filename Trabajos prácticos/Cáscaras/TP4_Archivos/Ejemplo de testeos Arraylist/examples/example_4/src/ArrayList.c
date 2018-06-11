@@ -69,10 +69,32 @@ ArrayList* al_newArrayList(void)
  */
 int al_add(ArrayList* this, void* pElement)
 {
-    int returnAux = -1;
+    int verify = 0;
+    int okResizeUp = 0;
+    if( this != NULL && pElement != NULL)
+    {
+        if( this->size == this-> reservedSize)
+        {
+            okResizeUp = resizeUp(this);
+        }
+    }
+    else
+    {
+        verify = -1;
+    }
 
-    return returnAux;
+    if(!verify && !okResizeUp)
+    {
+        *(this->pElements + this->size) = pElement;
+        this->size++;
+    }
+
+    return verify;
 }
+
+
+
+
 
 /** \brief  Delete arrayList
  * \param pList ArrayList* Pointer to arrayList
@@ -81,9 +103,14 @@ int al_add(ArrayList* this, void* pElement)
  */
 int al_deleteArrayList(ArrayList* this)
 {
-    int returnAux = -1;
+    int verify = -1;
+    if( this != NULL)
+    {
+        verify = 0;
+        free(this);
+    }
 
-    return returnAux;
+    return verify;
 }
 
 /** \brief  Delete arrayList
@@ -91,11 +118,22 @@ int al_deleteArrayList(ArrayList* this)
  * \return int Return length of array or (-1) if Error [pList is NULL pointer]
  *
  */
+
 int al_len(ArrayList* this)
 {
-    int returnAux = -1;
+    int length = -1;
+    int returnChecker;
+    returnChecker = al_isEmpty(this);
+    if( returnChecker == 0)
+    {
+        length = this->size;
+    }
+    else if ( returnChecker == 1)
+    {
+        length = 0;
+    }
 
-    return returnAux;
+    return length;
 }
 
 
@@ -108,7 +146,13 @@ int al_len(ArrayList* this)
 void* al_get(ArrayList* this, int index)
 {
     void* returnAux = NULL;
-
+    if( this != NULL)
+    {
+        if( index < this->size && index >= 0 )
+        {
+            returnAux = *(this->pElements + index);
+        }
+    }
     return returnAux;
 }
 
@@ -123,9 +167,20 @@ void* al_get(ArrayList* this, int index)
  */
 int al_contains(ArrayList* this, void* pElement)
 {
-    int returnAux = -1;
-
-    return returnAux;
+    int verify = -1;
+    if( this != NULL && pElement != NULL)
+    {
+        int i;
+        verify = 0;
+        for(i = 0 ; i < this->size ; i++)
+        {
+            if( *this->pElements == pElement)
+            {
+                verify = 1;
+            }
+        }
+    }
+    return verify;
 }
 
 
@@ -139,9 +194,14 @@ int al_contains(ArrayList* this, void* pElement)
  */
 int al_set(ArrayList* this, int index,void* pElement)
 {
-    int returnAux = -1;
+    int verify = -1;
 
-    return returnAux;
+    if( this != NULL && pElement != NULL)
+    {
+
+    }
+
+    return verify;
 }
 
 
@@ -225,9 +285,20 @@ int al_indexOf(ArrayList* this, void* pElement)
  */
 int al_isEmpty(ArrayList* this)
 {
-    int returnAux = -1;
+    int verify = -1;
+    if( this != NULL)
+    {
+        if( this->size == 0)
+        {
+            verify = 1;
+        }
+        else
+        {
+            verify = 0;
+        }
+    }
 
-    return returnAux;
+    return verify;
 }
 
 
@@ -286,7 +357,7 @@ int al_containsAll(ArrayList* this,ArrayList* this2)
  * \return int Return (-1) if Error [pList or pFunc are NULL pointer]
  *                  - (0) if ok
  */
-int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
+int al_sort(ArrayList* this, int (*pFunc)(void*,void*), int order)
 {
     int returnAux = -1;
 
@@ -301,10 +372,19 @@ int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
  */
 int resizeUp(ArrayList* this)
 {
-    int returnAux = -1;
-
-    return returnAux;
-
+    void** pElementsAux;
+    int verify = -1;
+    if( this != NULL)
+    {
+        pElementsAux=(void**)realloc(this->pElements, sizeof(void*)*(this->reservedSize+AL_INCREMENT));
+        if( pElementsAux != NULL )
+        {
+            verify = 0;
+            this->pElements = pElementsAux;
+            this->reservedSize += AL_INCREMENT;
+        }
+    }
+    return verify;
 }
 
 /** \brief  Expand an array list

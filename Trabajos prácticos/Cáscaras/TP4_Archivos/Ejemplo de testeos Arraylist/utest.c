@@ -49,8 +49,6 @@ void utest_printStartTesting(char* testName)
 }
 void utest_printStatistics(char* testName)
 {
-
-
     if(utest_totalTestsCounter!=utest_okTestsCounter || VERBOSE_TEST == 1)
     {
         printf(utest_printErrorBuffer);
