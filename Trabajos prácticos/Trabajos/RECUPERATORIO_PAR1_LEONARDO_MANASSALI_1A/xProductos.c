@@ -178,7 +178,7 @@ int altaProducto(eProductos prods[], int prodTam, eProveedores provs[], int prov
             mostrarProveedores(provs,provTam);
             xlkSortPrintf(1,"%s",1,"NO ASIGNAR UN PROVEEDOR:");
             mostrarProveedor(provs[provTam-1]);
-            if( getConditionedInt(&codigoProveedor,0,1,"\n* Ingrese el codigo del proveedor que desea asignarle al producto: ","\n**El codigo es incorrecto.") )
+            if( getConditionedInt(&codigoProveedor,0,1,"\n* Ingrese el codigo del proveedor que desea asignarle al producto: ","\n** El codigo es incorrecto.") )
             {
                 if( buscarProveedor(provs, provTam, codigoProveedor) > -1)
                 {
