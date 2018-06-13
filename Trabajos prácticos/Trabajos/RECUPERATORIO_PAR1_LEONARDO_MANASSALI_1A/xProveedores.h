@@ -33,7 +33,7 @@ int modificarProveedor( eProveedores provs[], int provTam );
 //FUNCIONES DE MUESTRA
 
 void mostrarProveedor( eProveedores provVar );
-void mostrarProveedores( eProveedores provs[] ,int provTam);
+int mostrarProveedores( eProveedores provs[] ,int provTam);
 
 #endif // XPROVEEDORES_H
 

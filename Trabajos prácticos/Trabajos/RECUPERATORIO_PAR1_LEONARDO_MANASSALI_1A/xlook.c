@@ -383,7 +383,6 @@ void xlkSortPrintf(int mode,char* dataType, int totalArguments,...)
                 flag = 0;
             }
         }
-
     }
     printf("\n");
     if(mode == 1 || mode == 3)

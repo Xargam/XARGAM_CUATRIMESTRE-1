@@ -16,6 +16,20 @@
 
 //Funciones de menu:
 
+
+
+/** \brief Muestra un menu para la alta de proveedores y productos.
+ *
+ * \param prods: Array de productos de productos.
+ * \param prodTam: Tamaño del array.
+ * \param codigoProducto: ultimo codigo cargado de productos.
+ * \param provs: Array de proveedores.
+ * \param provTam: Tamaño del array de proveedores
+ * \param codigoProveedor: ultimo codigo cargado de proveedores.
+ * \return
+ *
+ */
+
 void altaMenu(eProductos prods[],int prodTam,int* codigoProducto,eProveedores provs[],int provTam,int* codigoProveedor)
 {
     int quit = 0;
@@ -64,6 +78,18 @@ void altaMenu(eProductos prods[],int prodTam,int* codigoProducto,eProveedores pr
     system("cls");
 }
 
+
+
+/** \brief Muestra un menu para la baja de proveedores y productos.
+ *
+ * \param prods: Array de productos de productos.
+ * \param prodTam: Tamaño del array.
+ * \param provs: Array de proveedores.
+ * \param provTam: Tamaño del array de proveedores.
+ * \return
+ *
+ */
+
 void bajaMenu(eProductos prods[],int prodTam,eProveedores provs[],int provTam)
 {
     int quit = 0;
@@ -87,9 +113,13 @@ void bajaMenu(eProductos prods[],int prodTam,eProveedores provs[],int provTam)
                 {
                     printf("* Accion cancelada. No se realizo ninguna baja.\n\n");
                 }
-                else
+                else if(reading == -1)
                 {
                     printf("* No se ha encontrado el producto que busca.\n\n");
+                }
+                else
+                {
+                    printf("* No hay productos cargados en el sistema.\n\n");
                 }
                 system("pause");
                 break;
@@ -103,9 +133,13 @@ void bajaMenu(eProductos prods[],int prodTam,eProveedores provs[],int provTam)
                 {
                     printf("* Accion cancelada. No se realizo ninguna baja.\n\n");
                 }
-                else
+                else if(reading == -1)
                 {
                     printf("* No se ha encontrado el proveedor que busca.\n\n");
+                }
+                else
+                {
+                    printf("* No hay productos cargados en el sistema.\n\n");
                 }
                 system("pause");
                 break;
@@ -124,6 +158,16 @@ void bajaMenu(eProductos prods[],int prodTam,eProveedores provs[],int provTam)
 }
 
 
+
+/** \brief Muestra un menu para la modificacion de proveedores y productos.
+ *
+ * \param prods: Array de productos de productos.
+ * \param prodTam: Tamaño del array.
+ * \param provs: Array de proveedores.
+ * \param provTam: Tamaño del array de proveedores.
+ * \return
+ *
+ */
 
 void modificacionMenu(eProductos prods[],int prodTam,eProveedores provs[],int provTam)
 {
@@ -148,9 +192,13 @@ void modificacionMenu(eProductos prods[],int prodTam,eProveedores provs[],int pr
                 {
                     printf("* No se realizaron modificaciones.\n\n");
                 }
-                else
+                else if(reading == -1)
                 {
                     printf("* No se ha encontrado el producto que busca.\n\n");
+                }
+                else
+                {
+                    printf("* No hay productos cargados en el sistema.\n\n");
                 }
                 system("pause");
                 break;
@@ -164,9 +212,13 @@ void modificacionMenu(eProductos prods[],int prodTam,eProveedores provs[],int pr
                 {
                     printf("* No se realizaron modificaciones.\n\n");
                 }
-                else
+                else if(reading == -1)
                 {
                     printf("* No se ha encontrado el proveedor que busca.\n\n");
+                }
+                else
+                {
+                    printf("* No hay productos cargados en el sistema.\n\n");
                 }
                 system("pause");
                 break;
@@ -185,6 +237,16 @@ void modificacionMenu(eProductos prods[],int prodTam,eProveedores provs[],int pr
 }
 
 
+
+/** \brief Muestra un menu de informes de datos acerca de productos y proveedores.
+ *
+ * \param prods: Array de productos de productos.
+ * \param prodTam: Tamaño del array.
+ * \param provs: Array de proveedores.
+ * \param provTam: Tamaño del array de proveedores.
+ * \return
+ *
+ */
 
 void mostrarMenuInformar( eProductos prods[], int prodTam, eProveedores provs[], int provTam )
 {
@@ -229,6 +291,17 @@ void mostrarMenuInformar( eProductos prods[], int prodTam, eProveedores provs[],
     system("cls");
 }
 
+
+
+/** \brief Muestra un menu de listado variados de productos y proveedores.
+ *
+ * \param prods: Array de productos de productos.
+ * \param prodTam: Tamaño del array.
+ * \param provs: Array de proveedores.
+ * \param provTam: Tamaño del array de proveedores.
+ * \return
+ *
+ */
 
 void mostrarMenuListar( eProductos prods[], int prodTam, eProveedores provs[], int provTam )
 {
@@ -296,14 +369,16 @@ void mostrarMenuListar( eProductos prods[], int prodTam, eProveedores provs[], i
     system("cls");
 }
 
+
+
 //FUNCIONES MENU INFORMAR:
 
 
 
-/** \brief Obtiene la suma y el promedio de los importes de todos los productos cargados y muestra los productos cuyo importe supera ese promedio.
+/** \brief Obtiene la suma y calcula el promedio de importes, luego muestra cuantos productos superan dicho promedio.
  *
- * \param prod : Vector de productos asociado.
- * \param prodTam : Tamaño del vector de productos asociado.
+ * \param prod : Vector de productos.
+ * \param prodTam : Tamaño del vector de productos.
  * \param prov : Vector de proveedores .
  * \param provTam : Tamaño del vector de proveedores .
  *
@@ -315,6 +390,7 @@ void prodMostrarImportesMayoresAlPromedio ( eProductos prod[], int prodTam, ePro
     float promedio ;
     float acumulador = 0;
     int contador = 0;
+    int flag = 0;
     int contadorProdsMasPromedio = 0;
     int i;
 
@@ -323,6 +399,7 @@ void prodMostrarImportesMayoresAlPromedio ( eProductos prod[], int prodTam, ePro
         if( prod[i].estado == OCUPADO)
         {
             acumulador += prod[i].importe ;
+            flag = 1;
             contador++;
         }
     }
@@ -335,21 +412,27 @@ void prodMostrarImportesMayoresAlPromedio ( eProductos prod[], int prodTam, ePro
             contadorProdsMasPromedio++;
         }
     }
+    if( !flag)
+    {
+        printf("** No hay productos cargados en el sistema.\n\n");
+    }
+    else
+    {
+        xlkCenterPrintf("DATOS DE IMPORTES",1);
+        xlkSortPrintf(1,"%s,%s",2,"SUMA DE IMPORTES:","PROMEDIO DE IMPORTES:");
+        xlkSortPrintf(3,"%f,%f",2,acumulador,promedio);
+        printf("\n* Hay %d productos que superan el promedio de importes.\n\n",contadorProdsMasPromedio);
+    }
 
-    xlkCenterPrintf("DATOS DE IMPORTES",1);
-    xlkSortPrintf(1,"%s,%s",2,"SUMA DE IMPORTES:","PROMEDIO DE IMPORTES:");
-    xlkSortPrintf(3,"%f,%f",2,acumulador,promedio);
-    printf("\n* Hay %d productos que superan el promedio de importes.\n\n",contadorProdsMasPromedio);
+
 }
 
 
 
-
-
-/** \brief Obtiene la suma y el promedio de los importes de todos los productos cargados y muestra los productos cuyo importe NO supera ese promedio.
+/** \brief Obtiene la suma y calcula el promedio de importes, luego muestra cuantos productos NO superan dicho promedio.
  *
- * \param prod : Vector de productos asociado.
- * \param prodTam : Tamaño del vector de productos asociado.
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
  * \param prov : Vector de proveedores .
  * \param provTam : Tamaño del vector de proveedores .
  *
@@ -363,6 +446,7 @@ void prodMostrarImportesMenoresAlPromedio(eProductos prod[], int prodTam, eProve
     int contador = 0;
     int contadorProdsMenosPromedio = 0;
     int i;
+    int flag = 0;
 
     for(i = 0 ; i < prodTam ; i++ )
     {
@@ -379,20 +463,28 @@ void prodMostrarImportesMenoresAlPromedio(eProductos prod[], int prodTam, eProve
         if( prod[i].estado == OCUPADO && prod[i].importe < promedio)
         {
             contadorProdsMenosPromedio++;
+            flag = 1;
         }
     }
+    if( !flag )
+    {
+        printf("** No hay productos cargados en el sistema.\n\n");
+    }
+    else
+    {
+        xlkCenterPrintf("DATOS DE IMPORTES",1);
+        xlkSortPrintf(1,"%s,%s",2,"SUMA DE IMPORTES:","PROMEDIO DE IMPORTES:");
+        xlkSortPrintf(3,"%f,%f",2,acumulador,promedio);
+        printf("\n* Hay %d productos que no superan el promedio de importes.\n\n",contadorProdsMenosPromedio);
+    }
 
-    xlkCenterPrintf("DATOS DE IMPORTES",1);
-    xlkSortPrintf(1,"%s,%s",2,"SUMA DE IMPORTES:","PROMEDIO DE IMPORTES:");
-    xlkSortPrintf(3,"%f,%f",2,acumulador,promedio);
-    printf("\n* Hay %d productos que no superan el promedio de importes.\n\n",contadorProdsMenosPromedio);
 }
 
 
-/** \brief Muestra productos con stock menor o igual a 10.
+/** \brief Muestra cuantos productos tienen un stock menor o igual a 10.
  *
- * \param prod : Vector de productos asociado.
- * \param prodTam : Tamaño del vector de productos asociado.
+ * \param prod : Vector de productos.
+ * \param prodTam : Tamaño del vector de productos.
  * \param prov : Vector de proveedores .
  * \param provTam : Tamaño del vector de proveedores .
  *
@@ -416,11 +508,11 @@ void prodMostrarStocksMenorIgual10 ( eProductos prod[], int prodTam,eProveedores
 
 
 
-/** \brief Muestra productos con stock mayor a 10.
+/** \brief Muestra cuantos productos tienen un stock mayor a 10.
  *
- * \param prod : Vector de productos asociado.
- * \param prodTam : Tamaño del vector de productos asociado.
- * \param prov : Vector de proveedores .
+ * \param prod : Vector de productos.
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores.
  * \param provTam : Tamaño del vector de proveedores .
  *
  */
@@ -445,6 +537,16 @@ void prodMostrarStocksMayor10(eProductos prod[], int prodTam, eProveedores prov[
 //FUNCIONES MENU LISTAR:
 
 
+
+/** \brief Llista todos los productos ordenados por importe de manera descendente y por descripcion ascendente.
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
+
 void ordenarProductos(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
     system("cls");
@@ -456,13 +558,13 @@ void ordenarProductos(eProductos prod[], int prodTam,eProveedores prov[], int pr
     {
         for( j = i+1; j<prodTam; j++)
         {
-            if( prod[j].importe > prod[i].importe)
+            if( prod[j].importe > prod[i].importe && prod[j].estado == OCUPADO && prod[i].estado == OCUPADO)
             {
                 aux = prod[i];
                 prod[i] = prod[j];
                 prod[j] = aux;
             }
-            else if( prod[j].importe == prod[i].importe)
+            else if( prod[j].importe == prod[i].importe && prod[j].estado == OCUPADO && prod[i].estado == OCUPADO)
             {
                 if( stricmp(prod[j].descripcion, prod[i].descripcion) < 0)
                 {
@@ -474,14 +576,28 @@ void ordenarProductos(eProductos prod[], int prodTam,eProveedores prov[], int pr
         }
     }
     xlkCenterPrintf("LISTADO ORDENADO",1);
-    mostrarProductos(prod, prodTam, prov, provTam);
+    if( !mostrarProductos(prod, prodTam, prov, provTam) )
+    {
+        printf("** No hay productos cargados.\n\n");
+    }
 }
 
+
+
+/** \brief Lista los productos con un stock menor o igual a 10.
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
 
 void ListarProdsCantMenorIgualA10(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
     system("cls");
     int i;
+    int flag = 0;
 
     xlkCenterPrintf("PRODUCTOS CON STOCK MENOR O IGUAL A 10",1);
     xlkSortPrintf(1,"%s,%s,%s,%s,%s",5,"PROVEEDOR:","CODIGO DE PRODUCTO:","DESCRICPION:","IMPORTE:","CANTIDAD:");
@@ -489,26 +605,62 @@ void ListarProdsCantMenorIgualA10(eProductos prod[], int prodTam,eProveedores pr
     {
         if( prod[i].estado == OCUPADO && prod[i].cantidad <= 10)
         {
+            flag = 1;
             mostrarProductoBuscarProv(prod[i],prov,provTam);
         }
     }
+    if(!flag )
+    {
+        system("cls");
+        printf("** No hay productos que cumplan lo solicitado.\n\n");
+    }
+
 }
+
+
+
+/** \brief Lista los productos con un stock mayor a 10.
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
 
 void ListarProdsCantMayorA10(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
     system("cls");
     int i;
+    int flag = 0;
     xlkCenterPrintf("PRODUCTOS CON STOCK MAYOR A 10",1);
     xlkSortPrintf(1,"%s,%s,%s,%s,%s",5,"PROVEEDOR:","CODIGO DE PRODUCTO:","DESCRICPION:","IMPORTE:","CANTIDAD:");
     for (i = 0 ; i < prodTam ; i++)
     {
         if( prod[i].estado == OCUPADO && prod[i].cantidad > 10)
         {
+            flag = 1;
             mostrarProductoBuscarProv(prod[i],prov,provTam);
         }
     }
+    if(!flag )
+    {
+        system("cls");
+        printf("** No hay productos que cumplan lo solicitado.\n\n");
+    }
+
 }
 
+
+
+/** \brief Lista los productos con un importe mayor al promedio.
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
 
 void ListarProdsImportesMayoresAlPromedio(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
@@ -517,6 +669,7 @@ void ListarProdsImportesMayoresAlPromedio(eProductos prod[], int prodTam,eProvee
     float acumulador = 0;
     int contador = 0;
     int i;
+    int flag = 0;
 
     for(i = 0 ; i < prodTam ; i++ )
     {
@@ -524,26 +677,51 @@ void ListarProdsImportesMayoresAlPromedio(eProductos prod[], int prodTam,eProvee
         {
             acumulador += prod[i].importe ;
             contador++;
+            flag = 1;
         }
     }
-    promedio = acumulador / contador ;
-
-    xlkCenterPrintf("DATOS DE IMPORTES",1);
-    xlkSortPrintf(1,"%s,%s",2,"SUMA DE IMPORTES:","PROMEDIO DE IMPORTES:");
-    xlkSortPrintf(3,"%f,%f",2,acumulador,promedio);
-    printf("\n");
-    xlkCenterPrintf("PRODUCTOS QUE SUPERAN EL PROMEDIO DE LOS IMPORTES:",1);
-    xlkSortPrintf(1,"%s,%s,%s,%s,%s",5,"PROVEEDOR:","CODIGO DE PRODUCTO:","DESCRICPION:","IMPORTE:","CANTIDAD:");
-
-    for (i = 0 ; i < prodTam ; i++)
+    if( !flag)
     {
-        if( prod[i].estado == OCUPADO && prod[i].importe > promedio)
+        printf("** No hay productos cargados en el sistema.\n\n");
+    }
+    else
+    {
+        flag = 0;
+        promedio = acumulador / contador ;
+        xlkCenterPrintf("DATOS DE IMPORTES",1);
+        xlkSortPrintf(1,"%s,%s",2,"SUMA DE IMPORTES:","PROMEDIO DE IMPORTES:");
+        xlkSortPrintf(3,"%f,%f",2,acumulador,promedio);
+        printf("\n");
+        xlkCenterPrintf("PRODUCTOS QUE SUPERAN EL PROMEDIO DE LOS IMPORTES:",1);
+        xlkSortPrintf(1,"%s,%s,%s,%s,%s",5,"PROVEEDOR:","CODIGO DE PRODUCTO:","DESCRICPION:","IMPORTE:","CANTIDAD:");
+
+        for (i = 0 ; i < prodTam ; i++)
         {
-            mostrarProductoBuscarProv(prod[i],prov,provTam);
+            if( prod[i].estado == OCUPADO && prod[i].importe > promedio )
+            {
+                flag = 1;
+                mostrarProductoBuscarProv(prod[i],prov,provTam);
+            }
+        }
+        if(!flag)
+        {
+            system("cls");
+            printf("**No hay productos que cumplan lo solicitado.\n\n");
         }
     }
+
 }
 
+
+
+/** \brief Lista los productos con un importe menor al promedio.
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
 
 void ListarProdsImportesMenoresAlPromedio(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
@@ -552,6 +730,7 @@ void ListarProdsImportesMenoresAlPromedio(eProductos prod[], int prodTam,eProvee
     float acumulador = 0;
     int contador = 0;
     int i;
+    int flag = 0;
 
     for(i = 0 ; i < prodTam ; i++ )
     {
@@ -559,26 +738,49 @@ void ListarProdsImportesMenoresAlPromedio(eProductos prod[], int prodTam,eProvee
         {
             acumulador += prod[i].importe ;
             contador++;
+            flag = 1;
         }
     }
-    promedio = acumulador / contador ;
-
-    xlkCenterPrintf("DATOS DE IMPORTES",1);
-    xlkSortPrintf(1,"%s,%s",2,"SUMA DE IMPORTES:","PROMEDIO DE IMPORTES:");
-    xlkSortPrintf(3,"%f,%f",2,acumulador,promedio);
-    printf("\n");
-    xlkCenterPrintf("PRODUCTOS QUE NO SUPERAN EL PROMEDIO DE LOS IMPORTES:",1);
-    xlkSortPrintf(1,"%s,%s,%s,%s,%s",5,"PROVEEDOR:","CODIGO DE PRODUCTO:","DESCRICPION:","IMPORTE:","CANTIDAD:");
-
-    for (i = 0 ; i < prodTam ; i++)
+    if( !flag)
     {
-        if( prod[i].estado == OCUPADO && prod[i].importe < promedio)
+        printf("** No hay productos cargados en el sistema.\n\n");
+    }
+    else
+    {
+        flag = 0;
+        promedio = acumulador / contador ;
+        xlkCenterPrintf("DATOS DE IMPORTES",1);
+        xlkSortPrintf(1,"%s,%s",2,"SUMA DE IMPORTES:","PROMEDIO DE IMPORTES:");
+        xlkSortPrintf(3,"%f,%f",2,acumulador,promedio);
+        printf("\n");
+        xlkCenterPrintf("PRODUCTOS QUE NO SUPERAN EL PROMEDIO DE LOS IMPORTES:",1);
+        xlkSortPrintf(1,"%s,%s,%s,%s,%s",5,"PROVEEDOR:","CODIGO DE PRODUCTO:","DESCRICPION:","IMPORTE:","CANTIDAD:");
+        for (i = 0 ; i < prodTam ; i++)
         {
-            mostrarProductoBuscarProv(prod[i],prov,provTam);
+            if( prod[i].estado == OCUPADO && prod[i].importe < promedio)
+            {
+                flag = 1;
+                mostrarProductoBuscarProv(prod[i],prov,provTam);
+            }
+        }
+         if(!flag)
+        {
+            system("cls");
+            printf("**No hay productos que cumplan lo solicitado.\n\n");
         }
     }
 }
 
+
+
+/** \brief Lista los proveedores que proveen menos de 10 productos
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
 
 void ListarProvsCantidadProdMenorIgualA10(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
@@ -586,8 +788,8 @@ void ListarProvsCantidadProdMenorIgualA10(eProductos prod[], int prodTam,eProvee
     int i;
     int j;
     int flag = 0;
-    int contador = 0;
-    xlkCenterPrintf("PROVEEDORES QUE PROVEEN 10 O MENOS PRODUCTOS",1);
+    int acumulador = 0;
+    xlkCenterPrintf("PROVEEDORES CON 10 O MENOS PRODUCTOS EN EL SISTEMA",1);
     for( i = 0 ; i < provTam ; i++)
     {
         if( prov[i].estado == OCUPADO )
@@ -596,26 +798,38 @@ void ListarProvsCantidadProdMenorIgualA10(eProductos prod[], int prodTam,eProvee
             {
                 if( prod[j].estado == OCUPADO && prod[j].codigoProveedor == prov[i].codigoProveedor )
                 {
-                    contador++;
+                    acumulador += prod[j].cantidad;
                 }
                 if( j == (prodTam - 1) )
                 {
-                    if( contador <= 10 && prov[i].codigoProveedor > 0)
+                    if( acumulador <= 10 && prov[i].codigoProveedor > 0)
                     {
                         flag = 1;
-                        xlkSortPrintf(1,"%s,%s,%s",3,"DESCRIPCION:","CANTIDAD DE PRODUCTOS QUE PROVEE:","ID DE PROVEEDOR:");
-                        xlkSortPrintf(3,"%s,%d,%d",3,prov[i].descripcion,contador,prov[i].codigoProveedor);
+                        xlkSortPrintf(1,"%s,%s,%s",3,"PROVEEDOR:","CANTIDAD DE PRODUCTOS QUE PROVEE:","ID DE PROVEEDOR:");
+                        xlkSortPrintf(3,"%s,%d,%d",3,prov[i].descripcion,acumulador,prov[i].codigoProveedor);
                     }
-                    contador = 0;
+                    acumulador = 0;
                 }
             }
         }
     }
     if( flag == 0)
     {
-        printf("No hay proveedores que provean 10 o menos productos.");
+        system("cls");
+        printf("** No hay proveedores que provean 10 o menos productos.\n\n");
     }
 }
+
+
+
+/** \brief Lista los productos con su respectivo proveedor.
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
 
 void ListarProductorPorProveedor(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
@@ -623,6 +837,8 @@ void ListarProductorPorProveedor(eProductos prod[], int prodTam,eProveedores pro
     int i;
     int j;
     int flag = 0;
+    int flag2 = 0; //Revisa si se leyo algun producto.
+
     xlkCenterPrintf("LISTADO DE PRODUCTOS",1);
     for(i = 0 ; i < provTam; i++)
     {
@@ -632,11 +848,12 @@ void ListarProductorPorProveedor(eProductos prod[], int prodTam,eProveedores pro
             {
                 if(prod[j].estado == OCUPADO && prod[j].codigoProveedor == prov[i].codigoProveedor && prov[i].codigoProveedor > 0)
                 {
+                    flag2=1;
                     if( flag == 0)
                     {
                         xlkSortPrintf(1,"%s,%s",2,"PRODUCTOS DEL PROVEEDOR--->",prov[i].descripcion);
                         xlkSortPrintf(1,"%s,%s,%s,%s",4,"DESCRICPION:","CODIGO DE PRODUCTO:","IMPORTE:","CANTIDAD:");
-                        flag++;
+                        flag=1;
                     }
                     mostrarProducto(prod[j],prov[i]);
                 }
@@ -645,7 +862,23 @@ void ListarProductorPorProveedor(eProductos prod[], int prodTam,eProveedores pro
             flag = 0;
         }
     }
+    if(!flag2 )
+    {
+        system("cls");
+        printf("** No hay productos cargados o no se registro un proveedor.\n\n");
+    }
 }
+
+
+
+/** \brief Lista los productos de un proveedor a eleccion del usuario.
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
 
 void ListarProductosDeUnProveedor(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
@@ -653,32 +886,55 @@ void ListarProductosDeUnProveedor(eProductos prod[], int prodTam,eProveedores pr
     int buscarCodigo;
     int provIndex;
     int i;
+    int flag = 0;
 
-    mostrarProveedores(prov,provTam);
-    if( getConditionedInt(&buscarCodigo,1,1,"\n* Ingrese el codigo de proveedor para mostrar sus productos: ","\n** El codigo de proveedor es invalido.\n\n") )
+    if( mostrarProveedores(prov,provTam) )
     {
-        if( ( provIndex = buscarProveedor(prov,provTam,buscarCodigo)) > -1 )
+        if( getConditionedInt(&buscarCodigo,1,1,"\n* Ingrese el codigo de proveedor para mostrar sus productos: ","\n** El codigo de proveedor es invalido.\n\n") )
         {
-            system("cls");
-            xlkSortPrintf(1,"%s,%s",2,"PRODUCTOS DEL PROVEEDOR--->",prov[provIndex].descripcion);
-            xlkSortPrintf(1,"%s,%s,%s,%a",4,"DESCRICPION:","CODIGO DE PRODUCTO:","IMPORTE:","CANTIDAD:");
-
-            for( i = 0; i < prodTam ; i++ )
+            if( ( provIndex = buscarProveedor(prov,provTam,buscarCodigo)) > -1 )
             {
-                if( prod[i].estado == OCUPADO && prod[i].codigoProveedor == prov[provIndex].codigoProveedor )
+                system("cls");
+                xlkSortPrintf(1,"%s,%s",2,"PRODUCTOS DEL PROVEEDOR--->",prov[provIndex].descripcion);
+                xlkSortPrintf(1,"%s,%s,%s,%a",4,"DESCRICPION:","CODIGO DE PRODUCTO:","IMPORTE:","CANTIDAD:");
+
+                for( i = 0; i < prodTam ; i++ )
                 {
-                    mostrarProducto(prod[i], prov[provIndex]);
+                    if( prod[i].estado == OCUPADO && prod[i].codigoProveedor == prov[provIndex].codigoProveedor )
+                    {
+                        mostrarProducto(prod[i], prov[provIndex]);
+                        flag = 1;
+                    }
+                }
+                if(flag == 0)
+                {
+                    system("cls");
+                    printf("** El proveedor no provee ningun producto.\n\n");
                 }
             }
+            else
+            {
+                printf("\n** No se pudo encontrar el proveedor especificado.\n\n");
+            }
         }
-        else
-        {
-            printf("\n** No se pudo encontrar el proveedor especificado.\n\n");
-        }
+    }
+    else
+    {
+        system("cls");
+        printf("** No hay proveedores cargados.\n\n");
     }
 }
 
 
+
+/** \brief Lista el proveedor que provee mas productos y sus productos.
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
 
 void ListarProveedorMasProductos(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
@@ -720,8 +976,8 @@ void ListarProveedorMasProductos(eProductos prod[], int prodTam,eProveedores pro
     if(provIndex > -1 && prov[provIndex].codigoProveedor > 0 )
     {
         xlkCenterPrintf("PROVEEDOR QUE PROVEE MAS PRODUCTOS Y SUS PRODUCTOS",1);
-        xlkSortPrintf(1,"%s,%s",2,"PRODUCTOS DEL PROVEEDOR->",prov[provIndex].descripcion);
-        xlkSortPrintf(1,"%s,%s,%s,%s",4,"DESCRICPION:","CODIGO DE PRODUCTO:","IMPORTE:","CANTIDAD:");
+        xlkSortPrintf(1,"%s,%s",2,"PRODUCTOS DEL PROVEEDOR--->",prov[provIndex].descripcion);
+        xlkSortPrintf(1,"%s,%s,%s,%s,%s",5,"PROVEEDOR:","DESCRICPION:","CODIGO DE PRODUCTO:","IMPORTE:","CANTIDAD:");
 
         for( i = 0 ; i < prodTam ; i++)
         {
@@ -733,10 +989,21 @@ void ListarProveedorMasProductos(eProductos prod[], int prodTam,eProveedores pro
     }
     else
     {
+        system("cls");
         printf("** No hay productos que esten asociados a algun proveedor.\n\n");
     }
 }
 
+
+
+/** \brief Lista el proveedor que provee menos productos y sus productos.
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
 
 void ListarProveedorMenosProductos(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
@@ -798,15 +1065,24 @@ void ListarProveedorMenosProductos(eProductos prod[], int prodTam,eProveedores p
 
 
 
+/** \brief Lista el proveedor que provee el producto mas caro y sus productos.
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
+
 void ListarProveedorProductoMasCaro(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
-     system("cls");
+    system("cls");
     float importeMasAlto = -1;
     int provIndex;
     int flag = 0;
+    int flag2 = 0; //Verifica si leyo algun dato.
     int i;
     int j;
-
 
     for(i = 0 ; i < provTam ; i++ )
     {
@@ -814,8 +1090,9 @@ void ListarProveedorProductoMasCaro(eProductos prod[], int prodTam,eProveedores 
         {
             for( j = 0; j < prodTam ; j++)
             {
-                if( prod[j].estado == OCUPADO && prod[j].codigoProveedor == prov[i].codigoProveedor )
+                if( prod[j].estado == OCUPADO && prod[j].codigoProveedor == prov[i].codigoProveedor && prod[j].codigoProveedor)
                 {
+                    flag2 = 1;
                     if( flag == 0)
                     {
                         importeMasAlto = prod[j].importe;
@@ -832,26 +1109,44 @@ void ListarProveedorProductoMasCaro(eProductos prod[], int prodTam,eProveedores 
             }
         }
     }
-
-    xlkCenterPrintf("PROVEEDOR QUE PROVEE PRODUCTO MAS CARO",1);
-    xlkSortPrintf(1,"%s,%s",2,"PRODUCTOS DEL PROVEEDOR->",prov[provIndex].descripcion);
-    xlkSortPrintf(1,"%s,%s,%s,%s",4,"DESCRICPION:","CODIGO DE PRODUCTO:","IMPORTE:","CANTIDAD:");
-
-    for(i = 0 ; i < prodTam ; i++)
+    if( !flag2 )
     {
-        if( prod[i].estado == OCUPADO && prod[i].codigoProveedor == prov[provIndex].codigoProveedor && prov[provIndex].codigoProveedor > 0)
+        printf("** No hay productos cargados en el sistema.\n\n");
+    }
+    else
+    {
+        xlkCenterPrintf("PROVEEDOR QUE PROVEE PRODUCTO MAS CARO",1);
+        xlkSortPrintf(1,"%s,%s",2,"PRODUCTOS DEL PROVEEDOR->",prov[provIndex].descripcion);
+        xlkSortPrintf(1,"%s,%s,%s,%s",4,"DESCRICPION:","CODIGO DE PRODUCTO:","IMPORTE:","CANTIDAD:");
+
+        for(i = 0 ; i < prodTam ; i++)
         {
-            xlkSortPrintf(3,"%s,%d,%f,%d",4,prod[i].descripcion,prod[i].codigoProduto,prod[i].importe, prod[i].cantidad);
+            if( prod[i].estado == OCUPADO && prod[i].codigoProveedor == prov[provIndex].codigoProveedor && prov[provIndex].codigoProveedor > 0)
+            {
+                xlkSortPrintf(3,"%s,%d,%f,%d",4,prod[i].descripcion,prod[i].codigoProduto,prod[i].importe, prod[i].cantidad);
+            }
         }
     }
 }
 
+
+
+/** \brief Lista el proveedor que provee el producto mas barato y sus productos.
+ *
+ * \param prod : Vector de productos .
+ * \param prodTam : Tamaño del vector de productos.
+ * \param prov : Vector de proveedores .
+ * \param provTam : Tamaño del vector de proveedores .
+ *
+ */
+
 void ListarProveedorProductoMasBarato(eProductos prod[], int prodTam,eProveedores prov[], int provTam)
 {
-     system("cls");
+    system("cls");
     float importeMasBajo = -1;
     int provIndex;
     int flag = 0;
+    int flag2 = 0; //Verifica si se leyo algun dato.
     int i;
     int j;
 
@@ -862,8 +1157,9 @@ void ListarProveedorProductoMasBarato(eProductos prod[], int prodTam,eProveedore
         {
             for( j = 0; j < prodTam ; j++)
             {
-                if( prod[j].estado == OCUPADO && prod[j].codigoProveedor == prov[i].codigoProveedor )
+                if( prod[j].estado == OCUPADO && prod[j].codigoProveedor == prov[i].codigoProveedor && prod[j].codigoProveedor > 0 )
                 {
+                    flag2 = 1;
                     if( flag == 0)
                     {
                         importeMasBajo = prod[j].importe;
@@ -881,16 +1177,21 @@ void ListarProveedorProductoMasBarato(eProductos prod[], int prodTam,eProveedore
             }
         }
     }
-
-    xlkCenterPrintf("PROVEEDOR QUE PROVEE PRODUCTO MAS BARATO",1);
-    xlkSortPrintf(1,"%s,%s",2,"PRODUCTOS DEL PROVEEDOR--->",prov[provIndex].descripcion);
-    xlkSortPrintf(1,"%s,%s,%s,%s",3,"DESCRICPION:","CODIGO DE PRODUCTO:","IMPORTE:","CANTIDAD:");
-
-    for(i = 0 ; i < prodTam ; i++)
+    if( !flag2 )
     {
-        if( prod[i].estado == OCUPADO && prod[i].codigoProveedor == prov[provIndex].codigoProveedor && prov[provIndex].codigoProveedor > 0)
+        printf("** No hay productos cargados en el sistema.\n\n");
+    }
+    else
+    {
+        xlkCenterPrintf("PROVEEDOR QUE PROVEE PRODUCTO MAS BARATO",1);
+        xlkSortPrintf(1,"%s,%s",2,"PRODUCTOS DEL PROVEEDOR--->",prov[provIndex].descripcion);
+        xlkSortPrintf(1,"%s,%s,%s,%s",3,"DESCRICPION:","CODIGO DE PRODUCTO:","IMPORTE:","CANTIDAD:");
+        for(i = 0 ; i < prodTam ; i++)
         {
-            xlkSortPrintf(3,"%s,%d,%f,%d",3,prod[i].descripcion,prod[i].codigoProduto,prod[i].importe, prod[i].cantidad);
+            if( prod[i].estado == OCUPADO && prod[i].codigoProveedor == prov[provIndex].codigoProveedor && prov[provIndex].codigoProveedor > 0)
+            {
+                xlkSortPrintf(3,"%s,%d,%f,%d",3,prod[i].descripcion,prod[i].codigoProduto,prod[i].importe, prod[i].cantidad);
+            }
         }
     }
 }

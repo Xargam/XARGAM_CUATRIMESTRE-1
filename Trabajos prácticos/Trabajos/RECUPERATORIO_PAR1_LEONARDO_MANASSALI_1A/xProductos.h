@@ -36,8 +36,8 @@ int modificarProducto(eProductos prods[], int prodTam, eProveedores provs[], int
 //FUNCIONES DE MUESTRA
 
 void mostrarProducto( eProductos prodVar, eProveedores provVar );
-void mostrarProductoBuscarProv(eProductos prodVar, eProveedores provs[], int provTam );
-void mostrarProductos( eProductos prods[] , int prodTam, eProveedores provs[] ,int provTam );
+int mostrarProductoBuscarProv(eProductos prodVar, eProveedores provs[], int provTam );
+int mostrarProductos( eProductos prods[] , int prodTam, eProveedores provs[] ,int provTam );
 
 
 #endif // XPRODUCTOS_H

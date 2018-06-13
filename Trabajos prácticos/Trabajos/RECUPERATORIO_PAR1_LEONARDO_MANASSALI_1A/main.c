@@ -26,12 +26,12 @@ int main()
     inicializarProductos(productos, TAM);
     inicializarProveedores(proveedores, TAM);
 
-    harcodearProductos(productos);
-    harcodearProveedores(proveedores);
+   // harcodearProductos(productos);
+ //   harcodearProveedores(proveedores);
 
     do
     {
-        xlkIndexGenerator("ProduSoft V1.0.0 - RECUPERATORIO PARCIAL 1 - LEONARDO MANSSALI 1A",8,"1* Altas.","2* Bajas.","3* Modificaciones.","4* Mostrar productos.","5* Mostrar proveedores","6* Informar.","7* Listar.","8* Salir.");
+        xlkIndexGenerator("ProduSoft V1.0.0 - RECUPERATORIO PARCIAL 1 - LEONARDO MANSSALI 1A",8,"1* Altas.","2* Bajas.","3* Modificaciones.","4* Mostrar productos.","5* Mostrar proveedores.","6* Informar.","7* Listar.","8* Salir.");
         if( getRangedInt(&selection,1,8," -Seleccionar opcion: ","\n** Opcion invalida.\n\n") )
         {
             switch(selection)
@@ -47,12 +47,20 @@ int main()
                 break;
             case 4:
                 system("cls");
-                mostrarProductos(productos,TAM,proveedores,TAM);
+                if( !mostrarProductos(productos,TAM,proveedores,TAM) )
+                {
+                    system("cls");
+                    printf("** No hay productos cargados en el sistena.\n\n");
+                }
                 system("pause");
                 break;
             case 5:
                 system("cls");
-                mostrarProveedores(proveedores, TAM);
+                if( !mostrarProveedores(proveedores, TAM) )
+                {
+                    system("cls");
+                    printf("** No hay productos cargados en el sistena.\n\n");
+                }
                 system("pause");
                 break;
             case 6:
