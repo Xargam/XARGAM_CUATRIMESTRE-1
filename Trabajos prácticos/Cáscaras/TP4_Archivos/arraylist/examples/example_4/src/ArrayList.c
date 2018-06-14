@@ -372,11 +372,8 @@ void* al_pop(ArrayList* this,int index)
     if( this != NULL && index >= 0 && index < this->len(this) )
     {
         returnAux = *(this->pElements + index);
-        if(returnAux != NULL)
-        {
-            contract(this,index);
-        }
-
+        return returnAux;
+        contract(this,index);
     }
     return returnAux;
 }
@@ -392,10 +389,19 @@ void* al_pop(ArrayList* this,int index)
  */
 ArrayList* al_subList(ArrayList* this,int from,int to)
 {
-    ArrayList* returnAux = NULL;
-    if( this != NULL )
-    {
+    ArrayList* returnAux = al_newArrayList();
 
+    if( this != NULL && from != to && from < to && from >= 0 && to >= 0  )
+    {
+        int i;
+        for( i = from ; i < to ; i++)
+        {
+            returnAux->add(returnAux, *(this->pElements + i));
+        }
+    }
+    else
+    {
+        returnAux = NULL;
     }
 
     return returnAux ;
@@ -445,10 +451,45 @@ int al_containsAll(ArrayList* this,ArrayList* this2)
 int al_sort(ArrayList* this, int (*pFunc)(void*,void*), int order)
 {
     int returnAux = -1;
+    int i;
+    int j;
+    void* aux;
 
+    if( this != NULL)
+    {
+        returnAux = 0;
+        for(i = 0 ; i < this->len(this)-1 ; i++)
+        {
+            for( j = i + 1 ; j < this->len(this) ; j++ )
+            {
+                if( pFunc( *(this->pElements + j),*(this->pElements + i) ) == -1 )
+                {/*
+                    aux = *(this->pElements + j);
+                    *(this->pElements + j) = *(this->pElements + i );
+                    *(this->pElements + i ) = aux;*/
+                }
+
+            }
+        }
+
+    }
+    /*
+    for(i = 0 ; i < this->len(this)-1 ; i++)
+    {
+        for( j = i + 1 ; j < this->len(this) ; j++ )
+        {
+            if( pFunc( *(this->pElements + j),*(this->pElements + i) ) == 1 )
+            {
+                aux = *(this->pElements + j);
+                *(this->pElements + j) = *(this->pElements + i );
+                *(this->pElements + i ) = aux;
+            }
+
+        }
+    }
+    */
     return returnAux;
 }
-
 
 /** \brief Increment the number of elements in pList in AL_INCREMENT elements.
  * \param pList ArrayList* Pointer to arrayList
@@ -511,7 +552,7 @@ int expand(ArrayList* this,int index)
 int contract(ArrayList* this,int index)
 {
     int verify = -1 ;
-    if( this != NULL )
+    if( this != NULL && index >= 0 && index < this->len(this) )
     {
         verify = 0;
         int i;

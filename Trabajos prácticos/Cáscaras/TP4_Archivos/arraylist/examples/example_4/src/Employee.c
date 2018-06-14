@@ -5,18 +5,19 @@
 
 int compareEmployee(void* pEmployeeA,void* pEmployeeB)
 {
+    if( pEmployeeA != NULL && pEmployeeB != NULL)
+    {
+        if(((Employee*)pEmployeeA)->salary > ((Employee*)pEmployeeB)->salary)
+        {
+            return 1;
+        }
+        if( ((Employee*)pEmployeeA)->salary < ((Employee*)pEmployeeB)->salary)
+        {
+            return -1;
+        }
 
-    if(((Employee*)pEmployeeA)->salary > ((Employee*)pEmployeeB)->salary)
-    {
-        return 1;
-    }
-    if(((Employee*)pEmployeeA)->salary < ((Employee*)pEmployeeB)->salary)
-    {
-        return -1;
     }
     return 0;
-
-
 }
 
 void printEmployee(Employee* p)
