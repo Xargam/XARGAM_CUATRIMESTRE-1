@@ -5,6 +5,7 @@
 
 // funciones privadas
 int resizeUp(ArrayList* this);
+int resizeDown(ArrayList* this );
 int expand(ArrayList* this,int index);
 int contract(ArrayList* this,int index);
 
@@ -227,7 +228,6 @@ int al_remove(ArrayList* this,int index)
     if( this != NULL && index >= 0 && index < this->len(this))
     {
         verify = 0;
-        free( *(this->pElements + index) );
         this->size--;
         contract(this, index);
     }
@@ -372,7 +372,7 @@ void* al_pop(ArrayList* this,int index)
     if( this != NULL && index >= 0 && index < this->len(this) )
     {
         returnAux = *(this->pElements + index);
-        return returnAux;
+
         contract(this,index);
     }
     return returnAux;
@@ -506,7 +506,8 @@ int resizeUp(ArrayList* this)
     int verify = -1;
     if( this != NULL)
     {
-        pElementsAux=(void**)realloc(this->pElements, sizeof(void*)*(this->reservedSize+AL_INCREMENT));
+        int newSize = this->reservedSize + AL_INCREMENT;
+        pElementsAux=(void**)realloc(this->pElements, sizeof(void*)*newSize);
         if( pElementsAux != NULL )
         {
             verify = 0;
@@ -517,6 +518,30 @@ int resizeUp(ArrayList* this)
     return verify;
 }
 
+
+
+/** \brief reduce the number of elements in pList  elements.
+ * \param pList ArrayList* Pointer to arrayList
+ * \return int Return (-1) if Error [pList is NULL pointer or if can't allocate memory]
+ *                  - (0) if ok
+ */
+int resizeDown(ArrayList* this)
+{
+    void** pElementsAux;
+    int verify = -1;
+    if( this != NULL)
+    {
+        int newSize = (this->reservedSize-AL_INCREMENT);
+        pElementsAux = (void**)realloc(this->pElements, sizeof(void*)*newSize);
+        if( pElementsAux != NULL )
+        {
+            verify = 0;
+            this->pElements = pElementsAux;
+            this->reservedSize -= AL_INCREMENT;
+        }
+    }
+    return verify;
+}
 /** \brief  Expand an array list
  * \param pList ArrayList* Pointer to arrayList
  * \param index int Index of the element
@@ -529,18 +554,17 @@ int expand(ArrayList* this,int index)
     if( this != NULL )
     {
         int i;
-        this->size++;
         verify = 0;
+        this->size++;
         if( this->len(this) == this->reservedSize  )
         {
             verify =  resizeUp(this);
-
         }
         if( !verify )
         {
             for( i = this->len(this) ; i > index  ; i--)
             {
-                *(this->pElements + index ) = *(this->pElements + index - 1 );
+                this->set(this,index,this->get(this,index-1));
             }
         }
     }
@@ -562,10 +586,10 @@ int contract(ArrayList* this,int index)
         int i;
         for( i = index+1 ; i < this->len(this) ; i++)
         {
-            *(this->pElements + (index - 1) )  = *(this->pElements + index);
+            this->set(this, index-1 , this->get(this,index));
             if( i == (this->len(this) - 1) )
             {
-                free(*(this->pElements + index));
+                this->remove(this,this->get(this,index));
             }
         }
     }
