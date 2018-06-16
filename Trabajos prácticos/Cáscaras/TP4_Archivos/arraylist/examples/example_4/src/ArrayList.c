@@ -455,39 +455,43 @@ int al_sort(ArrayList* this, int (*pFunc)(void*,void*), int order)
     int j;
     void* aux;
 
-    if( this != NULL)
+    if( this != NULL && pFunc != NULL)
     {
-        returnAux = 0;
-        for(i = 0 ; i < this->len(this)-1 ; i++)
+        if(order == 1)
         {
-            for( j = i + 1 ; j < this->len(this) ; j++ )
+            returnAux = 0;
+            for( i = 0 ; i < this->len(this)-1 ; i++ )
             {
-                if( pFunc( *(this->pElements + j),*(this->pElements + i) ) == -1 )
-                {/*
-                    aux = *(this->pElements + j);
-                    *(this->pElements + j) = *(this->pElements + i );
-                    *(this->pElements + i ) = aux;*/
+                for( j = i +1 ; j < this->len(this) ; j++)
+                {
+                    if( pFunc(this->get(this, j),this->get(this,i)) == -1 )
+                    {
+                        aux = this->get(this,i);
+                        this->set(this,i,this->get(this, j));
+                        this->set(this,j,aux);
+                    }
                 }
-
             }
         }
-
-    }
-    /*
-    for(i = 0 ; i < this->len(this)-1 ; i++)
-    {
-        for( j = i + 1 ; j < this->len(this) ; j++ )
+        else if( order == 0)
         {
-            if( pFunc( *(this->pElements + j),*(this->pElements + i) ) == 1 )
+            returnAux = 0;
+            for( i = 0 ; i < this->len(this)-1 ; i++ )
             {
-                aux = *(this->pElements + j);
-                *(this->pElements + j) = *(this->pElements + i );
-                *(this->pElements + i ) = aux;
+                for( j = i +1 ; j < this->len(this) ; j++)
+                {
+                    if( pFunc(this->get(this, j),this->get(this,i) ) == 1)
+                    {
+                        aux = this->get(this,i);
+                        this->set(this,i,this->get(this, j));
+                        this->set(this,j,aux);
+                    }
+                }
             }
-
         }
+
     }
-    */
+
     return returnAux;
 }
 
