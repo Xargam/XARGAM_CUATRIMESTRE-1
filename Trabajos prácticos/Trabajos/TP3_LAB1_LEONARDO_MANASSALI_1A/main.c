@@ -6,18 +6,20 @@
 #include "xvalidate.h"
 #include "xget.h"
 #include "xMovies.h"
+#include "xFile.h"
 
 #define MOVFILE "movies.bin"
 #define MOVHTML "movies.html"
 
 int main()
 {
-    int quantity;
+    int quantity = 0;
     int option;
     int reading;
     int quit = 0;
 
     eMovies* movies = newMovie();
+    eMovies** movies2 =(eMovies**) xfiNewDynamicArray2(1,sizeof(eMovies));
     eMovies* auxMovies = NULL;
 
     if( movies == NULL )
@@ -25,7 +27,19 @@ int main()
         xlkShowMessage("Se produjo un error durante la reserva de memoria.",3);
     }
     fileSync(MOVFILE);
-    movies = loadMovies(MOVFILE,&quantity);
+    movies2=(eMovies**)xfiFileLoader(MOVFILE,&quantity,sizeof(eMovies));
+    for(int i = 0 ; i< quantity ; i++)
+    {
+        /*   char title[60];
+        char genre[60];
+        char description[300];
+        char imageURL[300];
+        int duration;
+        int score;*/
+        xlkSortPrintf(1,"%s,%s,%s,%d,%d,%d",6,movies2[i]->title,movies2[i]->genre,movies2[i]->description,movies2[i]->imageURL,movies2[i]->duration,movies2[i]->score, movies2[i]->status);
+        system("pause");
+    }
+    exit(1);
     if( movies == NULL )
     {
         xlkShowMessage("Se produjo un error durante la apertura de un archivo.",3);

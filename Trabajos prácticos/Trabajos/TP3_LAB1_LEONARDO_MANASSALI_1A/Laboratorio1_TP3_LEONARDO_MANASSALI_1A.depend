@@ -257,7 +257,7 @@
 	<stdlib.h>
 	<string.h>
 
-1528891589 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\main.c
+1529329008 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -265,16 +265,17 @@
 	"xvalidate.h"
 	"xget.h"
 	"xMovies.h"
+	"xFile.h"
 
-1528891589 c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xlook.h
+1529321789 c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xlook.h
 
-1528891589 c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xvalidate.h
+1529321789 c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xvalidate.h
 
-1528891589 c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xget.h
+1529321789 c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xget.h
 
-1528891589 c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xmovies.h
+1529321789 c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xmovies.h
 
-1528891589 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xget.c
+1529321789 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xget.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -282,17 +283,17 @@
 	<conio.h>
 	<string.h>
 
-1528891589 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xlook.c
+1529321789 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xlook.c
 	<stdio.h>
 	<stdlib.h>
 	<stdarg.h>
 	<string.h>
 
-1528891589 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xmath.c
+1529321789 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xmath.c
 	<stdio.h>
 	<stdlib.h>
 
-1528891589 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xmovies.c
+1529321789 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xmovies.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -302,23 +303,29 @@
 	"xstring.h"
 	"xMovies.h"
 
-1528891589 c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xstring.h
+1529321789 c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xstring.h
 
-1528891589 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xstring.c
+1529321789 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xstring.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1528891589 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xvalidate.c
+1529321789 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xvalidate.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	<ctype.h>
 	<string.h>
 
-1528891589 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xvector.c
+1529321789 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xvector.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+
+1529329059 source:c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xfile.c
+	<stdio.h>
+	<stdlib.h>
+
+1529328974 c:\users\alumno\desktop\xargam\trabajos prácticos\trabajos\tp3_lab1_leonardo_manassali_1a\xfile.h
 

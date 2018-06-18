@@ -22,7 +22,7 @@ void** xfiNewDynamicArray2(int arraySize, int dataSize )
                 int i;
                 for( i = 0 ; i < arraySize ; i++)
                 {
-                    array[i] = singlePointer[i];
+                    array[i] = (singlePointer+i);
                 }
             }
             else
@@ -48,7 +48,7 @@ void** xfiArrayResizer2(void** arrayToResize, int newSize)
     return arrayToResize;
 }
 
-int fileSync(char* filename)
+int xfiFileSync(char* filename)
 {
     int verify = 1;
 
@@ -96,7 +96,7 @@ void** xfiFileLoader(char* filePath, int* quantity, int dataSize)
         FILE* file = fopen(filePath,"rb");
         if(file != NULL )
         {
-            doublePointer = xfiNewDynamicArray2(1);
+            doublePointer = xfiNewDynamicArray2(1,sizeof(dataSize));
             if( doublePointer != NULL )
             {
                 while( !feof(file) )

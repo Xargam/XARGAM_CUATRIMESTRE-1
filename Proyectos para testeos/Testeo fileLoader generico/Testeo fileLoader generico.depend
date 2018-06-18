@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1529330865 source:c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xFile.h"
+	"xget.h"
+
+1529335733 source:c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\xfile.c
+	<stdio.h>
+	<stdlib.h>
+
+1529334002 c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\xfile.h
+
+1529321787 source:c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1529321787 source:c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1529321787 source:c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1529321787 source:c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1529321787 source:c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+
+1529321787 source:c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1529321787 c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\xget.h
+
+1529334153 source:c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\xarraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xArrayList.h"
+
+1529334153 c:\users\alumno\desktop\xargam\proyectos para testeos\testeo fileloader generico\xarraylist.h
+

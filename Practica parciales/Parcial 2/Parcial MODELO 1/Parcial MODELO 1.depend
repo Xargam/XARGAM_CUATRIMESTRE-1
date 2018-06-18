@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1529323660 source:c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1529321788 source:c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xarraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/ArrayList.h"
+
+1529321787 c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xarraylist.h
+
+1529322618 source:c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xemail.c
+
+1529326718 source:c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xfile.c
+	<stdio.h>
+	<stdlib.h>
+
+1529321787 source:c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1529321787 source:c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1529321787 source:c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1529321787 source:c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1529321787 source:c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+
+1529321787 source:c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

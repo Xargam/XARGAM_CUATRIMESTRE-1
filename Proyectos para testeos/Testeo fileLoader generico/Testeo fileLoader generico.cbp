@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Parcial MODELO 1" />
+		<Option title="Testeo fileLoader generico" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Parcial MODELO 1" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/Testeo fileLoader generico" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Parcial MODELO 1" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/Testeo fileLoader generico" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -38,10 +38,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="xArrayList.h" />
-		<Unit filename="xEmail.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="xEmail.h" />
 		<Unit filename="xFile.c">
 			<Option compilerVar="CC" />
 		</Unit>
