@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1529206406 source:c:\users\leo\desktop\xargam\proyectos para testeos\testeo comportamiento de punteros\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

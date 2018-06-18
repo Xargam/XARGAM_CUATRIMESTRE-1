@@ -5,7 +5,6 @@
 
 // funciones privadas
 int resizeUp(ArrayList* this);
-int resizeDown(ArrayList* this );
 int expand(ArrayList* this,int index);
 int contract(ArrayList* this,int index);
 
@@ -86,7 +85,7 @@ int al_add(ArrayList* this, void* pElement)
 
     if(!verify && !okResizeUp)
     {
-        *(this->pElements + this->size) = pElement;
+        *(this->pElements + this->len(this)) = pElement;
         this->size++;
     }
 
@@ -105,14 +104,9 @@ int al_add(ArrayList* this, void* pElement)
 int al_deleteArrayList(ArrayList* this)
 {
     int verify = -1;
-    if( this != NULL )
+    if( this != NULL)
     {
         verify = 0;
-        int i;
-        for( i = 0 ; i < this->len(this) ; i++)
-        {
-            free( this->pElements + i );
-        }
         free(this);
     }
 
@@ -205,11 +199,12 @@ int al_set(ArrayList* this, int index,void* pElement)
 
     if( this != NULL && pElement != NULL   )
     {
-        if( index < this->len(this) && index >= 0 )
+        if(  index < this->len(pElement) && index > -1  || index == 0 )
         {
             verify = 0;
             *(this->pElements + index) = pElement;
         }
+
     }
 
     return verify;
@@ -224,14 +219,9 @@ int al_set(ArrayList* this, int index,void* pElement)
  */
 int al_remove(ArrayList* this,int index)
 {
-    int verify = -1;
-    if( this != NULL && index >= 0 && index < this->len(this))
-    {
-        verify = 0;
-        contract(this, index);
-    }
+    int returnAux = -1;
 
-    return verify ;
+    return returnAux;
 }
 
 
@@ -243,21 +233,11 @@ int al_remove(ArrayList* this,int index)
  */
 int al_clear(ArrayList* this)
 {
-    int verify = -1;
+    int returnAux = -1;
 
-    if( this != NULL)
-    {
-        int i;
-        verify = 0;
-        for( i = 0; i < this->len(this) ; i++)
-        {
-            free( (this->pElements + i) );
-        }
-        this->size = 0;
-
-    }
-    return verify;
+    return returnAux;
 }
+
 
 
 /** \brief Returns an array containing all of the elements in this list in proper sequence
@@ -268,21 +248,6 @@ int al_clear(ArrayList* this)
 ArrayList* al_clone(ArrayList* this)
 {
     ArrayList* returnAux = NULL;
-    if( this != NULL)
-    {
-        returnAux =  al_newArrayList();
-        if(returnAux != NULL)
-        {
-            int i;
-            for( i = 0 ; i < this->len(this) ; i++)
-            {
-                returnAux->add(returnAux, *(this->pElements + i ) );
-            }
-            returnAux = this;
-        }
-
-
-    }
 
     return returnAux;
 }
@@ -299,15 +264,9 @@ ArrayList* al_clone(ArrayList* this)
  */
 int al_push(ArrayList* this, int index, void* pElement)
 {
-    int verify = -1;
-    if( this != NULL && index <= this->len(this) && index >= 0 )
-    {
-        verify = 0;
-        expand(this,index);
-        this->set(this,index,pElement);
-    }
+    int returnAux = -1;
 
-    return verify;
+    return returnAux;
 }
 
 
@@ -319,21 +278,9 @@ int al_push(ArrayList* this, int index, void* pElement)
  */
 int al_indexOf(ArrayList* this, void* pElement)
 {
-    int index = -1;
-    if( this != NULL && pElement != NULL)
-    {
-        int i;
-        for( i = 0 ; i < this->len(this) ; i++)
-        {
-            if( this->get(this,i) ==  pElement )
-            {
-                index = i;
-                break;
-            }
-        }
-    }
+    int returnAux = -1;
 
-    return index;
+    return returnAux;
 }
 
 
@@ -372,11 +319,7 @@ int al_isEmpty(ArrayList* this)
 void* al_pop(ArrayList* this,int index)
 {
     void* returnAux = NULL;
-    if( this != NULL && index >= 0 && index < this->len(this) )
-    {
-        returnAux = *(this->pElements + index);
-        contract(this,index);
-    }
+
     return returnAux;
 }
 
@@ -391,23 +334,12 @@ void* al_pop(ArrayList* this,int index)
  */
 ArrayList* al_subList(ArrayList* this,int from,int to)
 {
-    ArrayList* returnAux = al_newArrayList();
-
-    if( this != NULL && from != to && from < to && from >= 0 && to >= 0  )
-    {
-        int i;
-        for( i = from ; i < to ; i++)
-        {
-            returnAux->add(returnAux, this->get(this,i) );
-        }
-    }
-    else
-    {
-        returnAux = NULL;
-    }
+    void* returnAux = NULL;
 
     return returnAux ;
 }
+
+
 
 
 
@@ -419,28 +351,9 @@ ArrayList* al_subList(ArrayList* this,int from,int to)
  */
 int al_containsAll(ArrayList* this,ArrayList* this2)
 {
-    int verify = -1;
-    if( this != NULL && this2 != NULL)
-    {
-        int i;
-        if( this->len(this) != this2->len(this2) )
-        {
-            verify = 0;
-        }
-        else
-        {
-            verify = 1;
-            for( i = 0 ; i < this->len(this) && i < this2->len(this2) ; i++ )
-            {
-                if( this->get(this,i) != this2->get(this2,i)  )
-                {
-                    verify = 0;
-                    break;
-                }
-            }
-        }
-    }
-    return verify;
+    int returnAux = -1;
+
+    return returnAux;
 }
 
 /** \brief Sorts objects of list, use compare pFunc
@@ -453,49 +366,10 @@ int al_containsAll(ArrayList* this,ArrayList* this2)
 int al_sort(ArrayList* this, int (*pFunc)(void*,void*), int order)
 {
     int returnAux = -1;
-    int i;
-    int j;
-    void* aux;
-
-    if( this != NULL && pFunc != NULL)
-    {
-        if(order == 1)
-        {
-            returnAux = 0;
-            for( i = 0 ; i < this->len(this)-1 ; i++ )
-            {
-                for( j = i +1 ; j < this->len(this) ; j++)
-                {
-                    if( pFunc(this->get(this, j),this->get(this,i)) == -1 )
-                    {
-                        aux = this->get(this,i);
-                        this->set(this,i,this->get(this, j));
-                        this->set(this,j,aux);
-                    }
-                }
-            }
-        }
-        else if( order == 0)
-        {
-            returnAux = 0;
-            for( i = 0 ; i < this->len(this)-1 ; i++ )
-            {
-                for( j = i +1 ; j < this->len(this) ; j++)
-                {
-                    if( pFunc(this->get(this, j),this->get(this,i) ) == 1)
-                    {
-                        aux = this->get(this,i);
-                        this->set(this,i,this->get(this, j));
-                        this->set(this,j,aux);
-                    }
-                }
-            }
-        }
-
-    }
 
     return returnAux;
 }
+
 
 /** \brief Increment the number of elements in pList in AL_INCREMENT elements.
  * \param pList ArrayList* Pointer to arrayList
@@ -508,8 +382,7 @@ int resizeUp(ArrayList* this)
     int verify = -1;
     if( this != NULL)
     {
-        int newSize = this->reservedSize + AL_INCREMENT;
-        pElementsAux=(void**)realloc(this->pElements, sizeof(void*)*newSize);
+        pElementsAux=(void**)realloc(this->pElements, sizeof(void*)*(this->reservedSize+AL_INCREMENT));
         if( pElementsAux != NULL )
         {
             verify = 0;
@@ -520,30 +393,6 @@ int resizeUp(ArrayList* this)
     return verify;
 }
 
-
-
-/** \brief reduce the number of elements in pList  elements.
- * \param pList ArrayList* Pointer to arrayList
- * \return int Return (-1) if Error [pList is NULL pointer or if can't allocate memory]
- *                  - (0) if ok
- */
-int resizeDown(ArrayList* this)
-{
-    void** pElementsAux;
-    int verify = -1;
-    if( this != NULL)
-    {
-        int newSize = (this->reservedSize-AL_INCREMENT);
-        pElementsAux = (void**)realloc(this->pElements, sizeof(void*)*newSize);
-        if( pElementsAux != NULL )
-        {
-            verify = 0;
-            this->pElements = pElementsAux;
-            this->reservedSize = newSize;
-        }
-    }
-    return verify;
-}
 /** \brief  Expand an array list
  * \param pList ArrayList* Pointer to arrayList
  * \param index int Index of the element
@@ -552,25 +401,9 @@ int resizeDown(ArrayList* this)
  */
 int expand(ArrayList* this,int index)
 {
-    int verify = -1;
-    if( this != NULL )
-    {
-        int i;
-        verify = 0;
-        this->size++;
-        if( this->len(this) == this->reservedSize  )
-        {
-            verify =  resizeUp(this);
-        }
-        if( !verify )
-        {
-            for( i = this->len(this) ; i > index  ; i--)
-            {
-                this->set(this,i,this->get(this,i-1));
-            }
-        }
-    }
-    return verify;
+    int returnAux = -1;
+
+    return returnAux;
 }
 
 /** \brief  Contract an array list
@@ -581,16 +414,7 @@ int expand(ArrayList* this,int index)
  */
 int contract(ArrayList* this,int index)
 {
-    int verify = -1 ;
-    if( this != NULL && index >= 0 && index < this->len(this) )
-    {
-        verify = 0;
-        int i;
-        for( i = index+1 ; i < this->len(this) ; i++)
-        {
-            this->set(this, i-1, this->get(this,i));
-        }
-        this->size--;
-    }
-    return verify;
+    int returnAux = -1;
+
+    return returnAux;
 }
