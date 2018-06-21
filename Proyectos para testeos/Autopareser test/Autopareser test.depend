@@ -1,16 +1,39 @@
 # depslib dependency file v1.0
-1529425210 source:c:\users\leo\desktop\xargam\proyectos para testeos\autopareser test\xlook.c
+1529425212 source:c:\users\leo\desktop\xargam\proyectos para testeos\autopareser test\xlook.c
 	<stdio.h>
 	<stdlib.h>
 	<stdarg.h>
 	<string.h>
 
-1529506857 source:c:\users\leo\desktop\xargam\proyectos para testeos\autopareser test\main.c
+1529541051 source:c:\users\leo\desktop\xargam\proyectos para testeos\autopareser test\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xlook.h"
+	"xFiles.h"
+
+1529425212 c:\users\leo\desktop\xargam\proyectos para testeos\autopareser test\xlook.h
+
+1529511244 source:h:\xargam\proyectos para testeos\autopareser test\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdarg.h>
 	<string.h>
 	"xlook.h"
 
-1529425210 c:\users\leo\desktop\xargam\proyectos para testeos\autopareser test\xlook.h
+1529425212 h:\xargam\proyectos para testeos\autopareser test\xlook.h
+
+1529425212 source:h:\xargam\proyectos para testeos\autopareser test\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1529536712 c:\users\leo\desktop\xargam\proyectos para testeos\autopareser test\xfiles.h
+
+1529540298 source:c:\users\leo\desktop\xargam\proyectos para testeos\autopareser test\xfiles.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
 

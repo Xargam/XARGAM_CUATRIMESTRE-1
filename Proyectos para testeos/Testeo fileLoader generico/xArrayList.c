@@ -199,7 +199,7 @@ int al_set(arrayList* this, int index,void* pElement)
 
     if( this != NULL && pElement != NULL   )
     {
-        if(  index < this->len(pElement) && index > -1  || index == 0 )
+        if( ( index < this->len(pElement) && index > -1 ) || index == 0 )
         {
             verify = 0;
             *(this->pElements + index) = pElement;
@@ -445,10 +445,9 @@ arrayList* xfiFileLoader( char* filePath, int dataSize)
             {
                 while( !feof(file) )
                 {
-                    void* pointer = (void*)malloc(sizeof(dataSize));
+                    void* pointer = malloc(sizeof(dataSize));
                     if( pointer == NULL)
                     {
-                        arrayList = NULL;
                         okFlag = 1;
                         break;
                     }
@@ -461,11 +460,12 @@ arrayList* xfiFileLoader( char* filePath, int dataSize)
                         }
                         else
                         {
+                            free(pointer);
                             okFlag = 1;
-                            arrayList = NULL;
                             break;
                         }
                     }
+
                     arrayList->add(arrayList,pointer);
                 }
             }
@@ -476,10 +476,15 @@ arrayList* xfiFileLoader( char* filePath, int dataSize)
         }
         if( okFlag )
         {
+            int i;
+            for(i = 0 ; i < arrayList->len(arrayList) ; i++ )
+            {
+                free( arrayList->get(arrayList,i) );
+            }
+            free(arrayList->pElements);
             free(arrayList);
-
+            arrayList = NULL;
         }
-
-        return  arrayList;
     }
+    return  arrayList;
 }
