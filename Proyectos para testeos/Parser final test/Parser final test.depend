@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1529561032 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\main.c
+1529719478 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -8,32 +8,35 @@
 	"xArrayList.h"
 	"xMovies.h"
 	"conio.h"
+	"stdarg.h"
+	"xget.h"
+	"xGenericStruct.h"
 
-1529425220 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xlook.h
+1529699003 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xlook.h
 
 1529546643 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xfiles.h
 
-1529548201 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xfiles.c
+1529690765 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xfiles.c
 	<stdio.h>
 	<stdlib.h>
 	<stdarg.h>
 	<string.h>
 
-1529549154 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xlook.c
+1529711730 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xlook.c
 	<stdio.h>
 	<stdlib.h>
 	<stdarg.h>
 	<string.h>
 
-1529549955 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xarraylist.c
+1529720069 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xarraylist.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"xArrayList.h"
 
-1529549923 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xarraylist.h
+1529720331 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xarraylist.h
 
-1529556433 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xget.c
+1529713116 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xget.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -45,7 +48,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1529533026 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xmovies.c
+1529705015 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xmovies.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -57,19 +60,19 @@
 
 1529425214 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xvalidate.h
 
-1529425214 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xget.h
+1529713286 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xget.h
 
-1529425214 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xstring.h
+1529693327 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xstring.h
 
 1529425220 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xmovies.h
 
-1529425214 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xstring.c
+1529693327 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xstring.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1529425214 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xvalidate.c
+1529690996 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xvalidate.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -80,4 +83,14 @@
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+
+1529691202 source:c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xgenericstruct.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xget.h"
+	"xvalidate.h"
+	"xGenericStruct.h"
+
+1529704210 c:\users\leo\desktop\xargam\proyectos para testeos\parser final test\xgenericstruct.h
 

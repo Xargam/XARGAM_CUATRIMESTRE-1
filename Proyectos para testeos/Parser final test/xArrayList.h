@@ -40,7 +40,6 @@ struct arrayList{
     struct arrayList* (* clone)();
     struct arrayList* (*subList)();
     int     (*deleteArrayList)();
-
 }typedef arrayList;
 #endif
 
@@ -239,7 +238,8 @@ int contract(arrayList* this,int index);
  * \return Devuelve un arrayList con elementos cargados, en caso de error devuelve un puntero a NULL.
  *
  */
-arrayList* al_fileLoader( char* filePath, int dataSize);
+arrayList* al_fileLoader(char* filePath, int dataSize);
+int al_fileSaver( arrayList* this , char* filePath, int dataSize);
 
 // Private function
 int resizeUp(arrayList* this);

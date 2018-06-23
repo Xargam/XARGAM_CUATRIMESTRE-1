@@ -318,8 +318,8 @@ eMovies* requestMovie(eMovies* movies, int quantity)
 
         do
         {
-            string = get999String("* Ingrese el titulo de la pelicula: ",1);
-            xstrCapsSpaceFixer(string);
+            string = getString("* Ingrese el titulo de la pelicula: ",1);
+            xstrSpaceFixer(string);
             xstrCapsAdder(string);
             if( findMovie(movies, quantity,string) == -1)
             {
@@ -337,7 +337,7 @@ eMovies* requestMovie(eMovies* movies, int quantity)
         while(!setTitle(movie,string) || findMovie(movies, quantity,string) > -1);
         do
         {
-            string = get999String("* Ingrese el genero de la pelicula: ",1);
+            string = getString("* Ingrese el genero de la pelicula: ",1);
             if(!setGenre(movie,string))
             {
                 xlkShowMessage("** Se produjo un error al validar el genero de la pelicula. Puede que sea muy largo o contenga caracteres invalidos.",7);
@@ -347,7 +347,7 @@ eMovies* requestMovie(eMovies* movies, int quantity)
 
         do
         {
-            string = get999String("* Ingrese la descripcion de la pelicula: ",1);
+            string = getString("* Ingrese la descripcion de la pelicula: ",1);
             if(!setDescription(movie,string))
             {
                 xlkShowMessage("** Se produjo un error al validar la descripcion de la pelicula.Puede que sea muy larga o demasiado corta",7);
@@ -356,7 +356,7 @@ eMovies* requestMovie(eMovies* movies, int quantity)
         while(!setDescription(movie,string));
         do
         {
-            string = get999String("* Ingrese el link de la imagen de la pelicula: ",1);
+            string = getString("* Ingrese el link de la imagen de la pelicula: ",1);
             if(!setURL(movie,string))
             {
                 xlkShowMessage("** Se produjo un error al validar el link. Puede que sea muy largo o demasiado corto.",7);
@@ -508,8 +508,8 @@ int modifyMovie(eMovies* movies, int quantity)
                     switch(selection)
                     {
                     case 1:
-                        string = get999String("* Ingrese el nuevo titulo de la pelicula: ",1);
-                        xstrCapsSpaceFixer(string);
+                        string = getString("* Ingrese el nuevo titulo de la pelicula: ",1);
+                        xstrSpaceFixer(string);
                         xstrCapsAdder(string);
                         if( findMovie(movies,quantity,string) == -1)
                         {
@@ -529,7 +529,7 @@ int modifyMovie(eMovies* movies, int quantity)
                         }
                         break;
                     case 2:
-                        string = get999String("Ingrese el nuevo genero de la pelicula: ",1);
+                        string = getString("Ingrese el nuevo genero de la pelicula: ",1);
                         if( !setGenre(&movies[movieIndex],string) )
                         {
                             xlkShowMessage("** El genero es invalido. No realizaron modificaciones.",2);
@@ -541,7 +541,7 @@ int modifyMovie(eMovies* movies, int quantity)
                         }
                         break;
                     case 3:
-                        string = get999String("Ingrese nueva descripcion de la pelicula: ",1);
+                        string = getString("Ingrese nueva descripcion de la pelicula: ",1);
                         if( !setDescription(&movies[movieIndex],string) )
                         {
                             xlkShowMessage("** La descripcion es invalida. No realizaron modificaciones.",2);
@@ -553,7 +553,7 @@ int modifyMovie(eMovies* movies, int quantity)
                         }
                         break;
                     case 4:
-                        string = get999String("Ingrese nuevo link de la imagen de la pelicula: ",1);
+                        string = getString("Ingrese nuevo link de la imagen de la pelicula: ",1);
                         if( !setURL(&movies[movieIndex],string) )
                         {
                             xlkShowMessage("** El link es invalido. No realizaron modificaciones.",2);
@@ -806,7 +806,7 @@ int getDuration( eMovies* movie)
 int setTitle( eMovies* movie, char* title )
 {
     int verify = 1;
-    xstrCapsSpaceFixer(title);
+    xstrSpaceFixer(title);
     xstrCapsAdder(title);
     if( movie == NULL || !validateStringRange(title, 1, 59) || !validateIsGraphicStr(title))
     {
@@ -832,7 +832,7 @@ int setTitle( eMovies* movie, char* title )
 int setGenre( eMovies* movie, char* genre )
 {
     int verify = 1;
-    xstrCapsSpaceFixer(genre);
+    xstrSpaceFixer(genre);
     if( movie == NULL || !validateStringRange(genre, 1, 59) || !validateIsGraphicStr(genre) )
     {
         verify = 0;
@@ -857,7 +857,7 @@ int setGenre( eMovies* movie, char* genre )
 int setDescription( eMovies* movie, char* description )
 {
     int verify = 1;
-    xstrCapsSpaceFixer(description);
+    xstrSpaceFixer(description);
     if( movie == NULL || !validateStringRange(description, 1, 299) || !validateIsGraphicStr(description) )
     {
         verify = 0;

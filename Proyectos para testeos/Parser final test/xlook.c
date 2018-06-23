@@ -3,6 +3,14 @@
 #include <stdarg.h>
 #include <string.h>
 
+//DEFINES PARA MENSAJES COMUNES:
+
+#define XLK_FOPEN_ERROR "ERROR DURANTE APERTURA DE ARCHIVO"
+#define XLK_PARSER_ERROR "ERROR DURANTE LECTURA DE ARCHIVO"
+#define XLK_FSAVE_ERROR "ERROR DURANTE ESCRITURA DE ARCHIVO"
+#define XLK_INVALID "Se produjo un error durante la validacion de los datos."
+#define XLK_EXITMSG "Esta seguro que desea salir? s/n: "
+
 //INFORMACION IMPORTANTE: En la consola CMD entran 90 caracteres o digitos.
 
 //Generadores de menus completos:
@@ -91,58 +99,64 @@ void xlkIndexBodyGenerator(int mode,int totalOptions,...)
 
 
 //XL1-4
-/** \brief Muestra un mensaje al usuario segun el modo elegido.
+/** \brief Muestra un mensaje al usuario con enters y añadidos a elegir.
  *
  * \param message : Mensaje a mostrar.
- * \param mode :[1] Limpia la pantalla y muestra el mensaje.
- * \param mode :[2] Limpia la pantalla, muestra el mensaje y hace una pausa.
- * \param mode :[3] Limpia la pantalla, muestra el mensaje, hace una pausa y sale del programa.
- * \param mode :[4] Muestra el mensaje y hace una pausa.
- * \param mode :[5] Muestra el mensaje, hace una pausa y sale del programa.
- * \param mode :[6] Muestra el mensaje con un '\n' delante.
- * \param mode :[7] Muestra el mensaje con dos '\n'.
- * \param mode :[ menor que 1 o mayor a 7] Muestra el mensaje.
+ * \param enters : Si el numero es negativo, los enter (\n) se imprimiran antes de mostrar el mensaje.
+ * \param enters : Si el numero es positivo, los enter (\n) se imprimiran despues de mostrar el mensaje.
+ * \param adds : [1] Muestra el mensaje con un system("pause").
+ * \param adds : [2] Muestra el mensaje con un system("cls") previo y un system("pause").
+ * \param adds : [3] Muestra el mensaje con un system("cls") previo, un system("pause") y un exit.
+ * \param adds : [ != (1, 2 ,3) ] Muestra el mensaje.
  * \return
  *
  */
 
-void xlkShowMessage(char* message, int mode)
+void xlkShowMessage(char* message, int enters, int adds )
 {
-    switch(mode)
+    int i;
+    if( enters < 0 )
     {
-    case 1:
-        system("cls");
+        abs(enters);
+        for(i = 0 ; i < enters ; i++)
+        {
+            printf("\n");
+        }
+    }
+    switch(adds)
+    {
+    case 0:
         printf(message);
+        break;
+    case 1:
+        printf(message);
+        printf("\n\n");
+        system("pause");
         break;
     case 2:
         system("cls");
-        printf("%s\n\n",message);
+        printf(message);
+        printf("\n\n");
         system("pause");
         break;
     case 3:
         system("cls");
-        printf("%s\n\n",message);
+        printf("%s",message);
+        printf("\n\n");
         system("pause");
         exit(1);
-        break;
-    case 4:
-        printf("%s\n\n",message);
-        system("pause");
-        break;
-    case 5:
-        printf("%s\n\n",message);
-        system("pause");
-        exit(1);
-        break;
-    case 6:
-        printf("\n%s",message);
-        break;
-    case 7:
-        printf("%s\n\n",message);
         break;
     default :
         printf(message);
         break;
+    }
+
+    if( enters > 0 )
+    {
+        for(i = 0 ; i < enters ; i++)
+        {
+            printf("\n");
+        }
     }
 }
 
@@ -440,6 +454,59 @@ void xlkCenterPrintf(char* word, int mode)
             printf(" ");
         }
         printf("%s\n",word);
+    }
+
+}
+
+
+
+/** \brief Imprime tantos enter (\n) como se especifique.
+ *
+ * \param number : Cantidad de enters (\n) a imprimir.
+ * \return
+ *
+ */
+
+void xlkEnterPrinter(int number)
+{
+    int i;
+    for( i = 0 ; i < number ; i++)
+    {
+        printf("\n");
+    }
+}
+
+
+
+/** \brief Imprime un mensaje segun un numero entero. Se puede proponer multiples posibles mensajes.
+ *
+ * \param switchNumber : Es un numero entero que usara para ver si existe algun "caso" para dicho numero.
+ * \param arguments : Cantidad de argumentos que se pasaran a la funcion.
+ * \param ... : Se coloca un numero entero como parametro seguido de otro parametro con un string, si switchNumber coincide,
+ * \param ... : con ese numero se imprimira el string que siga. Un switch de printfs de nº de casos variable y automatico.
+ * \return
+ *
+ */
+
+void xlkMessageAutoSwitch(int switchNumber, int arguments, ...)
+{
+    if( arguments > 1)
+    {
+        va_list cases;
+        va_start(cases, arguments);
+        int i;
+        for(i = 0 ; i < arguments ; i++)
+        {
+            if(switchNumber == va_arg(cases, int) )
+            {
+                printf("* %s\n", va_arg(cases, char*));
+            }
+            else
+            {
+                va_arg(cases, char*);
+            }
+        }
+        va_end(cases);
     }
 
 }

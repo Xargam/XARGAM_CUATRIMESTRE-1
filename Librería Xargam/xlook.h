@@ -16,6 +16,6 @@ void xlkShowMessage(char* message , int mode); //XL1-4
 void stringSeparator(int splitterCharacter, char* string1, char* string2 ); //XL1-5
 void xlkSortPrintf(int mode,char* dataType, int totalArguments,...); //XL1-6
 void xlkCenterPrintf(char* word, int mode);  //XL1-7
-
-
+void xlkEnterPrinter(int number);
+void xlkMessageAutoSwitch(int switchNumber , int arguments, ...);
 #endif // XLOOK_H_INCLUDED

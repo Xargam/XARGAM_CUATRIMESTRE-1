@@ -42,10 +42,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="xFiles.h" />
-		<Unit filename="xMovies.c">
+		<Unit filename="xGenericStruct.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="xMovies.h" />
+		<Unit filename="xGenericStruct.h" />
 		<Unit filename="xget.c">
 			<Option compilerVar="CC" />
 		</Unit>

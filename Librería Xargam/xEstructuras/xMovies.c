@@ -18,46 +18,6 @@
 
 
 
-/** \brief Genera un archivo de PELICULAS o lo crea en caso de no existir y devuelve un valor segun accion realizada o errores.
- *
- * \param filename : nombre o ruta del archivo a sincronizar.
- * \return Devuelve [1] si el archivo se pudo leer , [0] si el archivo se creo o [-1] si se produjo algun error.
- *
- */
-
-int fileSync(char* filename)
-{
-    int verify = 1;
-
-    FILE* file;
-
-    file = fopen(filename, "rb");
-
-    if( file == NULL )
-    {
-        file = fopen(filename, "wb" );
-        if( file == NULL)
-        {
-            verify = -1;
-        }
-        else
-        {
-            verify = 0;
-        }
-    }
-    else
-    {
-        verify = 1;
-    }
-
-    if(fclose(file))
-    {
-        verify = -1;
-    }
-    return verify;
-}
-
-
 
 /** \brief Carga las PELICULAS de un archivo en un array de punteros a PELICULAS .
  *
@@ -211,9 +171,9 @@ int generateMoviesHTML(char* filename, eMovies* movies,int quantity)
                 fprintf(htmlFile,"<li>Género:%s</li>\n",movies[i].genre);
                 fprintf(htmlFile,"<li>Puntaje:%d</li>\n",movies[i].score);
                 fprintf(htmlFile,"<li>Duración:%d</li>\n</ul>\n",movies[i].duration);
-                fprintf(htmlFile,"---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+                fprintf(htmlFile,"------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
                 fprintf(htmlFile,"<li>Sinopsis: %s</li>\n</article>\n",movies[i].description);
-                fprintf(htmlFile,"---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+                fprintf(htmlFile,"------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
             }
         }
     }
@@ -358,8 +318,8 @@ eMovies* requestMovie(eMovies* movies, int quantity)
 
         do
         {
-            string = get999String("* Ingrese el titulo de la pelicula: ",1);
-            xstrCapsSpaceFixer(string);
+            string = getString("* Ingrese el titulo de la pelicula: ",1);
+            xstrSpaceFixer(string);
             xstrCapsAdder(string);
             if( findMovie(movies, quantity,string) == -1)
             {
@@ -377,7 +337,7 @@ eMovies* requestMovie(eMovies* movies, int quantity)
         while(!setTitle(movie,string) || findMovie(movies, quantity,string) > -1);
         do
         {
-            string = get999String("* Ingrese el genero de la pelicula: ",1);
+            string = getString("* Ingrese el genero de la pelicula: ",1);
             if(!setGenre(movie,string))
             {
                 xlkShowMessage("** Se produjo un error al validar el genero de la pelicula. Puede que sea muy largo o contenga caracteres invalidos.",7);
@@ -387,7 +347,7 @@ eMovies* requestMovie(eMovies* movies, int quantity)
 
         do
         {
-            string = get999String("* Ingrese la descripcion de la pelicula: ",1);
+            string = getString("* Ingrese la descripcion de la pelicula: ",1);
             if(!setDescription(movie,string))
             {
                 xlkShowMessage("** Se produjo un error al validar la descripcion de la pelicula.Puede que sea muy larga o demasiado corta",7);
@@ -396,7 +356,7 @@ eMovies* requestMovie(eMovies* movies, int quantity)
         while(!setDescription(movie,string));
         do
         {
-            string = get999String("* Ingrese el link de la imagen de la pelicula: ",1);
+            string = getString("* Ingrese el link de la imagen de la pelicula: ",1);
             if(!setURL(movie,string))
             {
                 xlkShowMessage("** Se produjo un error al validar el link. Puede que sea muy largo o demasiado corto.",7);
@@ -548,8 +508,8 @@ int modifyMovie(eMovies* movies, int quantity)
                     switch(selection)
                     {
                     case 1:
-                        string = get999String("* Ingrese el nuevo titulo de la pelicula: ",1);
-                        xstrCapsSpaceFixer(string);
+                        string = getString("* Ingrese el nuevo titulo de la pelicula: ",1);
+                        xstrSpaceFixer(string);
                         xstrCapsAdder(string);
                         if( findMovie(movies,quantity,string) == -1)
                         {
@@ -569,7 +529,7 @@ int modifyMovie(eMovies* movies, int quantity)
                         }
                         break;
                     case 2:
-                        string = get999String("Ingrese el nuevo genero de la pelicula: ",1);
+                        string = getString("Ingrese el nuevo genero de la pelicula: ",1);
                         if( !setGenre(&movies[movieIndex],string) )
                         {
                             xlkShowMessage("** El genero es invalido. No realizaron modificaciones.",2);
@@ -581,7 +541,7 @@ int modifyMovie(eMovies* movies, int quantity)
                         }
                         break;
                     case 3:
-                        string = get999String("Ingrese nueva descripcion de la pelicula: ",1);
+                        string = getString("Ingrese nueva descripcion de la pelicula: ",1);
                         if( !setDescription(&movies[movieIndex],string) )
                         {
                             xlkShowMessage("** La descripcion es invalida. No realizaron modificaciones.",2);
@@ -593,7 +553,7 @@ int modifyMovie(eMovies* movies, int quantity)
                         }
                         break;
                     case 4:
-                        string = get999String("Ingrese nuevo link de la imagen de la pelicula: ",1);
+                        string = getString("Ingrese nuevo link de la imagen de la pelicula: ",1);
                         if( !setURL(&movies[movieIndex],string) )
                         {
                             xlkShowMessage("** El link es invalido. No realizaron modificaciones.",2);
@@ -846,7 +806,7 @@ int getDuration( eMovies* movie)
 int setTitle( eMovies* movie, char* title )
 {
     int verify = 1;
-    xstrCapsSpaceFixer(title);
+    xstrSpaceFixer(title);
     xstrCapsAdder(title);
     if( movie == NULL || !validateStringRange(title, 1, 59) || !validateIsGraphicStr(title))
     {
@@ -872,7 +832,7 @@ int setTitle( eMovies* movie, char* title )
 int setGenre( eMovies* movie, char* genre )
 {
     int verify = 1;
-    xstrCapsSpaceFixer(genre);
+    xstrSpaceFixer(genre);
     if( movie == NULL || !validateStringRange(genre, 1, 59) || !validateIsGraphicStr(genre) )
     {
         verify = 0;
@@ -897,7 +857,7 @@ int setGenre( eMovies* movie, char* genre )
 int setDescription( eMovies* movie, char* description )
 {
     int verify = 1;
-    xstrCapsSpaceFixer(description);
+    xstrSpaceFixer(description);
     if( movie == NULL || !validateStringRange(description, 1, 299) || !validateIsGraphicStr(description) )
     {
         verify = 0;

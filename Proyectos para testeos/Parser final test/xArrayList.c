@@ -664,3 +664,43 @@ arrayList* al_fileLoader( char* filePath, int dataSize)
     }
     return  arrayList;
 }
+
+
+
+/** \brief Carga los elementos de un arrayList en un archivo.
+ *
+ * \param this: arrayList de donde obtener los datos..
+ * \param filePath: Ruta del donde guardar.
+ * \param dataSize: Tamaño en bytes de cada puntero que se debe cargar en el archivo.
+ * \return Devuelve [1] si los archivos se guardaron correctamente o [0] en caso de error.
+ *
+ */
+
+int al_fileSaver( arrayList* this,  char* filePath, int dataSize)
+{
+    int validation = 0;
+    if( this != NULL && filePath != NULL && dataSize > 0)
+    {
+        FILE* file = fopen(filePath,"wb");
+        if( file != NULL)
+        {
+            int i;
+            for( i = 0 ; i < this->len(this) ; i++ )
+            {
+                if( fwrite(this->get(this,i),sizeof(dataSize),1,file) != 1)
+                {
+                    break;
+                }
+                if( i == (this->len(this)-1) )
+                {
+                    validation = 1;
+                }
+            }
+        }
+        if( fclose(file) )
+        {
+            validation = 0;
+        }
+    }
+    return validation;
+}

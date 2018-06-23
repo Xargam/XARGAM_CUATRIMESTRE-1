@@ -36,7 +36,7 @@ void xstrCapsAdder(char word[])
  *
  */
 
-void xstrCapsSpaceFixer(char* word)
+void xstrSpaceFixer(char* word)
 {
     strlwr(word);
     word[0] = toupper(word[0]);
