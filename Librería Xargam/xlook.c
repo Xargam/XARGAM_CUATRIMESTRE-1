@@ -3,13 +3,6 @@
 #include <stdarg.h>
 #include <string.h>
 
-//DEFINES PARA MENSAJES COMUNES:
-
-#define XLK_FOPEN_ERROR "ERROR DURANTE APERTURA DE ARCHIVO"
-#define XLK_PARSER_ERROR "ERROR DURANTE LECTURA DE ARCHIVO"
-#define XLK_FSAVE_ERROR "ERROR DURANTE ESCRITURA DE ARCHIVO"
-#define XLK_INVALID "Se produjo un error durante la validacion de los datos."
-#define XLK_EXITMSG "Esta seguro que desea salir? s/n: "
 
 //INFORMACION IMPORTANTE: En la consola CMD entran 90 caracteres o digitos.
 

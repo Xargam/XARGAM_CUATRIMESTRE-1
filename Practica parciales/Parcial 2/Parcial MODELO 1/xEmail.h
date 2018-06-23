@@ -5,17 +5,16 @@
 
 typedef struct
 {
-    char name[300];
-    char email[380];
+    char* name;
+    char* email;
     int status;
 
 } eAdresseers ;
 
 //PROTOTIPOS DE FUNCIONES
 
-//PARSERS:
 
-int addresseersParser(char* filePath , eDestinatarios** adresseers );
+
 
 #endif // XEMAIL_H_INCLUDED
 

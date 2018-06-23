@@ -62,10 +62,10 @@ int strNumCmp(char* number1, char* number2);        //XG1-4
 
 //Pedir string:
 
-int getRangedStr(char* word ,int minChars,int maxChars,char *message,char *eMessage, int mode);           //XG1-5
-int getRangedAlphaStr(char *word,int minChars, int maxChars, char *message,char *eMessage,int mode);      //XG1-6
-int getRangedAlphaNumStr(char* word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.1
-int getRangedGraphicStr(char* word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.2
+int getRangedStr(char** word ,int minChars,int maxChars,char *message,char *eMessage, int mode);           //XG1-5
+int getRangedAlphaStr(char** word,int minChars, int maxChars, char *message,char *eMessage,int mode);      //XG1-6
+int getRangedAlphaNumStr(char** word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.1
+int getRangedGraphicStr(char** word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.2
 
 //Pedir numeros o caracteres sin validar:
 
@@ -73,7 +73,7 @@ int getInt(char* texto);              //XG1-7
 long getLong(char* texto);            //XG1-8
 float getFloat(char* texto);          //XG1-9
 char getChar(char* texto);            //XG2-1
-char* get999String(char* text, int mode);  //XM2-1.1
+char* getString(char* text, int mode);  //XM2-1.1
 
 //Pedir numeros o caracteres y validarlos:
 
@@ -95,6 +95,7 @@ int getConditionedLong(long* number,long refNumber,int condition,char* message,c
 
 // Otras:
 
-int getPersonGenre(char* character,char* text,char* errorText);       //XG3-3
+int getPersonGender(char* character,char* text,char* errorText);       //XG3-3
+char* getCharPointer(void);
 
 #endif // XGET_H_INCLUDED

@@ -42,10 +42,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="xEmail.h" />
-		<Unit filename="xFile.c">
+		<Unit filename="xFiles.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="xFile.h" />
+		<Unit filename="xFiles.h" />
+		<Unit filename="xGenericStruct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xGenericStruct.h" />
 		<Unit filename="xget.c">
 			<Option compilerVar="CC" />
 		</Unit>
