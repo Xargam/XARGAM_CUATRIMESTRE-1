@@ -171,22 +171,18 @@ int xfilFileReader(char* filePath, int fileType)
         if( fileType )
         {
             file = fopen(filePath,"rb");
-            if( file != NULL)
-            {
-                verify = 1;
-                fclose(file);
-            }
         }
         else
         {
-            file = fopen(filePath,"r");
-            if( file != NULL)
-            {
-                if( !fclose(file) )
-                {
-                    verify = 1;
-                }
-            }
+           file = fopen(filePath,"r");
+        }
+        if( file != NULL)
+        {
+            verify = 1;
+        }
+        if( fclose(file) )
+        {
+            verify = 0;
         }
 
     }
@@ -256,7 +252,7 @@ CUIDADO NO COLOCAR ESPACIOS EN EL FORMATO!!!!
 
 USO DEL ESPECIFICADOR FLECHA Y CONVERSIONES ESPECIFICAS A CUALQUIER TIPO DE DATO ( --> <-- ):
 
-Â¿Para que sirve el especificador flecha?
+¿Para que sirve el especificador flecha?
 El espcificador flecha debe abrirse y cerrarse en la cadena de formato.
 ejemplo:
 
@@ -372,7 +368,7 @@ datos va a leer en una linea del archivo de texto. Si tu archivo tiene el siguie
 
 -------------------------------
 LEGAJO,NOMBRE,APELLIDO,EDAD
-34,NAHUEL,MARIÃ‘O,22
+34,NAHUEL,MARIÑO,22
 22,LEONARDO,MANASSALI,22
 -------------------------------
 
@@ -399,9 +395,9 @@ INCLUYENDO los de dataToParse.
 int xfilCSVGenericParser( FILE* filePointer, int dataToParse,char* format, int totalArguments,...)
 {
     int verify = 0;
-
     if( dataToParse < 21 && dataToParse > -1 && totalArguments < 201 && totalArguments > -1 && filePointer != NULL && format != NULL && strlen(format) < 1000 && !feof(filePointer) )
     {
+
         char format2[1000];
         strcpy(format2, format);
         verify = 1; //Variable de retorno indicando error o final de archivo.

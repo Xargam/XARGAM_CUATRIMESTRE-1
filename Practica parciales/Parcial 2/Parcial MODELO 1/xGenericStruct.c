@@ -4,6 +4,7 @@
 #include "xget.h"
 #include "xvalidate.h"
 #include "xGenericStruct.h"
+#include "xlook.h"
 
 //BASICO
 
@@ -503,3 +504,34 @@ eGeneric* generic_requester(void)
     return lm;
 }
 
+
+/** \brief Muestra un %estructura%
+ *
+ * \param Variable de tipo %estructura% a mostrar.
+ * \return
+ *
+ */
+
+void generic_show(eGeneric* gen )
+{
+    xlkSortPrintf(1,"FGDFGFD",0);
+}
+
+
+ /** \brief Muestra todos los elementos de %estructura% .
+  *
+  * \param gen : Array que de %estructura% que se desea mostrar.
+  * \return Devuelve un entero con la cantidad de datos leidos.
+  *
+  */
+
+ int generic_showAll(eGeneric* gen , int quantity)
+ {
+     xlkCenterPrintf("LISTA DE DATOS",1);
+     int i;
+     for( i = 0 ; i < quantity ; i++)
+     {
+         xlkSortPrintf(1,"%d,%s,%f",3);
+     }
+     return i-2;
+ }

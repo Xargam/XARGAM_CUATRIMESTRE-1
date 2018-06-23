@@ -32,9 +32,8 @@ int main()
     int selection;
     char* filename;
     int reading;
+    eAdresseers* destinatarios;
     arrayList* destinatarios = al_newArrayList();
-
-
 
     xlkIndexGenerator("DEPURAR DESTINATARIOS",5,"1-Cargar destinatarios.","2-Cargar lista negra.","3-Depurar.","4-Listar.","5-Salir.");
     if( getRangedInt(&selection,1,5,"Seleccionar opcion: ","Opcion invalida.") )
@@ -43,12 +42,18 @@ int main()
         switch(selection)
         {
         case 1:
-            if( getRangedStr(&filename,1,300,"Ingrese el nombre del archivo de destinatarios: ","El nombre no es valido.",1) )
+            if(  (filename = getRangedStr(1,100,"Ingrese el nombre del archivo de destinatarios: ","El nombre no es valido.",1)) != NULL )
             {
-                xlkMessageAutoSwitch( (reading = xfilFileReader(filename,0)) ,4 , 1 ,XLK_FREAD_OK ,0,XLK_FOPEN_ERROR);
-                if( reading )
+                xlkMessageAutoSwitch( (reading = xfilFileReader(filename,0) ),4, 1,XLK_FREAD_OK,0,XLK_FOPEN_ERROR);
+                if( reading == 1 )
                 {
-                    //xfilCSVGenericParser()
+                    FILE* file = fopen(filename,"r");
+                    while( xfilCSVGenericParser(file,2,"%s;%s;",2,vec,vec2) )
+                    {
+                        xlkSortPrintf(1,"%s,%s",2,vec,vec2);
+                        system("pause");
+                    }
+                    fclose(file);
                 }
             }
             break;
@@ -65,3 +70,5 @@ int main()
 
     return 0;
 }
+
+

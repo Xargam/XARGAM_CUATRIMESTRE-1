@@ -62,7 +62,7 @@ int strNumCmp(char* number1, char* number2);        //XG1-4
 
 //Pedir string:
 
-int getRangedStr(char** word ,int minChars,int maxChars,char *message,char *eMessage, int mode);           //XG1-5
+char* getRangedStr(int minChars,int maxChars,char *message,char *eMessage, int mode);           //XG1-5
 int getRangedAlphaStr(char** word,int minChars, int maxChars, char *message,char *eMessage,int mode);      //XG1-6
 int getRangedAlphaNumStr(char** word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.1
 int getRangedGraphicStr(char** word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.2

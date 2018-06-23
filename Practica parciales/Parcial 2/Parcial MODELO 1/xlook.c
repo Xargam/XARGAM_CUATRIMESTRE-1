@@ -78,11 +78,12 @@ void xlkIndexBodyGenerator(int mode,int totalOptions,...)
 {
     va_list arguments;
     va_start(arguments,totalOptions);
+    int i;
     if(mode)
     {
         printf("________________________________________________________________________________\n");
     }
-    for(int i=0; i < totalOptions; i++)
+    for( i=0; i < totalOptions; i++)
     {
         printf(" * %s\n",va_arg(arguments,char*));
     }

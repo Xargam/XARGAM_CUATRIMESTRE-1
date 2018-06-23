@@ -20,7 +20,8 @@
 int validateIsNum(char* number)
 {
     int verify = 1;
-    for(int i = 0; number[i] != '\0'; i++)
+    int i;
+    for( i = 0; number[i] != '\0'; i++)
     {
         if(isdigit(number[i])== 0)
         {
@@ -52,7 +53,8 @@ int validateIsRealNum(char* number)
 {
     int verify = 1, pointCounter = 0, negNum = 0;
 
-    for(int i = 0; number[i] != '\0'; i++)
+    int i;
+    for( i = 0; number[i] != '\0'; i++)
     {
         if(number[i] == '.' && i == 1 && negNum == 1)
         {
@@ -183,6 +185,7 @@ void zeroFixer(char* number)
 
     //Elimina los ceros delante del numero y busca el punto decimal.
     int i;
+    int j;
     for(i = 0; number[i] != '\0'; i++)
     {
         if(number[i] == '-')
@@ -192,7 +195,7 @@ void zeroFixer(char* number)
 
         if(number[i] == '0' && number[i+1] != '.' && flag == 0)
         {
-            for(int j = i; number[j] != '\0'; j++)
+            for( j = i; number[j] != '\0'; j++)
             {
                 number[j] = number[j+1];
             }
@@ -220,7 +223,7 @@ void zeroFixer(char* number)
         strrev(number);
         for(i = 0; number[i] == '0'; i++)
         {
-            for(int j = i; number[j] != '\0'; j++)
+            for( j = i; number[j] != '\0'; j++)
             {
                 number[j] = number[j+1];
             }
@@ -474,37 +477,42 @@ char* getCharPointer(void)
  *
  */
 
-int getRangedStr(char** word,int minChars,int maxChars,char* message,char* eMessage, int mode)
+char* getRangedStr(int minChars,int maxChars,char* message,char* eMessage, int mode)
 {
-    char palabra[1000];
-    int verificacion = 1;
-    *word = getCharPointer();
-
-    if(mode)
+    char* word = (char*)malloc(sizeof(char));
+    if( eMessage != NULL && message != NULL )
     {
-        printf("* %s", message);
-        scanf("%999[^\n]",palabra);
-        while(getchar() != '\n');
+        char palabra[1000];
+        if( word != NULL)
+        {
+            if(mode)
+            {
+                printf("* %s", message);
+                scanf("%999[^\n]",palabra);
+                while(getchar() != '\n');
+            }
+            else
+            {
+                printf("* %s", message);
+                scanf("%999s",palabra);
+                while(getchar() != '\n');
+            }
+            if(strlen(palabra) > maxChars || strlen(palabra) < minChars)
+            {
+                printf("** %s\n\n",eMessage);
+                word = NULL;
+            }
+            else
+            {
+                word = (char*)realloc(word,sizeof(char)*(strlen(palabra)+1) ) ;
+                if( word != NULL )
+                {
+                    strcpy(word,palabra);
+                }
+            }
+        }
     }
-    else
-    {
-        printf("* %s", message);
-        scanf("%999s",palabra);
-        while(getchar() != '\n');
-    }
-    if(strlen(palabra) > maxChars || strlen(palabra) < minChars)
-    {
-        printf("** %s\n\n",eMessage);
-        verificacion = 0;
-    }
-    else
-    {
-        char auxPtr[strlen(palabra)+1];
-        strcpy(auxPtr, palabra);
-        *word = auxPtr;
-    }
-
-    return verificacion ;
+    return word;
 }
 
 
