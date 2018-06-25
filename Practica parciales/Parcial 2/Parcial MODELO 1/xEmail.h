@@ -9,11 +9,14 @@ typedef struct
     char email[300];
     int status;
 
-} eAdresseers ;
+} eDestinatarios ;
 
 //BASICAS
 
-eAdresseers* newAdresseer(int size);
+eDestinatarios* xmailNewDestinatario(int size);
+int xmailMostrarDestinatario(eDestinatarios* dest );
+int xmailParser( char* filePath , arrayList* this  );
+int xmailComparaEmail(void* dest1 ,void* dest2  );
 
 
 #endif // XEMAIL_H_INCLUDED

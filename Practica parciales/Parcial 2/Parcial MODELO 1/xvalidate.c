@@ -76,12 +76,12 @@ int validateDualExit(char* text,char* errorText,char continueChar, char exitChar
 
     do
     {
-        printf("%s", text);
+        printf("* %s", text);
         letra = getch();
         letra = tolower(letra);
         if(letra != continueChar && letra != exitChar)
         {
-            printf("\n%s\n\n", errorText);
+            printf("\n** %s\n\n", errorText);
         }
     }
     while(letra != continueChar && letra != exitChar);

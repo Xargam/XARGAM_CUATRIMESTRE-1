@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "xArrayList.h"
+#include "xFiles.h"
 
 // funciones privadas
 int resizeUp(arrayList* this);
@@ -168,7 +169,7 @@ void* al_get(arrayList* this, int index)
  * \param pElement void* Pointer to element
  * \return int Return (-1) if Error [pList or pElement are NULL pointer]
  *                  - ( 0) if Ok but not found a element
- *                  - ( 1) if this list contains at least one element pElement
+ *                  - ( 1+) if this list contains at least one element pElement
  *
  */
 int al_contains(arrayList* this, void* pElement)
@@ -182,7 +183,7 @@ int al_contains(arrayList* this, void* pElement)
         {
             if( *(this->pElements + i) == pElement)
             {
-                verify = 1;
+                verify++;
                 break;
             }
         }
@@ -703,4 +704,49 @@ int al_fileSaver( arrayList* this,  char* filePath, int dataSize)
         }
     }
     return validation;
+}
+
+
+
+/** \brief Parsea un archivo de texto y va cargando los datos en un arrayList.
+ *
+ * \param filePath : Nombre o ruta del archivo a parsear.
+ * \param this : Variable de tipo arrayLis.
+ * \return Devuelve [1] si el parseo se completo correctamente o [0] si hubo algun error.
+ *
+ */
+
+int al_GenericParser( char* filePath , arrayList* this  )
+{
+    int verify = 0;
+    if( filePath != NULL && this != NULL)
+    {
+        FILE* file = fopen(filePath,"r");
+        if( file != NULL )
+        {
+            int reading;
+            testStruct* estructura = NULL;
+            do
+            {
+                if( estructura != NULL )
+                {
+                    if( this->add(this,estructura))
+                    {
+                        break;
+                    }
+                }
+                estructura =(testStruct*) malloc(sizeof(testStruct));
+            }
+            while( estructura != NULL && (reading = xfilCSVGenericParser(file,2,"%s;%s;",2,estructura->name,estructura->lastname)) == 1 );
+            if( estructura != NULL)
+            {
+                free(estructura);
+            }
+            if( !fclose(file) && reading == 0 && estructura != NULL )
+            {
+                verify = 1;
+            }
+        }
+    }
+    return verify;
 }

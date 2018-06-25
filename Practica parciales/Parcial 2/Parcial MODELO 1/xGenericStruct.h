@@ -48,5 +48,5 @@ char* generic_getString( eGeneric* gen );
 //FUNCIONES ABM
 
 eGeneric* generic_requester(void);
-void generic_show(eGeneric* gen );
+int generic_show(eGeneric* gen );
 int generic_showAll(eGeneric* gen , int quantity);

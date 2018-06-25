@@ -445,13 +445,19 @@ eGeneric* generic_requester(void)
 /** \brief Muestra un %estructura%
  *
  * \param Variable de tipo %estructura% a mostrar.
- * \return
+ * \return Devuelve [1] si se pudo mostrar el dato o [0] en caso de error.
  *
  */
 
-void generic_show(eGeneric* gen )
+int generic_show(eGeneric* gen )
 {
-    xlkSortPrintf(1,"FGDFGFD",0);
+    int verify = 0;
+    if( gen != NULL)
+    {
+        verify = 1;
+        xlkSortPrintf(3,"FGDFGFD",0);
+    }
+    return verify;
 }
 
 

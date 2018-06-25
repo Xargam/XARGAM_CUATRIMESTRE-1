@@ -16,8 +16,15 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+typedef struct
+{
+    char name[10];
+    char lastname[10];
+} testStruct ;
+
 #ifndef __ARRAYLIST
 #define __ARRAYLIST
+
 struct arrayList{
 
     void** pElements;
@@ -240,6 +247,7 @@ int contract(arrayList* this,int index);
  */
 arrayList* al_fileLoader(char* filePath, int dataSize);
 int al_fileSaver( arrayList* this , char* filePath, int dataSize);
+int al_parser( char* filePath , arrayList* this  );
 
 // Private function
 int resizeUp(arrayList* this);

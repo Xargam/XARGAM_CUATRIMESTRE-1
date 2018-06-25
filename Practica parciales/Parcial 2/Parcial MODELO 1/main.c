@@ -1,10 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 #include "xget.h"
 #include "xFiles.h"
 #include "xlook.h"
+#include "xGenericStruct.h"
 #include "xArrayList.h"
+#include "xvalidate.h"
 #include "xEmail.h"
+
 
 /*
 Desarrollar en ANSI C:
@@ -27,64 +32,125 @@ Nota 1: El código deberá tener comentarios con la documentación de cada una de l
 respetar las reglas de estilo de la cátedra.
 Nota 1: Se deberá utilizar la biblioteca arrayList.
 */
-int show(void);
 
 int main()
 {
     int selection;
     char filename[301];
-    int reading = 1;
+    int quit = 0;
+    int i;
+    int j;
 
     arrayList* destinatarios = al_newArrayList();
+    arrayList* depuracion = al_newArrayList();
 
-    xlkIndexGenerator("DEPURAR DESTINATARIOS",5,"1-Cargar destinatarios.","2-Cargar lista negra.","3-Depurar.","4-Listar.","5-Salir.");
-    if( getRangedInt(&selection,1,5,"Seleccionar opcion: ","Opcion invalida.") )
+    if( depuracion == NULL || destinatarios == NULL)
     {
-        xlkEnterPrinter(1);
-        switch(selection)
+        xlkShowMessage(XLK_MEM_ERROR,0,0,3);
+    }
+
+    do
+    {
+        xlkIndexGenerator("DEPURAR DESTINATARIOS",5,"1-Cargar destinatarios.","2-Cargar lista negra.","3-Depurar.","4-Listar.","5-Salir.");
+        if( getRangedInt(&selection,1,5,"Seleccionar opcion: ","Opcion invalida.") )
         {
-        case 1:
-            if( getRangedStr(filename,1,300,"Ingrese el nombre del archivo de destinatarios: ","El nombre de archivo es invalido.",1) )
+            system("cls");
+            switch(selection)
             {
-                xlkMessageAutoSwitch( (reading = xfilFileReader(filename,0)),4, 1,XLK_FREAD_OK,0,XLK_FOPEN_ERROR);
-                if( reading == 1 )
+            case 1:
+                if( getRangedStr(filename,1,300,"Ingrese el nombre del archivo de destinatarios: ","El nombre de archivo es invalido.",1) )
                 {
-                    FILE* file = fopen(filename,"r");
-
-                    eAdresseers* destinatario = NULL;
-
-                    if( file != NULL)
+                    if( strcmp(filename,"destinatarios.csv") == 0 )
                     {
-                        do
+                        xlkShowMessage(XLK_VALID_FILE,1,1,-1);
+                        if( xmailParser(filename,destinatarios) )
                         {
-                            if( destinatario != NULL )
-                            {
-                                destinatarios->add(destinatarios,destinatario);
-
-                            }
-                            destinatario = newAdresseer(1);
+                            xlkShowMessage(XLK_PARSER_OK,0,1,-1);
+                            xlkShowMessage("Destinatarios cargados con exito.",0,2,-1);
                         }
-                        while( destinatario != NULL && (reading = xfilCSVGenericParser(file,2,"%s;%s;",2,destinatario->name,destinatario->email) == 1) );
-
+                        else
+                        {
+                            xlkShowMessage(XLK_PARSER_ERROR,0,2,-1);
+                        }
                     }
-                    if( file == NULL || fclose(file) || reading == -1 || destinatario == NULL )
+                    else
                     {
-                        xlkShowMessage(XLK_COMMON_ERROR,1,3);
+                        xlkShowMessage(XLK_INVALID_FILE,0,2,-1);
                     }
                 }
-            }
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        }
-    }
-    destinatarios->remove(destinatarios);
+                break;
+            case 2:
+                if( getRangedStr(filename,1,300,"Ingrese el nombre del archivo de destinatarios en lista negra: ","El nombre de archivo es invalido.",1) )
+                {
+                    if( strcmp(filename,"lista negra.csv") == 0 )
+                    {
+                        xlkShowMessage(XLK_VALID_FILE,1,1,-1);
+                        if( xmailParser(filename,destinatarios) )
+                        {
+                            xlkShowMessage(XLK_PARSER_OK,0,1,-1);
+                            xlkShowMessage("Destinatarios en lista negra cargados con exito.",0,2,-1);
+                        }
+                        else
+                        {
+                            xlkShowMessage(XLK_PARSER_ERROR,0,2,-1);
+                        }
+                    }
+                    else
+                    {
+                        xlkShowMessage(XLK_INVALID_FILE,0,2,-1);
+                    }
+                }
+                break;
+            case 3:
+                for( i = 0 ; i < destinatarios->len(destinatarios)-1 ; i++)
+                {
+                    for( j = 0 ; j < destinatarios->len(destinatarios) ; j++ )
+                    {
+                        if( xmailComparaEmail( destinatarios->get(destinatarios,i) ,  ) )
+                    }
+                    if( destinatarios->contains(destinatarios, destinatarios->get(destinatarios, i)) < 2 )
+                    {
+                        depuracion->add(depuracion,destinatarios->get(destinatarios, i));
+                    }
+                }
+                break;
+            case 4:
+                if( depuracion->len(depuracion) > 0)
+                {
+                    xlkCenterPrintf("LISTA DE DESTINATARIOS",2);
+                    for(i = 0 ; i < depuracion->len(depuracion) ; i++ )
+                    {
+                        printf("I %d\n",i);
+                        xmailMostrarDestinatario(depuracion->get(depuracion,i) );
+                    }
+                }
+                else if( destinatarios->len(destinatarios) > 0)
+                {
+                    xlkCenterPrintf("LISTA DE DESTINATARIOS",2);
+                    for(i = 0 ; i < destinatarios->len(destinatarios) ; i++ )
+                    {
+                        printf("I %d\n",i);
+                        xmailMostrarDestinatario(destinatarios->get(destinatarios,i) );
+                    }
+                }
+                else
+                {
+                    xlkShowMessage("No hay destinatarios cargados.",0,2,-1);
+                }
 
+                break;
+            case 5:
+                system("cls");
+                quit = validateDualExit(XLK_EXITMSG,XLK_INVALID_ANSWER,'s','n');
+                xlkEnterPrinter(2);
+                break;
+            }
+        }
+        system("pause");
+    }
+    while(quit == 0);
+
+    generic2_PointerDestroyer(destinatarios->pElements,destinatarios->len(destinatarios));
+    destinatarios->deleteArrayList(destinatarios);
     return 0;
 }
