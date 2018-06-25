@@ -119,23 +119,20 @@ void xlkShowMessage(char* message, int enters, int adds )
     }
     switch(adds)
     {
-    case 0:
-        printf(message);
-        break;
     case 1:
-        printf(message);
+        printf("* %s",message);
         printf("\n\n");
         system("pause");
         break;
     case 2:
         system("cls");
-        printf(message);
+        printf("* %s",message);
         printf("\n\n");
         system("pause");
         break;
     case 3:
         system("cls");
-        printf("%s",message);
+        printf("* %s",message);
         printf("\n\n");
         system("pause");
         exit(1);

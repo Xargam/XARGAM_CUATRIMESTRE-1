@@ -57,40 +57,45 @@
 	<stdlib.h>
 	<string.h>
 
-1529425214 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xemail.c
+1529792252 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xemail.c
+	<stdio.h>
+	<stdlib.h>
+	"xGenericStruct.h"
+	"xEmail.h"
 
-1529425214 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xmath.c
+1529787035 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xmath.c
 	<stdio.h>
 	<stdlib.h>
 
-1529425214 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xvector.c
+1529787035 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xvector.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1529720069 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xarraylist.c
+1529787035 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xarraylist.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"xArrayList.h"
 
-1529720331 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xarraylist.h
+1529787035 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xarraylist.h
 
-1529721494 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xgenericstruct.c
+1529911470 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xgenericstruct.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"xget.h"
 	"xvalidate.h"
 	"xGenericStruct.h"
+	"xlook.h"
 
-1529713286 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xget.h
+1529910644 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xget.h
 
-1529425214 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xvalidate.h
+1529787035 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xvalidate.h
 
-1529704210 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xgenericstruct.h
+1529787035 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xgenericstruct.h
 
-1529713116 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xget.c
+1529911345 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xget.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -98,41 +103,43 @@
 	<conio.h>
 	<string.h>
 
-1529726374 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xlook.c
+1529913130 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xlook.c
 	<stdio.h>
 	<stdlib.h>
 	<stdarg.h>
 	<string.h>
 
-1529693327 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xstring.c
+1529787035 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xstring.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1529690996 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xvalidate.c
+1529787035 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xvalidate.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	<ctype.h>
 	<string.h>
 
-1529726572 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\main.c
+1529916594 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\main.c
 	<stdio.h>
 	<stdlib.h>
 	"xget.h"
 	"xFiles.h"
 	"xlook.h"
+	"xArrayList.h"
+	"xEmail.h"
 
-1529726036 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xfiles.h
+1529911875 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xfiles.h
 
-1529726066 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xfiles.c
+1529916594 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xfiles.c
 	<stdio.h>
 	<stdlib.h>
 	<stdarg.h>
 	<string.h>
 
-1529726655 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xlook.h
+1529913734 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xlook.h
 
 1529767353 c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xget.h
 
@@ -158,4 +165,6 @@
 1529757947 c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xvalidate.h
 
 1529759114 c:\users\alumno\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xgenericstruct.h
+
+1529914384 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 1\xemail.h
 

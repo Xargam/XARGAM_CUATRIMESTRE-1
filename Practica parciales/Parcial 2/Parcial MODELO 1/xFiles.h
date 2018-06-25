@@ -18,6 +18,7 @@ void* xfilStringConditionalConversor(char* inputString, char* stringCompare, voi
 //FUNCION MADRE:
 
 int xfilCSVGenericParser(FILE* filePointer, int dataToParse,char* format, int totalArguments,...);
+int xfilTextFileSaver(char* path , void* pointer);
 
 //FUNCIONES DE ARCHIVOS BINARIOS:
 

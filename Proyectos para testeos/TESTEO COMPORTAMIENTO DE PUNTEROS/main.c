@@ -14,6 +14,23 @@ typedef struct
 int main()
 {
 
+/*
+a* es un puntero;
+a* tiene basura, su contenido es una direccion de memoria.
+a* recibe datos de la direccion de memoria de int 4
+a* contiene en su interior la direccion 0x45 que es la direccion de un entero
+el elemento de a* es una direccion de memoria, el elemento de *a (la direccion que contiene es 4)
+
+d** = variable doble puntero guarda una direccion doble puntero(dos referencias hasta un dato no puntero, si se accede al elemento del doble puntero se llega a un puntero, si accede al elemento del puntero recien se llega al dato). ( es decir la direccion de memoria de una variable puntero)
+d** tiene basura
+d** recibe la direccion de memoria de una variable puntero &a es la zona en memoria donde se guarda a, que es 0x100 en
+0x100 esta la variable a -> su valor, lo que guarda a es 0x45 que es la direccion de un entero, 4
+ d** tiene 0x456
+
+d** esta en 0x988, El valor de d es 0x100 (direccion de memoria de un puntero)
+a esta en 0x100. El valor de a es 0x45 (direccion de memoria de un entero)
+entero esta en 0x45. entero tiene el valor 4.
+*/
     /*---ANALISIS 1:
 
     SI SE LIBERA UNA DIRECCION DE MEMORIA LA MISMA QUEDA INABILITADA. CRASH.

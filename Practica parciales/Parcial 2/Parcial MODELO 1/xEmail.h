@@ -5,15 +5,15 @@
 
 typedef struct
 {
-    char* name;
-    char* email;
+    char name[100];
+    char email[300];
     int status;
 
 } eAdresseers ;
 
-//PROTOTIPOS DE FUNCIONES
+//BASICAS
 
-
+eAdresseers* newAdresseer(int size);
 
 
 #endif // XEMAIL_H_INCLUDED

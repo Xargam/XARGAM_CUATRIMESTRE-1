@@ -4,6 +4,7 @@
 #include "xFiles.h"
 #include "xlook.h"
 #include "xArrayList.h"
+#include "xEmail.h"
 
 /*
 Desarrollar en ANSI C:
@@ -26,13 +27,14 @@ Nota 1: El código deberá tener comentarios con la documentación de cada una de l
 respetar las reglas de estilo de la cátedra.
 Nota 1: Se deberá utilizar la biblioteca arrayList.
 */
+int show(void);
 
 int main()
 {
     int selection;
-    char* filename;
-    int reading;
-    eAdresseers* destinatarios;
+    char filename[301];
+    int reading = 1;
+
     arrayList* destinatarios = al_newArrayList();
 
     xlkIndexGenerator("DEPURAR DESTINATARIOS",5,"1-Cargar destinatarios.","2-Cargar lista negra.","3-Depurar.","4-Listar.","5-Salir.");
@@ -42,18 +44,33 @@ int main()
         switch(selection)
         {
         case 1:
-            if(  (filename = getRangedStr(1,100,"Ingrese el nombre del archivo de destinatarios: ","El nombre no es valido.",1)) != NULL )
+            if( getRangedStr(filename,1,300,"Ingrese el nombre del archivo de destinatarios: ","El nombre de archivo es invalido.",1) )
             {
-                xlkMessageAutoSwitch( (reading = xfilFileReader(filename,0) ),4, 1,XLK_FREAD_OK,0,XLK_FOPEN_ERROR);
+                xlkMessageAutoSwitch( (reading = xfilFileReader(filename,0)),4, 1,XLK_FREAD_OK,0,XLK_FOPEN_ERROR);
                 if( reading == 1 )
                 {
                     FILE* file = fopen(filename,"r");
-                    while( xfilCSVGenericParser(file,2,"%s;%s;",2,vec,vec2) )
+
+                    eAdresseers* destinatario = NULL;
+
+                    if( file != NULL)
                     {
-                        xlkSortPrintf(1,"%s,%s",2,vec,vec2);
-                        system("pause");
+                        do
+                        {
+                            if( destinatario != NULL )
+                            {
+                                destinatarios->add(destinatarios,destinatario);
+
+                            }
+                            destinatario = newAdresseer(1);
+                        }
+                        while( destinatario != NULL && (reading = xfilCSVGenericParser(file,2,"%s;%s;",2,destinatario->name,destinatario->email) == 1) );
+
                     }
-                    fclose(file);
+                    if( file == NULL || fclose(file) || reading == -1 || destinatario == NULL )
+                    {
+                        xlkShowMessage(XLK_COMMON_ERROR,1,3);
+                    }
                 }
             }
             break;
@@ -67,8 +84,7 @@ int main()
             break;
         }
     }
+    destinatarios->remove(destinatarios);
 
     return 0;
 }
-
-

@@ -10,6 +10,8 @@
 #define XLK_PARSER_ERROR "ERROR DURANTE LECTURA DE ARCHIVO"
 #define XLK_FSAVE_ERROR "ERROR DURANTE ESCRITURA DE ARCHIVO"
 #define XLK_FFIND_ERROR "NO SE ENCUENTRA EL ARCHIVO"
+#define XLK_MEM_ERROR "ERROR AL RESERVAR MEMORIA"
+#define XLK_COMMON_ERROR "SE PRODUJO UN ERROR EN LA APLICACION"
 #define XLK_INVALID "Se produjo un error durante la validacion de los datos."
 #define XLK_EXITMSG "Esta seguro que desea salir? s/n: "
 
@@ -24,7 +26,7 @@ void xlkIndexBodyGenerator(int mode , int totalOptions,...); //XL1-3
 
 //Funciones para mostrar mensajes:
 
-void xlkShowMessage(char* message , int mode); //XL1-4
+void xlkShowMessage(char* message, int enters, int adds ); //XL1-4
 void stringSeparator(int splitterCharacter, char* string1, char* string2 ); //XL1-5
 void xlkSortPrintf(int mode,char* dataType, int totalArguments,...); //XL1-6
 void xlkCenterPrintf(char* word, int mode);  //XL1-7

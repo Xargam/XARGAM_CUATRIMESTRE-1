@@ -98,69 +98,6 @@ int generic2_PointerDestroyer( void** pointer, int size  )
 }
 
 
-/*
-* \brief Elimina los punteros simples anidados en un puntero
- *
- * \param pointer : Puntero triple a liberar.
- * \param size : Cantidad de punteros anidados a eliminar.
- * \return
- *
-
-
-int generic3_PointerDestroyer( void*** pointer, int size )
-{
-    int destroyed = 0;
-
-    if( pointer != NULL && size > 0  )
-    {
-        destroyed = 1;
-        int i;
-        for( i = 0 ; i < size ; i++)
-        {
-            free(pointer[i][i]);
-            pointer[i][i] = NULL;
-        }
-    }
-    return destroyed;
-}
-
-
-int generic4_PointerDestroyer( void**** pointer, int size )
-{
-    int destroyed = 0;
-
-    if( pointer != NULL && size > 0  )
-    {
-        destroyed = 1;
-        int i;
-        for( i = 0 ; i < size ; i++)
-        {
-            free(pointer[i][i][i]);
-            pointer[i][i][i] = NULL;
-        }
-    }
-    return destroyed;
-}
-
-
-int generic5_PointerDestroyer( void***** pointer, int size )
-{
-    int destroyed = 0;
-
-    if( pointer != NULL && size > 0  )
-    {
-        destroyed = 1;
-        int i;
-        for( i = 0 ; i < size ; i++)
-        {
-            free(pointer[i][i][i][i]);
-            pointer[i][i][i][i] = NULL;
-        }
-    }
-    return destroyed;
-}
-
-*/
 
 //SETTERS
 

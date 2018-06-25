@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1529908785 source:c:\users\leo\desktop\xargam\proyectos para testeos\testeo retorno cadenas\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dynamicManage.h"
+
+1529908785 source:c:\users\leo\desktop\xargam\proyectos para testeos\testeo retorno cadenas\dynamicmanage.c
+	<stdlib.h>
+	<stdio.h>
+	"dynamicManage.h"
+
+1529908684 c:\users\leo\desktop\xargam\proyectos para testeos\testeo retorno cadenas\dynamicmanage.h
+
