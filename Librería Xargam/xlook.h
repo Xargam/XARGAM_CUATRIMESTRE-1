@@ -49,6 +49,10 @@ DEFINES MAS UTILIZADOS :
 #define XLK_VALID_ANSWER "Respuesta reconocida."
 #define XLK_INVALID_ANSWER "No se reconoce su respuesta."
 
+#define XLK_VALID_OPTION "Opcion valida."
+#define XLK_INVALID_OPTION "Opcion invalida."
+
+
 //FUNCIONES:
 
 //Generadores de menus completos:

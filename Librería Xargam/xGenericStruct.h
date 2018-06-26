@@ -21,9 +21,11 @@ eGeneric** generic_newGenericDblPointer(int size);
 
 int generic1_PointerDestroyer( void* pointer );
 int generic2_PointerDestroyer( void** pointer, int size);
+/*
 int generic3_PointerDestroyer( void*** pointer, int size);
 int generic4_PointerDestroyer( void**** pointer, int size);
 int generic5_PointerDestroyer( void***** pointer, int size);
+*/
 
 //Funciones SET
 
@@ -50,3 +52,27 @@ char* generic_getString( eGeneric* gen );
 eGeneric* generic_requester(void);
 int generic_show(eGeneric* gen );
 int generic_showAll(eGeneric* gen , int quantity);
+int generic_modify(eGeneric* gen);
+
+//MODIFY
+
+int eGeneric_ModifyInt(eGeneric* gen, char message[], char eMessage[]);
+int eGeneric_ModifyFloat(eGeneric* gen, char message[], char eMessage[]);
+int eGeneric_ModidyLong(eGeneric* gen, char message[], char eMessage[] );
+int eGeneric_ModidyLongLong(eGeneric* gen, char message[], char eMessage[]);
+int eGeneric_ModidyDouble(eGeneric* gen, char message[], char eMessage[]);
+int eGeneric_ModifyChar(eGeneric* gen, char message[], char eMessage[]);
+int eGeneric_ModidyString(eGeneric* gen, char message[], char eMessage[]);
+
+//BUCAR DATOS
+
+int eGeneric_checkInt(eGeneric* gen , int data);
+int eGeneric_checkFloat(eGeneric* gen , float data);
+int eGeneric_checkLong(eGeneric* gen , long data);
+int eGeneric_checkLongLong(eGeneric* gen , long long data);
+int eGeneric_checkDouble(eGeneric* gen , double data);
+int eGeneric_checkChar(eGeneric* gen , char data);
+int eGeneric_checkString(eGeneric* gen , char data[]);
+
+
+

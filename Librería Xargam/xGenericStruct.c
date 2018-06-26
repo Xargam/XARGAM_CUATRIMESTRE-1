@@ -12,7 +12,7 @@
 /** \brief Reserva espacio dinamico para un array de %estructura% .
  *
  * \param size : Cantidad de elementos.
- * \return devuelve un puntero a %estructura% .
+ * \return Devuelve un puntero a %estructura% .
  *
  */
 
@@ -461,20 +461,435 @@ int generic_show(eGeneric* gen )
 }
 
 
- /** \brief Muestra todos los elementos de %estructura% .
-  *
-  * \param gen : Array que de %estructura% que se desea mostrar.
-  * \return Devuelve un entero con la cantidad de datos leidos.
-  *
-  */
+/** \brief Muestra todos los elementos de %estructura% .
+ *
+ * \param gen : Array que de %estructura% que se desea mostrar.
+ * \return Devuelve un entero con la cantidad de datos leidos.
+ *
+ */
 
- int generic_showAll(eGeneric* gen , int quantity)
- {
-     xlkCenterPrintf("LISTA DE DATOS",1);
-     int i;
-     for( i = 0 ; i < quantity ; i++)
-     {
-         xlkSortPrintf(1,"%d,%s,%f",3);
-     }
-     return i-2;
- }
+int generic_showAll(eGeneric* gen, int quantity)
+{
+    xlkCenterPrintf("LISTA DE DATOS",1);
+    int i;
+    for( i = 0 ; i < quantity ; i++)
+    {
+        xlkSortPrintf(1,"%d,%s,%f",3);
+    }
+    return i-2;
+}
+
+
+
+/** \brief Permite al usuario modificar una estructura.
+ *
+ * \param gen : puntero a %estructura% que se desea modificar.
+ * \param message : Mensaje a ser mostrado al pedirle al usuario el dato irrepible de la estructura.
+ * \param eMessage : Mensaje a ser mostrado en caso de que el usuario escriba un dato erroneo.
+ * \return Devuelve [1] si el usuario modifico algun dato , [0] si no lo hizo o [-1] en caso de un puntero a NULL.
+ *
+ */
+
+int generic_modify(eGeneric* gen )
+{
+    int verify = -1;
+    if( gen != NULL)
+    {
+        int selection;
+        int quit = 0;
+        verify = 0;
+        do
+        {
+            xlkIndexGenerator("HEAD",3,"1* uno.","2* dos.","3* tres.");
+            if(getRangedInt(&selection,0,3,"Seleccionar opcion: ","Opcion invalida."))
+            {
+                system("cls");
+                switch(selection)
+                {
+                case 1:
+                    verify = generic_modify(gen);
+                    break;
+                case 2:
+                    verify = generic_getFloat(gen);
+                    break;
+                case 3:
+                    quit = validateDualExit(XLK_EXITMSG,XLK_INVALID_ANSWER,'s','n');
+                    break;
+                }
+            }
+            system("pause");
+        }
+        while(quit == 0);
+    }
+    return verify;
+}
+
+
+//MODIFICAR DATOS:
+
+
+
+/** \brief Permite al usuario modifica el %campo% de un puntero a %estructura%.
+ *
+ * \param gen : Puntero a %estructura%.
+ * \param message : Mensaje a ser mostrado al pedir el dato para modificar la estructura.
+ * \param eMessage : Mensaje a ser mostrado en caso de error.
+ * \return Devuelve [-1] en caso de dato erroneo, [0] en caso de anularse la modificacion o [1] si el dato fue modificado.
+ *
+ */
+
+int eGeneric_ModifyInt(eGeneric* gen, char message[], char eMessage[])
+{
+    int verify = -1;
+    int number;
+    //getRangedInt(&aux,0,100,"Ingrese nuevo entero: ","Entero invalido.");
+    if( getValidInt(&number,message,eMessage ) )
+    {
+        verify = 0;
+        if( validateDualExit(XLK_EXITMSG,XLK_INVALID_ANSWER,'s','n') )
+        {
+            verify = 1;
+            gen->intNumber = number;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Permite al usuario modifica el %campo% de un puntero a %estructura%.
+ *
+ * \param gen : Puntero a %estructura%.
+ * \param message : Mensaje a ser mostrado al pedir el dato para modificar la estructura.
+ * \param eMessage : Mensaje a ser mostrado en caso de error.
+ * \return Devuelve [-1] en caso de dato erroneo, [0] en caso de anularse la modificacion o [1] si el dato fue modificado.
+ *
+ */
+
+int eGeneric_ModifyFloat(eGeneric* gen, char message[], char eMessage[])
+{
+    int verify = -1;
+    float number;
+    //getRangedFloat(&aux,0,100,"Ingrese nuevo entero: ","Entero invalido.");
+    if( getValidFloat(&number,message,eMessage ) )
+    {
+        verify = 0;
+        if( validateDualExit(XLK_EXITMSG,XLK_INVALID_ANSWER,'s','n') )
+        {
+            verify = 1;
+            gen->floatNumber = number;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Permite al usuario modifica el %campo% de un puntero a %estructura%.
+ *
+ * \param gen : Puntero a %estructura%.
+ * \param message : Mensaje a ser mostrado al pedir el dato para modificar la estructura.
+ * \param eMessage : Mensaje a ser mostrado en caso de error.
+ * \return Devuelve [-1] en caso de dato erroneo, [0] en caso de anularse la modificacion o [1] si el dato fue modificado.
+ *
+ */
+
+int eGeneric_ModidyLong(eGeneric* gen, char message[], char eMessage[] )
+{
+    int verify = -1;
+    long number;
+    //getRangedLong(&aux,0,100,"Ingrese nuevo entero: ","Entero invalido.");
+    if( getValidLong(&number,message,eMessage ) )
+    {
+        verify = 0;
+        if( validateDualExit(XLK_EXITMSG,XLK_INVALID_ANSWER,'s','n') )
+        {
+            verify = 1;
+            gen->longNumber = number;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Permite al usuario modifica el %campo% de un puntero a %estructura%.
+ *
+ * \param gen : Puntero a %estructura%.
+ * \param message : Mensaje a ser mostrado al pedir el dato para modificar la estructura.
+ * \param eMessage : Mensaje a ser mostrado en caso de error.
+ * \return Devuelve [-1] en caso de dato erroneo, [0] en caso de anularse la modificacion o [1] si el dato fue modificado.
+ *
+ */
+
+int eGeneric_ModidyLongLong(eGeneric* gen, char message[], char eMessage[])
+{
+    int verify = -1;
+    // long long number;
+    //getRangedLong(&aux,0,100,"Ingrese nuevo entero: ","Entero invalido.");
+    //if( getConditionedLong(&number,0,1,message,eMessage ) )
+    {
+        verify = 0;
+        if( validateDualExit(XLK_EXITMSG,XLK_INVALID_ANSWER,'s','n') )
+        {
+            verify = 1;
+            //gen->longLongNumber = number;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Permite al usuario modifica el %campo% de un puntero a %estructura%.
+ *
+ * \param gen : Puntero a %estructura%.
+ * \param message : Mensaje a ser mostrado al pedir el dato para modificar la estructura.
+ * \param eMessage : Mensaje a ser mostrado en caso de error.
+ * \return Devuelve [-1] en caso de dato erroneo, [0] en caso de anularse la modificacion o [1] si el dato fue modificado.
+ *
+ */
+
+int eGeneric_ModidyDouble(eGeneric* gen, char message[], char eMessage[])
+{
+    int verify = -1;
+    // double number;
+    //getRangedLong(&aux,0,100,"Ingrese nuevo entero: ","Entero invalido.");
+//   if( getConditionedFloat(&number,0,1,message,eMessage ) )
+    {
+        verify = 0;
+        if( validateDualExit(XLK_EXITMSG,XLK_INVALID_ANSWER,'s','n') )
+        {
+            verify = 1;
+            //     gen->doubleNumber = number;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Permite al usuario modifica el %campo% de un puntero a %estructura%.
+ *
+ * \param gen : Puntero a %estructura%.
+ * \param message : Mensaje a ser mostrado al pedir el dato para modificar la estructura.
+ * \param eMessage : Mensaje a ser mostrado en caso de error.
+ * \return Devuelve [-1] en caso de dato erroneo, [0] en caso de anularse la modificacion o [1] si el dato fue modificado.
+ *
+ */
+
+int eGeneric_ModifyChar(eGeneric* gen, char message[], char eMessage[])
+{
+    int verify = -1;
+    char character;
+
+    if( getRangedChar(&character,0,1,message,eMessage,1 ) )
+    {
+        verify = 0;
+        if( validateDualExit(XLK_EXITMSG,XLK_INVALID_ANSWER,'s','n') )
+        {
+            verify = 1;
+            gen->character = character;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Permite al usuario modifica el %campo% de un puntero a %estructura%.
+ *
+ * \param gen : Puntero a %estructura%.
+ * \param message : Mensaje a ser mostrado al pedir el dato para modificar la estructura.
+ * \param eMessage : Mensaje a ser mostrado en caso de error.
+ * \return Devuelve [-1] en caso de dato erroneo, [0] en caso de anularse la modificacion o [1] si el dato fue modificado.
+ *
+ */
+
+int eGeneric_ModidyString(eGeneric* gen, char message[], char eMessage[])
+{
+    int verify = -1;
+    char vec[100];
+    if( getRangedStr(vec,0,1,message,eMessage,1) )
+    {
+        verify = 0;
+        if( validateDualExit(XLK_EXITMSG,XLK_INVALID_ANSWER,'s','n') )
+        {
+            verify = 1;
+            strcpy( gen->vec, vec);
+        }
+    }
+    return verify;
+}
+
+
+
+//BUCAR DATOS
+
+
+
+/** \brief Compara un dato de un puntero a %estructura% con otro y verifica si son iguales.
+ *
+ * \param gen : puntero a %estructura% .
+ * \param data : numero int que sera comparado con el que guarda la estructura.
+ * \return Devuelve [-1] en caso de error , [0] si hay igualdad entre los datos o [1] si la hay.
+ *
+ */
+
+int eGeneric_CheckInt(eGeneric* gen, int data)
+{
+    int verify = -1;
+    if( gen  != NULL )
+    {
+        verify = 0;
+        if( gen->intNumber == data)
+        {
+            verify = 1;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Compara un dato de un puntero a %estructura% con otro y verifica si son iguales.
+ *
+ * \param gen : puntero a %estructura% .
+ * \param data : numero float que sera comparado con el que guarda la estructura.
+ * \return Devuelve [-1] en caso de error , [0] si hay igualdad entre los datos o [1] si la hay.
+ *
+ */
+
+int eGeneric_CheckFloat(eGeneric* gen, float data)
+{
+    int verify = -1;
+    if( gen  != NULL )
+    {
+        verify = 0;
+        if( gen->intNumber == data)
+        {
+            verify = 1;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Compara un dato de un puntero a %estructura% con otro y verifica si son iguales.
+ *
+ * \param gen : puntero a %estructura% .
+ * \param data : numero long que sera comparado con el que guarda la estructura.
+ * \return Devuelve [-1] en caso de error , [0] si hay igualdad entre los datos o [1] si la hay.
+ *
+ */
+
+int eGeneric_CheckLong(eGeneric* gen, long data)
+{
+    int verify = -1;
+    if( gen  != NULL )
+    {
+        verify = 0;
+        if( gen->longNumber == data)
+        {
+            verify = 1;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Compara un dato de un puntero a %estructura% con otro y verifica si son iguales.
+ *
+ * \param gen : puntero a %estructura% .
+ * \param data : numero long long que sera comparado con el que guarda la estructura.
+ * \return Devuelve [-1] en caso de error , [0] si hay igualdad entre los datos o [1] si la hay.
+ *
+ */
+
+int eGeneric_CheckLongLong(eGeneric* gen, long long data)
+{
+    int verify = -1;
+    if( gen  != NULL )
+    {
+        verify = 0;
+        if( gen->longLongNumber == data)
+        {
+            verify = 1;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Compara un dato de un puntero a %estructura% con otro y verifica si son iguales.
+ *
+ * \param gen : puntero a %estructura% .
+ * \param data : numero double que sera comparado con el que guarda la estructura.
+ * \return Devuelve [-1] en caso de error , [0] si hay igualdad entre los datos o [1] si la hay.
+ *
+
+ */
+int eGeneric_checkDouble(eGeneric* gen, double data)
+{
+    int verify = -1;
+    if( gen  != NULL )
+    {
+        verify = 0;
+        if( gen->doubleNumber == data)
+        {
+            verify = 1;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Compara un dato de un puntero a %estructura% con otro y verifica si son iguales.
+ *
+ * \param gen : puntero a %estructura% .
+ * \param data : Caracter que sera comparado con el que guarda la estructura.
+ * \return Devuelve [-1] en caso de error , [0] si hay igualdad entre los datos o [1] si la hay.
+ *
+ */
+
+int eGeneric_checkChar(eGeneric* gen, char data)
+{
+    int verify = -1;
+    if( gen  != NULL )
+    {
+        verify = 0;
+        if( gen->character == data)
+        {
+            verify = 1;
+        }
+    }
+    return verify;
+}
+
+
+
+/** \brief Compara un dato de un puntero a %estructura% con otro y verifica si son iguales.
+ *
+ * \param gen : puntero a %estructura% .
+ * \param data : Cadena de caracteres que sera comparada con la que guarda la estructura.
+ * \return Devuelve [-1] en caso de error , [0] si hay igualdad entre los datos o [1] si la hay.
+ *
+ */
+
+int eGeneric_checkString(eGeneric* gen, char data[])
+{
+    int verify = -1;
+    if( gen  != NULL )
+    {
+        verify = 0;
+        if( stricmp( gen->character, data) == 0)
+        {
+            verify = 1;
+        }
+    }
+    return verify;
+}
