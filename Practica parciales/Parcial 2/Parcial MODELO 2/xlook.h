@@ -43,8 +43,8 @@ DEFINES MAS UTILIZADOS :
 #define XLK_SYNC_OK "Sincronizacion correcta."
 #define XLK_SYNC_ERROR "SINCRONIZACION INCORRECTA."
 
-#define XLK_INVALID_DATA "Se produjo un error durante la validacion de los datos."
-#define XLK_VALID_DATA "Validacion de datos exitosa."
+#define XLK_INVALID_DATA "Se produjo un error durante la validacion de datos."
+#define XLK_VALID_DATA "Validacion exitosa."
 
 #define XLK_VALID_ANSWER "Respuesta reconocida."
 #define XLK_INVALID_ANSWER "No se reconoce su respuesta."
@@ -69,7 +69,7 @@ void xlkIndexBodyGenerator(int mode , int totalOptions,...); //XL1-3
 void xlkShowMessage(char* message, int startEnters ,int endEnters, int adds ); //XL1-4
 void stringSeparator(int splitterCharacter, char* string1, char* string2 ); //XL1-5
 void xlkSortPrintf(int mode,char* dataType, int totalArguments,...); //XL1-6
-void xlkCenterPrintf(char* word, int mode);  //XL1-7
+void xlkCenterPrintf( int mode , char* word );  //XL1-7
 void xlkEnterPrinter(int number);
 void xlkMessageAutoSwitch(int switchNumber , int arguments, ...);
 void xlkLinePrinter(int mode);

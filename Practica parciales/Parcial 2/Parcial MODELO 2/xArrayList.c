@@ -12,6 +12,7 @@ int contract(arrayList* this,int index);
 
 #define AL_INCREMENT      10
 #define AL_INITIAL_VALUE  10
+
 //___________________
 
 /** \brief Allocate a new arrayList with AL_INITIAL_VALUE elements.
@@ -414,6 +415,7 @@ arrayList* al_subList(arrayList* this,int from,int to)
 {
     arrayList* returnAux = NULL;
 
+
     if( this != NULL && from != to && from < to && from >= 0 && to >= 0  )
     {
         returnAux = al_newArrayList();
@@ -426,6 +428,7 @@ arrayList* al_subList(arrayList* this,int from,int to)
             }
         }
     }
+
     return returnAux ;
 }
 

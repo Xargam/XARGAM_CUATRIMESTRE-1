@@ -412,7 +412,7 @@ char* generic_getString( eGeneric* xGen)
 
 /** \brief Pide %estructura% .
  *
- * \return Devuelve un puntero a %estructura% cargado de datos.
+ * \return Devuelve un puntero a %estructura% cargado de datos en caso de error devuelve NULL.
  *
  */
 
@@ -893,3 +893,35 @@ int eGeneric_checkString(eGeneric* gen, char data[])
     }
     return verify;
 }
+
+
+//COMPARAR ESTRUCTURAS
+
+
+
+/** \brief Compara el %campo% de dos %estructura%.
+ *
+ * \param generic1 : Puntero de tipo %estructura% a comparar con el segundo.
+ * \param generic2 : Puntero de tipo %estructura% que sera comparado con el primero.
+ * \return Devuelve [1] si el primer %estructura% es mayor, [0] si son iguales o [-1] si el primer %estructura% menor.
+ *
+ */
+
+int generic_compare(void* generic1 ,void* generic2)
+{
+    int verify = 0;
+
+    if(((eGeneric*)generic1)->intNumber > ((eGeneric*)generic2)->intNumber )
+    {
+        verify = 1;
+    }
+    if(((eGeneric*)generic1)->intNumber < ((eGeneric*)generic2)->intNumber)
+    {
+        verify = -1;
+    }
+    return verify;
+}
+
+
+
+

@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+
 #include "xget.h"
 #include "xlook.h"
 
 #include "xArrayList.h"
+#include "xClientes.h"
+
 
 /*
 Una compañía desea mejorar su servicio de atención al cliente para lo cual decide
@@ -32,40 +36,31 @@ int main()
 {
     int selection;
     int quit = 0;
+    int  i;
+    int turno = 1;
+
+
     arrayList* tramiteRegular = al_newArrayList();
     arrayList* tramiteUrgente = al_newArrayList();
-    if( tramiteRegular == NULL || tramiteUrgente == NULL)
+    arrayList* atendidos = al_newArrayList();
+
+    eClientes* cliente;
+
+    if( tramiteRegular == NULL || tramiteUrgente == NULL || atendidos == NULL )
     {
         xlkShowMessage(XLK_MEM_ERROR,0,0,3);
     }
 
     do
     {
-        xlkIndexGenerator("TURNO SOFT V1.0.0",6,"1* Tramite urgente.","2* Tramite regular.","3* Proximo cliente.","4* Listar.","5* Informar.","6*  Salir.");
+        xlkIndexGenerator("TURNO SOFT V1.0.0",6,"1* Tramite regular.","2* Tramite urgente.","3* Proximo cliente.","4* Listar.","5* Informar.","6* Salir.");
         if( getValidInt(&selection,"Seleccionar opcion: ","Opcion invalida.") )
         {
             system("cls");
-            switch(selection)
-            {
-            case 1:
-
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            }
         }
         system("pause");
     }
     while( quit == 0);
-
 
     return 0;
 }

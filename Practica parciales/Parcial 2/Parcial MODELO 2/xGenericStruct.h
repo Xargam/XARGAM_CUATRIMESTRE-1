@@ -74,5 +74,7 @@ int eGeneric_checkDouble(eGeneric* gen , double data);
 int eGeneric_checkChar(eGeneric* gen , char data);
 int eGeneric_checkString(eGeneric* gen , char data[]);
 
+//COMPARAR ESTRUCTURAS
 
+int generic_compare(void* generic1 ,void* generic2);
 

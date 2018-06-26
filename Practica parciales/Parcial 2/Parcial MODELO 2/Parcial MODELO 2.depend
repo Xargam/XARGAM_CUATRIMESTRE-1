@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1529978154 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xarraylist.c
+1530044089 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xarraylist.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -24,7 +24,7 @@
 	<conio.h>
 	<string.h>
 
-1529960382 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xlook.c
+1530038561 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xlook.c
 	<stdio.h>
 	<stdlib.h>
 	<stdarg.h>
@@ -52,17 +52,19 @@
 	<stdlib.h>
 	<string.h>
 
-1529989368 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xclientes.c
+1530044089 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xclientes.c
 	<stdio.h>
 	<stdlib.h>
 	"xget.h"
 	"xlook.h"
+	"xvalidate.h"
+	"xClientes.h"
 
 1529910644 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xget.h
 
-1529992818 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xlook.h
+1530038495 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xlook.h
 
-1529992747 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xgenericstruct.c
+1530044089 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xgenericstruct.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -73,12 +75,15 @@
 
 1529787035 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xvalidate.h
 
-1529992763 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xgenericstruct.h
+1530024969 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xgenericstruct.h
 
-1529989955 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\main.c
+1530035344 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"xget.h"
 	"xlook.h"
 	"xArrayList.h"
+	"xClientes.h"
+
+1530044089 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xclientes.h
 

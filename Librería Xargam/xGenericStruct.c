@@ -893,3 +893,23 @@ int eGeneric_checkString(eGeneric* gen, char data[])
     }
     return verify;
 }
+
+
+//COMPARAR ESTRUCTURAS
+
+
+
+int generic_compare(void* generic1 ,void* generic2)
+{
+    int verify = 0;
+
+    if(((eGeneric*)generic1)->intNumber > ((eGeneric*)generic2)->intNumber )
+    {
+        verify = 1;
+    }
+    if(((eGeneric*)generic1)->intNumber < ((eGeneric*)generic2)->intNumber)
+    {
+        verify = -1;
+    }
+    return verify;
+}
