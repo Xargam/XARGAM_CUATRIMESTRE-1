@@ -62,10 +62,10 @@ int strNumCmp(char* number1, char* number2);        //XG1-4
 
 //Pedir string:
 
-int getRangedStr(char** word ,int minChars,int maxChars,char *message,char *eMessage, int mode);           //XG1-5
-int getRangedAlphaStr(char** word,int minChars, int maxChars, char *message,char *eMessage,int mode);      //XG1-6
-int getRangedAlphaNumStr(char** word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.1
-int getRangedGraphicStr(char** word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.2
+int getRangedStr(char* word, int minChars,int maxChars,char *message,char *eMessage, int mode);           //XG1-5
+int getRangedAlphaStr(char* word ,int minChars, int maxChars, char *message,char *eMessage,int mode);      //XG1-6
+int getRangedAlphaNumStr(char* word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.1
+int getRangedGraphicStr(char* word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.2
 
 //Pedir numeros o caracteres sin validar:
 
@@ -96,6 +96,5 @@ int getConditionedLong(long* number,long refNumber,int condition,char* message,c
 // Otras:
 
 int getPersonGender(char* character,char* text,char* errorText);       //XG3-3
-char* getCharPointer(void);
 
 #endif // XGET_H_INCLUDED

@@ -20,7 +20,8 @@
 int validateIsNum(char* number)
 {
     int verify = 1;
-    for(int i = 0; number[i] != '\0'; i++)
+    int i;
+    for( i = 0; number[i] != '\0'; i++)
     {
         if(isdigit(number[i])== 0)
         {
@@ -52,7 +53,8 @@ int validateIsRealNum(char* number)
 {
     int verify = 1, pointCounter = 0, negNum = 0;
 
-    for(int i = 0; number[i] != '\0'; i++)
+    int i;
+    for( i = 0; number[i] != '\0'; i++)
     {
         if(number[i] == '.' && i == 1 && negNum == 1)
         {
@@ -183,6 +185,7 @@ void zeroFixer(char* number)
 
     //Elimina los ceros delante del numero y busca el punto decimal.
     int i;
+    int j;
     for(i = 0; number[i] != '\0'; i++)
     {
         if(number[i] == '-')
@@ -192,7 +195,7 @@ void zeroFixer(char* number)
 
         if(number[i] == '0' && number[i+1] != '.' && flag == 0)
         {
-            for(int j = i; number[j] != '\0'; j++)
+            for( j = i; number[j] != '\0'; j++)
             {
                 number[j] = number[j+1];
             }
@@ -220,7 +223,7 @@ void zeroFixer(char* number)
         strrev(number);
         for(i = 0; number[i] == '0'; i++)
         {
-            for(int j = i; number[j] != '\0'; j++)
+            for( j = i; number[j] != '\0'; j++)
             {
                 number[j] = number[j+1];
             }
@@ -445,114 +448,99 @@ int strNumCmp(char* number1, char* number2)
 //Pedir string:
 
 
-
-/** \brief Obtiene espacio en la memoria estatica para un caracter.
- *
- * \return Devuelve un puntero al caracter.
- *
- */
-
-char* getCharPointer(void)
-{
-    char character = ' ';
-    char* pointer = &character;
-    return pointer;
-}
-
-
 //XG1-5
-/** \brief pide un string al usuario y lo guarda solo si cumple con la cantidad de caracteres especificada.
+/** \brief pide un string al usuario de hasta 1000 caracteres y lo guarda en otra pasada por parametro.
  *
- * \param word: Direccion de memoria de un puntero donde guardar el string.
+ * \param word : cadaena de caracteres donde se guardara la cadena pedida.
  * \param minChars Cantidad minima de caracteres del string.
  * \param maxChars Cantidad maxima de caracteres del string.
  * \param message: Mensaje a ser mostrado.
  * \param eMessage: Mensaje a ser mostrado en caso de error.
- * \param mode 1: pide un string sin limitaciones (puede contener espacios).
+ * \param mode distinto de 0 : pide un string sin limitaciones (puede contener espacios).
  * \param mode 0: pide un string limitado a una palabra (sin espacios).
- * \return Devuelve [1] si el string se valido y se guardo o [0] si no se lo pudo validar.
+ * \return Devuelve [1] si la cadena es valida o [0] si no lo es.
  *
  */
 
-int getRangedStr(char** word,int minChars,int maxChars,char* message,char* eMessage, int mode)
+int getRangedStr(char* word, int minChars,int maxChars,char* message,char* eMessage, int mode)
 {
-    char palabra[1000];
-    int verificacion = 1;
-    *word = getCharPointer();
+    int verify = 0;
+    if( eMessage != NULL && message != NULL && word != NULL)
+    {
+        char auxWord[1000];
+        if(mode)
+        {
+            printf("* %s", message);
+            scanf("%999[^\n]",auxWord);
+            while(getchar() != '\n');
+        }
+        else
+        {
+            printf("* %s", message);
+            scanf("%999s",auxWord);
+            while(getchar() != '\n');
+        }
+        if(strlen(auxWord) > maxChars || strlen(auxWord) < minChars)
+        {
+            printf("** %s\n\n",eMessage);
+        }
+        else
+        {
+            strcpy(word, auxWord);
+            verify = 1;
+        }
 
-    if(mode)
-    {
-        printf("* %s", message);
-        scanf("%999[^\n]",palabra);
-        while(getchar() != '\n');
-    }
-    else
-    {
-        printf("* %s", message);
-        scanf("%999s",palabra);
-        while(getchar() != '\n');
-    }
-    if(strlen(palabra) > maxChars || strlen(palabra) < minChars)
-    {
-        printf("** %s\n\n",eMessage);
-        verificacion = 0;
-    }
-    else
-    {
-        char auxPtr[strlen(palabra)+1];
-        strcpy(auxPtr, palabra);
-        *word = auxPtr;
     }
 
-    return verificacion ;
+    return verify;
 }
 
 
 //XG1-6
 /** \brief Pide un string con una cantidad de caracteres unicamente alfabeticos especificada y lo guarda solo si es valido.
  *
- * \param word: Direccion de memoria de un puntero donde guardar el string.
+ * \param word: cadena de caracteres donde se copiara el string pedido al usuario.
  * \param minChars Cantidad minima de caracteres del string.
  * \param maxChars Cantidad maxima de caracteres del string.
  * \param message: Mensaje a ser mostrado.
  * \param eMessage: Mensaje a ser mostrado en caso de error.
  * \param mode 1: pide un string sin limitaciones (puede contener espacios).
  * \param mode 0: pide un string limitado a una palabra (sin espacios).
- * \return Devuelve [0] si el string fue validado y guardado o [-1] si no pudo validarse.
+ * \return Devuelve [1] si el string fue validado y guardado o [0] si no pudo validarse.
  *
  */
 
-int getRangedAlphaStr(char** word,int minChars, int maxChars, char *message,char *eMessage,int mode)
+int getRangedAlphaStr(char* word,int minChars, int maxChars, char *message,char *eMessage,int mode)
 {
-    char palabra[1000];
-    int verificacion = 1;
-    *word = getCharPointer();
+    char auxWord[1000];
+    int verify = 1;
 
-    if(mode)
+    if(message != NULL && eMessage != NULL)
     {
-        printf("* %s", message);
-        scanf("%999[^\n]",palabra);
-        while(getchar() != '\n');
-    }
-    else
-    {
-        printf("* %s", message);
-        scanf("%999s",palabra);
-        while(getchar() != '\n');
-    }
-    if(strlen(palabra) > maxChars || strlen(palabra) < minChars || !validateIsAlphabeticStr(palabra))
-    {
-        printf("** %s\n\n",eMessage);
-        verificacion = 0;
-    }
-    else
-    {
-        char auxPtr[strlen(palabra)+1];
-        strcpy(auxPtr, palabra);
-        *word = auxPtr;
+        if(mode)
+        {
+            printf("* %s", message);
+            scanf("%999[^\n]",auxWord);
+            while(getchar() != '\n');
+        }
+        else
+        {
+            printf("* %s", message);
+            scanf("%999s",auxWord);
+            while(getchar() != '\n');
+        }
+        if(strlen(auxWord) > maxChars || strlen(auxWord) < minChars || !validateIsAlphabeticStr(auxWord))
+        {
+            printf("** %s\n\n",eMessage);
+            verify = 0;
+        }
+        else
+        {
+            strcpy(word, auxWord);
+        }
     }
 
-    return verificacion ;
+    return verify ;
 }
 
 
@@ -570,36 +558,33 @@ int getRangedAlphaStr(char** word,int minChars, int maxChars, char *message,char
  *
  */
 
-int getRangedAlphaNumStr(char** word,int minChars, int maxChars, char* message, char* eMessage, int mode)    //XG1-6.1
+int getRangedAlphaNumStr(char* word,int minChars, int maxChars, char* message, char* eMessage, int mode)    //XG1-6.1
 {
-    char palabra[1000];
-    int verificacion = 1;
-    *word = getCharPointer();
+    char auxWord[1000];
+    int verify = 1;
 
     if(mode)
     {
         printf("* %s", message);
-        scanf("%999[^\n]",palabra);
+        scanf("%999[^\n]",auxWord);
         while(getchar() != '\n');
     }
     else
     {
         printf("* %s", message);
-        scanf("%999s",palabra);
+        scanf("%999s",auxWord);
         while(getchar() != '\n');
     }
-    if(strlen(palabra) > maxChars || strlen(palabra) < minChars || !validateIsAlphanumericStr(palabra))
+    if(strlen(auxWord) > maxChars || strlen(auxWord) < minChars || !validateIsAlphanumericStr(auxWord))
     {
         printf("** %s\n\n",eMessage);
-        verificacion = 0;
+        verify = 0;
     }
     else
     {
-        char auxPtr[strlen(palabra)+1];
-        strcpy(auxPtr, palabra);
-        *word = auxPtr;
+        strcpy(word, auxWord);
     }
-    return verificacion ;
+    return verify ;
 
 }
 
@@ -618,37 +603,34 @@ int getRangedAlphaNumStr(char** word,int minChars, int maxChars, char* message, 
  *
  */
 
-int getRangedGraphicStr(char** word,int minChars, int maxChars, char* message, char* eMessage, int mode)
+int getRangedGraphicStr(char* word,int minChars, int maxChars, char* message, char* eMessage, int mode)
 {
-    char palabra[1000];
-    int verificacion = 1;
-    *word = getCharPointer();
+    char auxWord[1000];
+    int verify = 1;
 
     if(mode)
     {
         printf("* %s", message);
-        scanf("%999[^\n]",palabra);
+        scanf("%999[^\n]",auxWord);
         while(getchar() != '\n');
     }
     else
     {
         printf("* %s", message);
-        scanf("%999s",palabra);
+        scanf("%999s",auxWord);
         while(getchar() != '\n');
     }
-    if(strlen(palabra) > maxChars || strlen(palabra) < minChars || !validateIsGraphicStr(palabra))
+    if(strlen(auxWord) > maxChars || strlen(auxWord) < minChars || !validateIsGraphicStr(auxWord))
     {
         printf("** %s\n\n",eMessage);
-        verificacion = 0;
+        verify = 0;
     }
     else
     {
-        char auxPtr[strlen(palabra)+1];
-        strcpy(auxPtr, palabra);
-        *word = auxPtr;
+        strcpy(word, auxWord);
     }
 
-    return verificacion ;
+    return verify ;
 }
 
 

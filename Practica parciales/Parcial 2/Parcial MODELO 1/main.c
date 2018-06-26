@@ -42,9 +42,10 @@ int main()
     int j;
 
     arrayList* destinatarios = al_newArrayList();
+    arrayList* listaNegra = al_newArrayList();
     arrayList* depuracion = al_newArrayList();
 
-    if( depuracion == NULL || destinatarios == NULL)
+    if( depuracion == NULL || destinatarios == NULL || listaNegra == NULL)
     {
         xlkShowMessage(XLK_MEM_ERROR,0,0,3);
     }
@@ -63,6 +64,9 @@ int main()
                     if( strcmp(filename,"destinatarios.csv") == 0 )
                     {
                         xlkShowMessage(XLK_VALID_FILE,1,1,-1);
+                        generic2_PointerDestroyer(destinatarios->pElements,destinatarios->len(destinatarios));
+                        destinatarios->clear(destinatarios);
+                        depuracion->clear(depuracion);
                         if( xmailParser(filename,destinatarios) )
                         {
                             xlkShowMessage(XLK_PARSER_OK,0,1,-1);
@@ -85,7 +89,10 @@ int main()
                     if( strcmp(filename,"lista negra.csv") == 0 )
                     {
                         xlkShowMessage(XLK_VALID_FILE,1,1,-1);
-                        if( xmailParser(filename,destinatarios) )
+                        generic2_PointerDestroyer(listaNegra->pElements,listaNegra->len(listaNegra));
+                        listaNegra->clear(listaNegra);
+                        depuracion->clear(depuracion);
+                        if( xmailParser(filename,listaNegra) )
                         {
                             xlkShowMessage(XLK_PARSER_OK,0,1,-1);
                             xlkShowMessage("Destinatarios en lista negra cargados con exito.",0,2,-1);
@@ -102,34 +109,48 @@ int main()
                 }
                 break;
             case 3:
-                for( i = 0 ; i < destinatarios->len(destinatarios)-1 ; i++)
+                if(destinatarios->len(destinatarios) == 0 )
                 {
-                    for( j = 0 ; j < destinatarios->len(destinatarios) ; j++ )
+                    xlkShowMessage("No se encontro el archivo con destinatarios.",0,2,-1);
+                }
+                else if(  listaNegra->len(listaNegra) == 0)
+                {
+                    xlkShowMessage("No se encontro el archivo con lista negra a comparar.",0,2,-1);
+                }
+                else
+                {
+                    depuracion->clear(depuracion);
+                    for( i = 0 ; i < destinatarios->len(destinatarios) ; i++)
                     {
-                        if( xmailComparaEmail( destinatarios->get(destinatarios,i) ,  ) )
+                        for( j = 0 ; j < listaNegra->len(listaNegra) ; j++ )
+                        {
+                            if( xmailComparaEmail(destinatarios->get(destinatarios,i),listaNegra->get(listaNegra,j)) == 1 )
+                            {
+                                break;
+                            }
+                            if( j == listaNegra->len(listaNegra)-1 )
+                            {
+                                depuracion->add(depuracion, destinatarios->get(destinatarios,i));
+                            }
+                        }
                     }
-                    if( destinatarios->contains(destinatarios, destinatarios->get(destinatarios, i)) < 2 )
-                    {
-                        depuracion->add(depuracion,destinatarios->get(destinatarios, i));
-                    }
+                    xlkShowMessage("La depuracion de destinatarios se completo correctamente.",0,2,-1);
                 }
                 break;
             case 4:
                 if( depuracion->len(depuracion) > 0)
                 {
-                    xlkCenterPrintf("LISTA DE DESTINATARIOS",2);
+                    xlkCenterPrintf("LISTA DE DESTINATARIOS FINALES",2);
                     for(i = 0 ; i < depuracion->len(depuracion) ; i++ )
                     {
-                        printf("I %d\n",i);
                         xmailMostrarDestinatario(depuracion->get(depuracion,i) );
                     }
                 }
                 else if( destinatarios->len(destinatarios) > 0)
                 {
-                    xlkCenterPrintf("LISTA DE DESTINATARIOS",2);
+                    xlkCenterPrintf("LISTA DE DESTINATARIOS FINALES",2);
                     for(i = 0 ; i < destinatarios->len(destinatarios) ; i++ )
                     {
-                        printf("I %d\n",i);
                         xmailMostrarDestinatario(destinatarios->get(destinatarios,i) );
                     }
                 }
@@ -137,7 +158,6 @@ int main()
                 {
                     xlkShowMessage("No hay destinatarios cargados.",0,2,-1);
                 }
-
                 break;
             case 5:
                 system("cls");
@@ -149,8 +169,11 @@ int main()
         system("pause");
     }
     while(quit == 0);
-
     generic2_PointerDestroyer(destinatarios->pElements,destinatarios->len(destinatarios));
+    generic2_PointerDestroyer(listaNegra->pElements,listaNegra->len(listaNegra));
+    generic2_PointerDestroyer(depuracion->pElements,depuracion->len(depuracion));
     destinatarios->deleteArrayList(destinatarios);
+    listaNegra->deleteArrayList(listaNegra);
+    depuracion->deleteArrayList(depuracion);
     return 0;
 }

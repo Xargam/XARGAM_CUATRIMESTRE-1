@@ -109,14 +109,9 @@ int al_deleteArrayList(arrayList* this)
     if( this != NULL )
     {
         verify = 0;
-        int i;
-        for( i = 0 ; i < this->len(this) ; i++)
-        {
-            free( this->pElements + i );
-        }
+        free(this->pElements);
         free(this);
     }
-
     return verify;
 }
 
@@ -129,17 +124,13 @@ int al_deleteArrayList(arrayList* this)
 int al_len(arrayList* this)
 {
     int length = -1;
-    int returnChecker;
-    returnChecker = al_isEmpty(this);
-    if( returnChecker == 0)
+    if( this != NULL)
     {
-        length = this->size;
+        if( al_isEmpty(this) != -1)
+        {
+            length = this->size;
+        }
     }
-    else if ( returnChecker == 1)
-    {
-        length = 0;
-    }
-
     return length;
 }
 
@@ -169,7 +160,7 @@ void* al_get(arrayList* this, int index)
  * \param pElement void* Pointer to element
  * \return int Return (-1) if Error [pList or pElement are NULL pointer]
  *                  - ( 0) if Ok but not found a element
- *                  - ( 1+) if this list contains at least one element pElement
+ *                  - ( 1) if this list contains at least one element pElement
  *
  */
 int al_contains(arrayList* this, void* pElement)
@@ -181,9 +172,9 @@ int al_contains(arrayList* this, void* pElement)
         verify = 0;
         for(i = 0 ; i < this->len(this) ; i++)
         {
-            if( *(this->pElements + i) == pElement)
+            if( this->get(this,i) == pElement)
             {
-                verify++;
+                verify = 1;
                 break;
             }
         }
@@ -206,10 +197,20 @@ int al_set(arrayList* this, int index,void* pElement)
 
     if( this != NULL && pElement != NULL   )
     {
-        if( index < this->len(this) && index >= 0 )
+        if( index <= this->len(this) && index >= 0 )
         {
-            verify = 0;
-            *(this->pElements + index) = pElement;
+            if( index == this->len(this) )
+            {
+                if( !this->add(this, pElement) )
+                {
+                    verify = 0;
+                }
+            }
+            else
+            {
+                *(this->pElements + index) = pElement;
+                verify = 0;
+            }
         }
     }
 
@@ -228,8 +229,10 @@ int al_remove(arrayList* this,int index)
     int verify = -1;
     if( this != NULL && index >= 0 && index < this->len(this))
     {
-        verify = 0;
-        contract(this, index);
+        if( !contract(this, index) )
+        {
+            verify = 0;
+        }
     }
 
     return verify ;
@@ -248,13 +251,15 @@ int al_clear(arrayList* this)
 
     if( this != NULL)
     {
-        int i;
-        verify = 0;
-        for( i = 0; i < this->len(this) ; i++)
+        void** auxElements;
+        auxElements =(void**) realloc(this->pElements,sizeof(void*));
+        if(auxElements != NULL)
         {
-            free( (this->pElements + i) );
+            verify = 0;
+            this->pElements = auxElements;
+            this->size = 0;
+            this->reservedSize = 0;
         }
-        this->size = 0;
 
     }
     return verify;
@@ -277,17 +282,13 @@ arrayList* al_clone(arrayList* this)
             int i;
             for( i = 0 ; i < this->len(this) ; i++)
             {
-                returnAux->add(returnAux, *(this->pElements + i ) );
+                returnAux->add(returnAux, this->get(this,i));
             }
             returnAux = this;
         }
-
-
     }
-
     return returnAux;
 }
-
 
 
 
@@ -303,11 +304,24 @@ int al_push(arrayList* this, int index, void* pElement)
     int verify = -1;
     if( this != NULL && index <= this->len(this) && index >= 0 )
     {
-        verify = 0;
-        expand(this,index);
-        this->set(this,index,pElement);
+        if( index == this->len(this))
+        {
+            if( !this->add(this, pElement) )
+            {
+                verify = 0;
+            }
+        }
+        else
+        {
+            if( !expand(this,index) )
+            {
+                if( !this->set(this,index,pElement) )
+                {
+                    verify = 0;
+                }
+            }
+        }
     }
-
     return verify;
 }
 
@@ -352,7 +366,7 @@ int al_isEmpty(arrayList* this)
         {
             verify = 1;
         }
-        else
+        else if(this->size > 0)
         {
             verify = 0;
         }
@@ -375,11 +389,17 @@ void* al_pop(arrayList* this,int index)
     void* returnAux = NULL;
     if( this != NULL && index >= 0 && index < this->len(this) )
     {
-        returnAux = *(this->pElements + index);
-        contract(this,index);
+        if( (returnAux = this->get(this,index))!= NULL)
+        {
+            if( contract(this,index) )
+            {
+                returnAux = NULL;
+            }
+        }
     }
     return returnAux;
 }
+
 
 
 /** \brief Returns a new arrayList with a portion of pList between the specified
@@ -392,21 +412,20 @@ void* al_pop(arrayList* this,int index)
  */
 arrayList* al_subList(arrayList* this,int from,int to)
 {
-    arrayList* returnAux = al_newArrayList();
+    arrayList* returnAux = NULL;
 
     if( this != NULL && from != to && from < to && from >= 0 && to >= 0  )
     {
-        int i;
-        for( i = from ; i < to ; i++)
+        returnAux = al_newArrayList();
+        if( returnAux != NULL)
         {
-            returnAux->add(returnAux, this->get(this,i) );
+            int i;
+            for( i = from ; i < to ; i++)
+            {
+                returnAux->add(returnAux, this->get(this,i) );
+            }
         }
     }
-    else
-    {
-        returnAux = NULL;
-    }
-
     return returnAux ;
 }
 
@@ -423,15 +442,15 @@ int al_containsAll(arrayList* this,arrayList* this2)
     int verify = -1;
     if( this != NULL && this2 != NULL)
     {
-        int i;
         if( this->len(this) != this2->len(this2) )
         {
             verify = 0;
         }
         else
         {
+            int i;
             verify = 1;
-            for( i = 0 ; i < this->len(this) && i < this2->len(this2) ; i++ )
+            for( i = 0 ; i < this->len(this) ; i++ )
             {
                 if( this->get(this,i) != this2->get(this2,i)  )
                 {
@@ -456,10 +475,10 @@ int al_sort(arrayList* this, int (*pFunc)(void*,void*), int order)
     int returnAux = -1;
     int i;
     int j;
-    void* aux;
 
     if( this != NULL && pFunc != NULL)
     {
+        void* aux;
         if(order == 1)
         {
             returnAux = 0;
@@ -505,17 +524,17 @@ int al_sort(arrayList* this, int (*pFunc)(void*,void*), int order)
  */
 int resizeUp(arrayList* this)
 {
-    void** pElementsAux;
     int verify = -1;
     if( this != NULL)
     {
+        void** pElementsAux;
         int newSize = this->reservedSize + AL_INCREMENT;
         pElementsAux=(void**)realloc(this->pElements, sizeof(void*)*newSize);
         if( pElementsAux != NULL )
         {
             verify = 0;
             this->pElements = pElementsAux;
-            this->reservedSize += AL_INCREMENT;
+            this->reservedSize = newSize;
         }
     }
     return verify;
@@ -530,11 +549,11 @@ int resizeUp(arrayList* this)
  */
 int resizeDown(arrayList* this)
 {
-    void** pElementsAux;
     int verify = -1;
     if( this != NULL)
     {
-        int newSize = (this->reservedSize-AL_INCREMENT);
+        void** pElementsAux;
+        int newSize = this->reservedSize - AL_INCREMENT;
         pElementsAux = (void**)realloc(this->pElements, sizeof(void*)*newSize);
         if( pElementsAux != NULL )
         {
@@ -556,15 +575,16 @@ int expand(arrayList* this,int index)
     int verify = -1;
     if( this != NULL )
     {
-        int i;
         verify = 0;
         this->size++;
         if( this->len(this) == this->reservedSize  )
         {
             verify =  resizeUp(this);
         }
+
         if( !verify )
         {
+            int i;
             for( i = this->len(this) ; i > index  ; i--)
             {
                 this->set(this,i,this->get(this,i-1));
@@ -592,6 +612,13 @@ int contract(arrayList* this,int index)
             this->set(this, i-1, this->get(this,i));
         }
         this->size--;
+        if( this->len(this) < this->reservedSize - AL_INCREMENT)
+        {
+            if( resizeDown(this) )
+            {
+                verify = -1;
+            }
+        }
     }
     return verify;
 }
@@ -716,7 +743,7 @@ int al_fileSaver( arrayList* this,  char* filePath, int dataSize)
  *
  */
 
-int al_GenericParser( char* filePath , arrayList* this  )
+int al_GenericParser( char* filePath, arrayList* this  )
 {
     int verify = 0;
     if( filePath != NULL && this != NULL)

@@ -78,11 +78,12 @@ void xlkIndexBodyGenerator(int mode,int totalOptions,...)
 {
     va_list arguments;
     va_start(arguments,totalOptions);
+    int i;
     if(mode)
     {
         printf("________________________________________________________________________________\n");
     }
-    for(int i=0; i < totalOptions; i++)
+    for( i=0; i < totalOptions; i++)
     {
         printf(" * %s\n",va_arg(arguments,char*));
     }
@@ -95,23 +96,23 @@ void xlkIndexBodyGenerator(int mode,int totalOptions,...)
 /** \brief Muestra un mensaje al usuario con enters y añadidos a elegir.
  *
  * \param message : Mensaje a mostrar.
- * \param enters : Si el numero es negativo, los enter (\n) se imprimiran antes de mostrar el mensaje.
- * \param enters : Si el numero es positivo, los enter (\n) se imprimiran despues de mostrar el mensaje.
+ * \param startEnters : Cantidad de enters(\n) que se imprimiran antes de mostrar el mensaje.
+ * \param endEnters : Cantidad de enters(\n) que se imprimiran despues de mostrar el mensaje.
+ * \param adds : [0] Muestra el mensaje con un system("cls").
  * \param adds : [1] Muestra el mensaje con un system("pause").
  * \param adds : [2] Muestra el mensaje con un system("cls") previo y un system("pause").
  * \param adds : [3] Muestra el mensaje con un system("cls") previo, un system("pause") y un exit.
- * \param adds : [ != (1, 2 ,3) ] Muestra el mensaje.
+ * \param adds : [ != (0, 1, 2 ,3) ] Muestra el mensaje.
  * \return
  *
  */
 
-void xlkShowMessage(char* message, int enters, int adds )
+void xlkShowMessage(char* message, int startEnters ,int endEnters, int adds )
 {
     int i;
-    if( enters < 0 )
+    if( startEnters > 0 )
     {
-        abs(enters);
-        for(i = 0 ; i < enters ; i++)
+        for(i = 0 ; i < startEnters ; i++)
         {
             printf("\n");
         }
@@ -119,34 +120,35 @@ void xlkShowMessage(char* message, int enters, int adds )
     switch(adds)
     {
     case 0:
-        printf(message);
+        system("cls");
+        printf("* %s",message);
         break;
     case 1:
-        printf(message);
+        printf("* %s",message);
         printf("\n\n");
         system("pause");
         break;
     case 2:
         system("cls");
-        printf(message);
+        printf("* %s",message);
         printf("\n\n");
         system("pause");
         break;
     case 3:
         system("cls");
-        printf("%s",message);
+        printf("* %s",message);
         printf("\n\n");
         system("pause");
         exit(1);
         break;
     default :
-        printf(message);
+        printf("* %s",message);
         break;
     }
 
-    if( enters > 0 )
+    if( endEnters > 0 )
     {
-        for(i = 0 ; i < enters ; i++)
+        for(i = 0 ; i < endEnters ; i++)
         {
             printf("\n");
         }
@@ -502,4 +504,26 @@ void xlkMessageAutoSwitch(int switchNumber, int arguments, ...)
         va_end(cases);
     }
 
+}
+
+
+
+/** \brief Imprime una linea decorativa punteada o recta.
+ *
+ * \param mode : [0] Imprime una linea punteada. [distinto de cero] Imprime una linea recta.
+ * \param mode : [distinto de cero] Imprime una linea recta.
+ * \return
+ *
+ */
+
+void xlkLinePrinter(int mode)
+{
+    if( !mode )
+    {
+        printf("--------------------------------------------------------------------------------");
+    }
+    else
+    {
+        printf("________________________________________________________________________________");
+    }
 }
