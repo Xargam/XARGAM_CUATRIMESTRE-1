@@ -211,9 +211,8 @@ void stringSeparator(int splitterCharacter, char* string1, char* string2 )
 //XL1-6
 /** \brief Imprime de manera ordenada argumentos de cualquier tipo de dato.
  *
- * \param mode[3]: Imprime los datos con decoracion de linea punteada solo al final.
- * \param mode[2]: Imprime los datos con decoracion de linea recta.
- * \param mode[1]: Imprime los datos con decoracion de linea punteada.
+ * \param mode[2]: Imprime los datos con decoracion de linea punteada.
+ * \param mode[1]: Imprime los datos con decoracion de linea punteada solo al final.
  * \param mode[0]: Imprime los datos sin decoracion.
  * \param dataType: String con los especificadores de formato de cada argumento, en orden, sin espacios y separados por comas.
  * \param totalArguments: cantidad de argumentos a imprimir. El maximo es 6 por cuestiones visuales.
@@ -290,13 +289,9 @@ void xlkSortPrintf(int mode,char* dataType, int totalArguments,...)
                 break;
             }
         }
-        if(mode == 1)
+        if(mode == 2)
         {
             printf("--------------------------------------------------------------------------------");
-        }
-        else if(mode == 2)
-        {
-            printf("________________________________________________________________________________\n");
         }
         printf(" ");
         for(i = 0; i < totalArguments; i++)
@@ -399,13 +394,9 @@ void xlkSortPrintf(int mode,char* dataType, int totalArguments,...)
 
     }
     printf("\n");
-    if(mode == 1 || mode == 3)
+    if(mode == 2 || mode == 1)
     {
         printf("--------------------------------------------------------------------------------");
-    }
-    else if(mode == 2)
-    {
-        printf("________________________________________________________________________________");
     }
     va_end(arguments);
 }
@@ -414,15 +405,16 @@ void xlkSortPrintf(int mode,char* dataType, int totalArguments,...)
 //XL1-7
 /** \brief Imprime un string en el centro de la pantalla.
  *
- * \param word: String a imprimir centrado.
- * \param mode[2]: Centra el texto y lo imprime con decoracion.
- * \param mode[1]: Centra el texto y lo imprime solo con la decoracion superior.
+ * \param mode[3]: Centra el texto y lo imprime con decoracion.
+ * \param mode[2]: Centra el texto y lo imprime solo con la decoracion superior.
+ * \param mode[1]: Centra el texto y lo imprime solo con la decoracion inferior.
  * \param mode[0]: Centra el texto y lo imprime.
+* \param word: String a imprimir centrado.
  * \return
  *
  */
 
-void xlkCenterPrintf(char* word, int mode)
+void xlkCenterPrintf(int mode, char* word )
 {
     int screenCenter = 30;
     int wordRef = ((strlen(word) / 2) - 1) ;
@@ -431,13 +423,16 @@ void xlkCenterPrintf(char* word, int mode)
 
     if(mode)
     {
-        printf("--------------------------------------------------------------------------------");
+        if( mode == 3 || mode == 2 )
+        {
+            printf("--------------------------------------------------------------------------------");
+        }
         for( i = 0 ; i < start ; i++)
         {
             printf(" ");
         }
         printf("<<< %s >>>\n",word);
-        if(mode == 2)
+        if(mode == 3 || mode == 1)
         {
             printf("--------------------------------------------------------------------------------");
         }
