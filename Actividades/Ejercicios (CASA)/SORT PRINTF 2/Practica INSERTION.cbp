@@ -34,6 +34,42 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="xArrayList.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xArrayList.h" />
+		<Unit filename="xFiles.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xFiles.h" />
+		<Unit filename="xGenericStruct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xGenericStruct.h" />
+		<Unit filename="xget.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xget.h" />
+		<Unit filename="xlook.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xlook.h" />
+		<Unit filename="xmath.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xmath.h" />
+		<Unit filename="xstring.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xstring.h" />
+		<Unit filename="xvalidate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xvalidate.h" />
+		<Unit filename="xvector.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xvector.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

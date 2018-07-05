@@ -455,7 +455,7 @@ int generic_show(eGeneric* gen )
     if( gen != NULL)
     {
         verify = 1;
-        xlkSortPrintf(3,"FGDFGFD",0);
+        xlkSortPrintf("FGDFGFD",0);
     }
     return verify;
 }
@@ -474,7 +474,7 @@ int generic_showAll(eGeneric* gen, int quantity)
     int i;
     for( i = 0 ; i < quantity ; i++)
     {
-        xlkSortPrintf(1,"%d,%s,%f",3);
+        xlkSortPrintf("%d,%s,%f",3);
     }
     return i-2;
 }

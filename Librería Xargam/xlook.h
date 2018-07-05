@@ -55,6 +55,13 @@ DEFINES MAS UTILIZADOS :
 
 //FUNCIONES:
 
+//Funciones complemento - TRABAJO CON CADENAS DE CARACTERES
+
+void xlkStrLimitedCpy(char string[], char remainChars[] );
+void xlkStringSeparator(int splitterCharacter, char* string1, char* string2 );
+void xlkStringCutter(char* stringToCut, int index );
+int xlkStartStringChecker(char* stringToLook,int totalArguments,...);
+
 //Generadores de menus completos:
 
 void xlkIndexGenerator(char head[],int totalOptions,...); //XL1-1
@@ -67,9 +74,8 @@ void xlkIndexBodyGenerator(int mode , int totalOptions,...); //XL1-3
 //Funciones para mostrar mensajes:
 
 void xlkShowMessage(char* message, int startEnters ,int endEnters, int adds ); //XL1-4
-void stringSeparator(int splitterCharacter, char* string1, char* string2 ); //XL1-5
-void xlkSortPrintf(int mode,char* dataType, int totalArguments,...); //XL1-6
-void xlkCenterPrintf( int mode , char* word );  //XL1-7
+void xlkSortPrintf(char* dataType,int style,...); //XL1-6
+void xlkCenterPrintf( char* word, int mode );  //XL1-7
 void xlkEnterPrinter(int number);
 void xlkMessageAutoSwitch(int switchNumber , int arguments, ...);
 void xlkLinePrinter(int mode);
