@@ -48,7 +48,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1529787037 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\main.c
+1530739459 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\main.c
 	<stdio.h>
 	<stdlib.h>
 	"xget.h"
@@ -62,9 +62,9 @@
 	<string.h>
 	"xget.h"
 
-1529787037 c:\users\leo\desktop\xargam\proyectos para testeos\test\xget.h
+1530739459 c:\users\leo\desktop\xargam\proyectos para testeos\test\xget.h
 
-1529787037 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xget.c
+1530739459 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xget.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -72,29 +72,60 @@
 	<conio.h>
 	<string.h>
 
-1529787037 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xstring.c
+1530739459 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xstring.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1529787037 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xvalidate.c
+1530739459 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xvalidate.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	<ctype.h>
+	<string.h>
 
-1529787037 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xvector.c
+1530739459 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xvector.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1529787037 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xlook.c
+1530750633 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xlook.c
 	<stdio.h>
 	<stdlib.h>
 	<stdarg.h>
+	<string.h>
 
-1529788820 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xmath.c
+1530739459 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xmath.c
 	<stdio.h>
 	<stdlib.h>
+
+1530739459 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xfiles.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1530739459 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xgenericstruct.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xget.h"
+	"xvalidate.h"
+	"xGenericStruct.h"
+	"xlook.h"
+
+1530739459 c:\users\leo\desktop\xargam\proyectos para testeos\test\xvalidate.h
+
+1530739459 c:\users\leo\desktop\xargam\proyectos para testeos\test\xgenericstruct.h
+
+1530749332 c:\users\leo\desktop\xargam\proyectos para testeos\test\xlook.h
+
+1530752600 source:c:\users\leo\desktop\xargam\proyectos para testeos\test\xarraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xArrayList.h"
+
+1530739459 c:\users\leo\desktop\xargam\proyectos para testeos\test\xarraylist.h
 

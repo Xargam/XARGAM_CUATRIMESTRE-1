@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <ctype.h>
+#include <string.h>
 
 
 //Validacion de salida:
@@ -75,12 +76,12 @@ int validateDualExit(char* text,char* errorText,char continueChar, char exitChar
 
     do
     {
-        printf("%s", text);
+        printf("* %s", text);
         letra = getch();
         letra = tolower(letra);
         if(letra != continueChar && letra != exitChar)
         {
-            printf("\n%s\n\n", errorText);
+            printf("\n** %s\n\n", errorText);
         }
     }
     while(letra != continueChar && letra != exitChar);
@@ -235,4 +236,218 @@ int validateHasDecimals(float num)
 
     }
     return comprobacion;
+}
+
+
+
+//Validacion de numeros:
+
+
+//XV1-8
+/** \brief Recibe un entero y verifica que este se encuentre dentro de un rango especifico.
+ *
+ * \param number : Numero entero a verificar.
+ * \param minNumber: Numero entero minimo del rango a fijar.
+ * \param maxNumber: Numero entero maximo del rango a fijar.
+ * \return Devuelve [1] si el numero es valido y esta en rango o [0] si el numero esta fuera de rango.
+ *
+ */
+int validateIntRange(int number,int minNumber, int maxNumber)
+{
+    int verify = 1;
+    if(number < minNumber || number > maxNumber )
+    {
+        verify = 0;
+    }
+    return verify;
+}
+
+
+//XV1-9
+/** \brief Recibe un long y verifica que este se encuentre dentro de un rango especifico.
+ *
+ * \param number : Numero long a verificar.
+ * \param minNumber: Numero long minimo del rango a fijar.
+ * \param maxNumber: Numero long maximo del rango a fijar.
+ * \return Devuelve [1] si el numero es valido y esta en rango o [0] si el numero esta fuera de rango.
+ *
+ */
+
+int validateLongRange(long number,long minNumber, long maxNumber)
+{
+    int verify = 1;
+    if(number < minNumber || number > maxNumber )
+    {
+        verify = 0;
+    }
+    return verify;
+}
+
+
+//XV2-1
+/** \brief Recibe un float y verifica que este se encuentre dentro de un rango especifico.
+ *
+ * \param number : Numero float a verificar.
+ * \param minNumber: Numero float minimo del rango a fijar.
+ * \param maxNumber: Numero float maximo del rango a fijar.
+ * \return Devuelve [1] si el numero es valido y esta en rango o [0] si el numero esta fuera de rango.
+ *
+ */
+
+int validateFloatRange(float number,float minNumber, float maxNumber)
+{
+    int verify = 1;
+    if(number < minNumber || number > maxNumber )
+    {
+        verify = 0;
+    }
+    return verify;
+}
+
+
+//XV2-2
+/** \brief Recibe un entero y verifica que este cumpla la condicion establecida respecto al numero de referencia.
+ *
+ * \param number : Numero entero a verificar.
+ * \param refNumber: Numero entero que se toma como referencia para establecer un rango.
+ * \param condition:[mayor a 0] Se verificara que el numero(number) sea MAYOR o IGUAL al numero de referencia(refNumber).
+ * \param condition:[0] Se verificara que el numero(number) sea IGUAL al numero de referencia(refNumber).
+ * \param condition:[menor a 0] Se verificara que el numero(number) sea MENOR o IGUAL al numero de referencia(refNumber).
+ * \return Devuelve [1] si el numero es valido y cumple la condicion establecida o [0] si no la cumple.
+ *
+ */
+
+int validateIntCondition(int number,int refNumber, int condition)
+{
+    int verify = 1;
+
+    if( condition > 0)
+    {
+        if(number < refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition == 0)
+    {
+        if(number != refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition < 0)
+    {
+        if(number > refNumber )
+        {
+            verify = 0;
+        }
+    }
+    return verify;
+}
+
+
+//XV2-3
+/** \brief Recibe un long y verifica que este cumpla la condicion establecida respecto al numero de referencia.
+ *
+ * \param number : Numero long a verificar.
+ * \param refNumber: Numero long que se toma como referencia para establecer un rango.
+ * \param condition:[mayor a 0] Se verificara que el numero(number) sea MAYOR o IGUAL al numero de referencia(refNumber).
+ * \param condition:[0] Se verificara que el numero(number) sea IGUAL al numero de referencia(refNumber).
+ * \param condition:[menor a 0] Se verificara que el numero(number) sea MENOR o IGUAL al numero de referencia(refNumber).
+ * \return Devuelve [1] si el numero es valido y cumple la condicion establecida o [0] si no la cumple.
+ *
+ */
+
+int validateLongCondition(long number,long refNumber, int condition)
+{
+    int verify = 1;
+
+    if( condition > 0)
+    {
+        if(number < refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition == 0)
+    {
+        if(number != refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition < 0)
+    {
+        if(number > refNumber )
+        {
+            verify = 0;
+        }
+    }
+    return verify;
+}
+
+
+//XV2-4
+/** \brief Recibe un float y verifica que este cumpla la condicion establecida respecto al numero de referencia.
+ *
+ * \param number : Numero float a verificar.
+ * \param refNumber: Numero float que se toma como referencia para establecer un rango.
+ * \param condition:[mayor a 0] Se verificara que el numero(number) sea MAYOR o IGUAL al numero de referencia(refNumber).
+ * \param condition:[0] Se verificara que el numero(number) sea IGUAL al numero de referencia(refNumber).
+ * \param condition:[menor a 0] Se verificara que el numero(number) sea MENOR o IGUAL al numero de referencia(refNumber).
+ * \return Devuelve [1] si el numero es valido y cumple la condicion establecida o [0] si no la cumple.
+ *
+ */
+
+int validateFloatCondition(float number,float refNumber, int condition)
+{
+    int verify = 1;
+
+    if( condition > 0)
+    {
+        if(number < refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition == 0)
+    {
+        if(number != refNumber )
+        {
+            verify = 0;
+        }
+    }
+    else if(condition < 0)
+    {
+        if(number > refNumber )
+        {
+            verify = 0;
+        }
+    }
+    return verify;
+}
+
+
+
+//Validacion de string:
+
+
+ //XV2-5
+/** \brief Recibe una cadena de caracteres y verifica que cumpla con cierta cantidad de caracteres.
+ *
+ * \param cad : Cadena a verificar.
+ * \param minChars : cantidad minima de caracteres que puede tener la cadena.
+ * \param maxChars : cantidad maxima de caracteres que puede tener la cadena.
+ * \return Devuelve [1] si la cadena es valida y cumple con la cantidad de caracteres fijada o [0] si no es valida.
+ *
+ */
+
+int validateStringRange(char* cad , int minChars , int maxChars)
+{
+    int verify = 1;
+    if( strlen(cad) < minChars || strlen(cad) > maxChars)
+    {
+        verify = 0;
+    }
+    return verify ;
 }

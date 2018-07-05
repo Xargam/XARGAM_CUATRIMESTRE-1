@@ -20,7 +20,8 @@
 int validateIsNum(char* number)
 {
     int verify = 1;
-    for(int i = 0; number[i] != '\0'; i++)
+    int i;
+    for( i = 0; number[i] != '\0'; i++)
     {
         if(isdigit(number[i])== 0)
         {
@@ -52,7 +53,8 @@ int validateIsRealNum(char* number)
 {
     int verify = 1, pointCounter = 0, negNum = 0;
 
-    for(int i = 0; number[i] != '\0'; i++)
+    int i;
+    for( i = 0; number[i] != '\0'; i++)
     {
         if(number[i] == '.' && i == 1 && negNum == 1)
         {
@@ -92,7 +94,7 @@ int validateIsRealNum(char* number)
  *
  */
 
-int validateIsAlphabetic(char* word)
+int validateIsAlphabeticStr(char* word)
 {
     int verify = 1;
     int i;
@@ -100,6 +102,10 @@ int validateIsAlphabetic(char* word)
     {
         if( !isalpha(*(word+i)) )
         {
+            if( word[i] == ' ')
+            {
+                continue;
+            }
             verify = 0;
             break;
         }
@@ -107,6 +113,61 @@ int validateIsAlphabetic(char* word)
     return verify ;
 }
 
+
+//XG1-2.2
+/** \brief Recibe una cadena de caracteres y verifica que contenga unicamente numeros y/o letras.
+ *
+ * \param word: cadena de caracteres a verificar.
+ * \return Devuelve [1] si la cadena solo contiene numeros y/o letras o [0] si contiene contiene otro tipo de caracteres.
+ *
+ */
+
+int validateIsAlphanumericStr(char* word)
+{
+    int verify = 1;
+    int i;
+    for(i = 0 ; word[i] != '\0' ; i++ )
+    {
+        if( !isalnum(word[i]) )
+        {
+            if( word[i] == ' ')
+            {
+                continue;
+            }
+            verify = 0;
+            break;
+        }
+    }
+    return verify ;
+}
+
+
+//XG1-2.3
+/** \brief Recibe una cadena de caracteres y verifica que contenga caracteres imprimibles.
+ *
+ * \param word: cadena de caracteres a verificar.
+ * \return Devuelve [1] si la cadena es imprimible o [0] si no es imprimible.
+ *
+ */
+
+int validateIsGraphicStr(char* word)
+{
+    int verify = 1;
+    int i;
+    for(i = 0 ; *(word + i) != '\0' ; i++ )
+    {
+        if( !isgraph(word[i]) )
+        {
+            if( word[i] == ' ')
+            {
+                continue;
+            }
+            verify = 0;
+            break;
+        }
+    }
+    return verify ;
+}
 
 
 //XG1-3
@@ -124,6 +185,7 @@ void zeroFixer(char* number)
 
     //Elimina los ceros delante del numero y busca el punto decimal.
     int i;
+    int j;
     for(i = 0; number[i] != '\0'; i++)
     {
         if(number[i] == '-')
@@ -133,7 +195,7 @@ void zeroFixer(char* number)
 
         if(number[i] == '0' && number[i+1] != '.' && flag == 0)
         {
-            for(int j = i; number[j] != '\0'; j++)
+            for( j = i; number[j] != '\0'; j++)
             {
                 number[j] = number[j+1];
             }
@@ -161,14 +223,13 @@ void zeroFixer(char* number)
         strrev(number);
         for(i = 0; number[i] == '0'; i++)
         {
-            for(int j = i; number[j] != '\0'; j++)
+            for( j = i; number[j] != '\0'; j++)
             {
                 number[j] = number[j+1];
             }
             i--;
         }
         strrev(number);
-
     }
 
     //Si no hay nada despues del punto, este es borrado
@@ -388,55 +449,57 @@ int strNumCmp(char* number1, char* number2)
 
 
 //XG1-5
-/** \brief pide un string al usuario y lo guarda solo si cumple con la cantidad de caracteres especificada.
+/** \brief pide un string al usuario de hasta 1000 caracteres y lo guarda en otra pasada por parametro.
  *
- * \param word: cadena donde se guardara el string si es valido.
+ * \param word : cadaena de caracteres donde se guardara la cadena pedida.
  * \param minChars Cantidad minima de caracteres del string.
  * \param maxChars Cantidad maxima de caracteres del string.
  * \param message: Mensaje a ser mostrado.
  * \param eMessage: Mensaje a ser mostrado en caso de error.
- * \param mode 1: pide un string sin limitaciones (puede contener espacios).
+ * \param mode distinto de 0 : pide un string sin limitaciones (puede contener espacios).
  * \param mode 0: pide un string limitado a una palabra (sin espacios).
- * \return Devuelve [1] si el string se valido y se guardo o [0] si no se lo pudo validar.
+ * \return Devuelve [1] si la cadena es valida o [0] si no lo es.
  *
  */
 
-int getRangedStr(char* word,int minChars,int maxChars,char* message,char* eMessage, int mode)
+int getRangedStr(char* word, int minChars,int maxChars,char* message,char* eMessage, int mode)
 {
-    char palabra[1000];
-    int verificacion = 1;
+    int verify = 0;
+    if( eMessage != NULL && message != NULL && word != NULL)
+    {
+        char auxWord[1000];
+        if(mode)
+        {
+            printf("* %s", message);
+            scanf("%999[^\n]",auxWord);
+            while(getchar() != '\n');
+        }
+        else
+        {
+            printf("* %s", message);
+            scanf("%999s",auxWord);
+            while(getchar() != '\n');
+        }
+        if(strlen(auxWord) > maxChars || strlen(auxWord) < minChars)
+        {
+            printf("** %s\n\n",eMessage);
+        }
+        else
+        {
+            strcpy(word, auxWord);
+            verify = 1;
+        }
 
-    if(mode)
-    {
-        printf("%s", message);
-        scanf("%999[^\n]",palabra);
-        while(getchar() != '\n');
-    }
-    else
-    {
-        printf("%s", message);
-        scanf("%999s",palabra);
-        while(getchar() != '\n');
     }
 
-    if(strlen(palabra) > maxChars || strlen(palabra) < minChars)
-    {
-        printf("\n%s",eMessage);
-        verificacion = 0;
-    }
-    else
-    {
-        strcpy(word, palabra);
-    }
-
-    return verificacion ;
+    return verify;
 }
 
 
 //XG1-6
 /** \brief Pide un string con una cantidad de caracteres unicamente alfabeticos especificada y lo guarda solo si es valido.
  *
- * \param word: cadena donde se guardara el string en caso de ser validado.
+ * \param word: cadena de caracteres donde se copiara el string pedido al usuario.
  * \param minChars Cantidad minima de caracteres del string.
  * \param maxChars Cantidad maxima de caracteres del string.
  * \param message: Mensaje a ser mostrado.
@@ -447,37 +510,128 @@ int getRangedStr(char* word,int minChars,int maxChars,char* message,char* eMessa
  *
  */
 
-int getRangedAlphaStr(char *word,int minChars, int maxChars, char *message,char *eMessage,int mode)
+int getRangedAlphaStr(char* word,int minChars, int maxChars, char *message,char *eMessage,int mode)
 {
-    char palabra[1000];
-    int verificacion = 1;
+    char auxWord[1000];
+    int verify = 1;
+
+    if(message != NULL && eMessage != NULL)
+    {
+        if(mode)
+        {
+            printf("* %s", message);
+            scanf("%999[^\n]",auxWord);
+            while(getchar() != '\n');
+        }
+        else
+        {
+            printf("* %s", message);
+            scanf("%999s",auxWord);
+            while(getchar() != '\n');
+        }
+        if(strlen(auxWord) > maxChars || strlen(auxWord) < minChars || !validateIsAlphabeticStr(auxWord))
+        {
+            printf("** %s\n\n",eMessage);
+            verify = 0;
+        }
+        else
+        {
+            strcpy(word, auxWord);
+        }
+    }
+
+    return verify ;
+}
+
+
+//XG1-6.1
+/** \brief Pide un string con una cantidad de caracteres unicamente alfaNumericos especificada y lo guarda solo si es valido.
+ *
+ * \param word: Direccion de memoria de un puntero donde guardar el string.
+ * \param minChars: Cantidad minima de caracteres que puede tener el string.
+ * \param maxChars: Cantidad maxima de caracteres que puede tener el string.
+ * \param message: Mensaje a ser mostrado al pedir el string.
+ * \param eMessage: Mensaje a ser mostrado en caso de error.
+ * \param mode: [1] Pide un string no limitado de multiples palabras.
+ * \param mode: [0] Pide un string limitado de una sola palabra. Lee hasta el primer espacio.
+ * \return Devuelve [1] si el string se valido y se guardo o [0] si no se lo pudo validar.
+ *
+ */
+
+int getRangedAlphaNumStr(char* word,int minChars, int maxChars, char* message, char* eMessage, int mode)    //XG1-6.1
+{
+    char auxWord[1000];
+    int verify = 1;
 
     if(mode)
     {
-        printf("%s", message);
-        scanf("%999[^\n]",palabra);
+        printf("* %s", message);
+        scanf("%999[^\n]",auxWord);
         while(getchar() != '\n');
     }
     else
     {
-        printf("%s", message);
-        scanf("%999s",palabra);
+        printf("* %s", message);
+        scanf("%999s",auxWord);
         while(getchar() != '\n');
     }
-
-    if(strlen(palabra) > maxChars || strlen(palabra) < minChars || !validateIsAlphabetic(palabra))
+    if(strlen(auxWord) > maxChars || strlen(auxWord) < minChars || !validateIsAlphanumericStr(auxWord))
     {
-        printf("\n%s",eMessage);
-        verificacion = 0;
+        printf("** %s\n\n",eMessage);
+        verify = 0;
     }
     else
     {
-        strcpy(word,  palabra);
+        strcpy(word, auxWord);
     }
+    return verify ;
 
-    return verificacion ;
 }
 
+
+//XG1-6.2
+/** \brief Pide un string con una cantidad de caracteres unicamente imprimibles especificada y lo guarda solo si es valido.
+ *
+ * \param word: Direccion de memoria de un puntero donde guardar el string.
+ * \param minChars: Cantidad minima de caracteres que puede tener el string.
+ * \param maxChars: Cantidad maxima de caracteres que puede tener el string.
+ * \param message: Mensaje a ser mostrado al pedir el string.
+ * \param eMessage: Mensaje a ser mostrado en caso de error.
+ * \param mode: [1] Pide un string no limitado de multiples palabras.
+ * \param mode: [0] Pide un string limitado de una sola palabra. Lee hasta el primer espacio.
+* \return Devuelve [1] si el string se valido y se guardo o [0] si no se lo pudo validar.
+ *
+ */
+
+int getRangedGraphicStr(char* word,int minChars, int maxChars, char* message, char* eMessage, int mode)
+{
+    char auxWord[1000];
+    int verify = 1;
+
+    if(mode)
+    {
+        printf("* %s", message);
+        scanf("%999[^\n]",auxWord);
+        while(getchar() != '\n');
+    }
+    else
+    {
+        printf("* %s", message);
+        scanf("%999s",auxWord);
+        while(getchar() != '\n');
+    }
+    if(strlen(auxWord) > maxChars || strlen(auxWord) < minChars || !validateIsGraphicStr(auxWord))
+    {
+        printf("** %s\n\n",eMessage);
+        verify = 0;
+    }
+    else
+    {
+        strcpy(word, auxWord);
+    }
+
+    return verify ;
+}
 
 
 //Pedir numeros o caracteres sin validar:
@@ -495,7 +649,7 @@ int getRangedAlphaStr(char *word,int minChars, int maxChars, char *message,char 
 int getInt(char* texto)
 {
     int number;
-    printf("%s",texto);
+    printf("* %s",texto);
     scanf("%d",&number);
     setbuf(stdin, NULL);
     return number;
@@ -513,7 +667,7 @@ int getInt(char* texto)
 long getLong(char* texto)
 {
     long number;
-    printf("%s",texto);
+    printf("* %s",texto);
     scanf("%ld",&number);
     setbuf(stdin, NULL);
     return number;
@@ -531,7 +685,7 @@ long getLong(char* texto)
 float getFloat(char* texto)
 {
     float number;
-    printf("%s",texto);
+    printf("* %s",texto);
     scanf("%f",&number);
     setbuf(stdin, NULL);
     return number;
@@ -549,12 +703,46 @@ float getFloat(char* texto)
 char getChar(char* texto)
 {
     char letra;
-    printf("%s",texto);
+    printf("* %s",texto);
     letra = getchar();
     setbuf(stdin, NULL);
     return letra;
 }
 
+
+//XG2-1.1
+/** \brief Solicita un string al usuario de hasta 1000 caracteres y muestra un mensaje.
+ *
+ * \param text : Texto a ser mostrado.
+ * \param mode :[1] Se pide un string que puede tener espacios (multiples palabras).
+ * \param mode :[0] Se pide un string que NO puede tener espacios (una palabra).
+ * \return Devuelve el string solicitado.
+ *
+ */
+
+char* getString(char* text, int mode)
+{
+    char auxVec[1000];
+    char* string;
+
+    printf("* %s",text);
+    if(mode)
+    {
+        scanf("%999[^\n]",auxVec);
+        while( getchar() != '\n');
+    }
+    else
+    {
+        scanf("%999s",auxVec);
+        while( getchar() != '\n');
+    }
+
+    char vec[strlen(auxVec)+1];
+    strcpy(vec, auxVec);
+    string = vec;
+
+    return string;
+}
 
 
 // Pedir numeros y validarlos:
@@ -570,18 +758,18 @@ char getChar(char* texto)
  *
  */
 
-int getValidInt(int* number, char message*, char errorMessage*)
+int getValidInt(int* number, char message[], char errorMessage[])
 {
     char num[8];
     int verificacion = 1;
 
-    printf("%s",message);
+    printf("* %s",message);
     scanf("%7s",num);
     while(getchar() != '\n');
 
     if(!validateIsNum(num)|| strNumCmp(num,"32767") > 0 || strNumCmp(num,"-32768") < 0)
     {
-        printf("%s",errorMessage);
+        printf("** %s\n\n",errorMessage);
         verificacion = 0;
     }
     else
@@ -607,14 +795,14 @@ int getValidLong(long* number, char* message, char* errorMessage)
 {
     int verificacion = 1;
     char num[13];
-    printf("%s",message);
-
+    printf("* %s",message);
     scanf("%12s",num);
+    printf("\n");
     while(getchar() != '\n');
 
     if( !validateIsNum(num)|| strNumCmp(num,"2147483647") > 0 || strNumCmp(num,"-2147483648") < 0)
     {
-        printf("%s",errorMessage);
+        printf("** %s\n\n",errorMessage);
         verificacion = 0;
     }
     else
@@ -640,14 +828,14 @@ int getValidFloat(float* number, char* message, char* errorMessage)
     char num[11];
     int verificacion = 1;
 
-    printf("%s",message);
+    printf("* %s",message);
     scanf("%10s",num);
     while(getchar() != '\n');
 
 
     if( !validateIsRealNum(num)|| strNumCmp(num,"10000000") > 0 || strNumCmp(num,"-10000000") < 0)
     {
-        printf("%s",errorMessage);
+        printf("** %s\n\n",errorMessage);
         verificacion = 0;
     }
     else
@@ -673,13 +861,13 @@ int getValidLongLong(long long* number, char* message, char* errorMessage)
     int verificacion = 1;
     char num[22];
 
-    printf("%s",message);
+    printf("* %s",message);
     scanf("%21s",num);
     while(getchar() != '\n');
 
     if( !validateIsNum(num)|| strNumCmp(num,"9223372036854775807") > 0 || strNumCmp(num,"-9223372036854775808") < 0)
     {
-        printf("%s",errorMessage);
+        printf("** %s\n\n",errorMessage);
         verificacion = 0;
     }
     else
@@ -713,14 +901,14 @@ int getRangedInt(int* number,int minimum,int maximum,char* message,char* errorMe
     int auxNum;
     int verificacion = 1;
 
-    printf("%s",message);
+    printf("* %s",message);
     scanf("%7s",num);
     while(getchar() != '\n');
 
     if(!validateIsNum(num)|| strNumCmp(num,"32767") > 0 || strNumCmp(num,"-32768") < 0)
     {
         verificacion = 0;
-        printf("%s",errorMessage);
+        printf("** %s\n\n",errorMessage);
     }
     else
     {
@@ -728,7 +916,7 @@ int getRangedInt(int* number,int minimum,int maximum,char* message,char* errorMe
         if(auxNum < minimum || auxNum > maximum )
         {
             verificacion = 0;
-            printf("%s",errorMessage);
+            printf("** %s\n\n",errorMessage);
         }
         else
         {
@@ -757,14 +945,14 @@ int getRangedLong(long* number,long minimum,long maximum,char* message,char* err
     long auxNum;
     int verificacion = 1;
 
-    printf("%s",message);
+    printf("* %s",message);
     scanf("%12s",num);
     while(getchar() != '\n');
 
     if(!validateIsNum(num)|| strNumCmp(num,"2147483647") > 0 || strNumCmp(num,"-2147483648") < 0)
     {
         verificacion = 0;
-        printf("%s",errorMessage);
+        printf("** %s\n\n",errorMessage);
     }
     else
     {
@@ -772,7 +960,7 @@ int getRangedLong(long* number,long minimum,long maximum,char* message,char* err
         if(auxNum < minimum || auxNum > maximum )
         {
             verificacion = 0;
-            printf("%s",errorMessage);
+            printf("** %s\n\n",errorMessage);
         }
         else
         {
@@ -801,13 +989,13 @@ int getRangedFloat(float* number,float minimum,float maximum,char* message,char*
     float auxNum;
     int verificacion = 1;
 
-    printf("%s",message);
+    printf("* %s",message);
     scanf("%10s",num);
     while(getchar() != '\n');
 
     if(!validateIsRealNum(num)|| strNumCmp(num,"10000000") > 0 || strNumCmp(num,"-10000000") < 0)
     {
-        printf("%s",errorMessage);
+        printf("** %s\n\n",errorMessage);
         verificacion = 0;
     }
     else
@@ -815,7 +1003,7 @@ int getRangedFloat(float* number,float minimum,float maximum,char* message,char*
         auxNum = atof(num);
         if(auxNum < minimum || auxNum > maximum )
         {
-            printf("%s",errorMessage);
+            printf("** %s\n\n",errorMessage);
             verificacion = 0;
         }
         else
@@ -846,7 +1034,7 @@ int getRangedChar(char* character,char minimum, char maximum,char* message,char*
     int validation = 1;
     char auxChar ;
 
-    printf("%s",message);
+    printf("* %s",message);
     auxChar = getche();
     if(mode)
     {
@@ -858,7 +1046,7 @@ int getRangedChar(char* character,char minimum, char maximum,char* message,char*
         maximum = toupper(maximum);
         if(auxChar < minimum || auxChar > maximum)
         {
-            printf("%s",eMessage);
+            printf("** %s\n\n",eMessage);
             validation = 0;
         }
         else
@@ -872,7 +1060,7 @@ int getRangedChar(char* character,char minimum, char maximum,char* message,char*
         maximum = tolower(maximum);
         if(auxChar < minimum || auxChar > maximum)
         {
-            printf("%s",eMessage);
+            printf("** %s\n\n",eMessage);
             validation = 0;
         }
         else
@@ -909,13 +1097,13 @@ int getConditionedInt(int* number,int refNumber,int condition,char* message,char
     int verificacion = 1;
     char num[8];
 
-    printf("%s",message);
+    printf("* %s",message);
     scanf("%7s",num);
     while(getchar() != '\n');
 
     if(!validateIsNum(num)|| strNumCmp(num,"32767") > 0 || strNumCmp(num,"-32768") < 0 )
     {
-        printf("%s",errorMessage);
+        printf("** %s\n\n",errorMessage);
         verificacion = 0;
     }
     else
@@ -925,7 +1113,7 @@ int getConditionedInt(int* number,int refNumber,int condition,char* message,char
         {
             if( auxNum < refNumber)
             {
-                printf("%s",errorMessage);
+                printf("** %s\n\n",errorMessage);
                 verificacion = 0;
             }
             else
@@ -937,7 +1125,7 @@ int getConditionedInt(int* number,int refNumber,int condition,char* message,char
         {
             if(auxNum != refNumber )
             {
-                printf("%s",errorMessage);
+                printf("** %s\n\n",errorMessage);
                 verificacion = 0;
             }
             else
@@ -949,7 +1137,7 @@ int getConditionedInt(int* number,int refNumber,int condition,char* message,char
         {
             if(auxNum > refNumber)
             {
-                printf("%s",errorMessage);
+                printf("** %s\n\n",errorMessage);
                 verificacion = 0;
             }
             else
@@ -983,13 +1171,13 @@ int getConditionedFloat(float* number, float refNumber,int condition,char* messa
     char num[11];
     int verificacion = 1;
 
-    printf("%s",message);
+    printf("* %s",message);
     scanf("%10s",num);
     while(getchar() != '\n');
 
     if(!validateIsRealNum(num)|| strNumCmp(num,"10000000") > 0 || strNumCmp(num,"-10000000") < 0)
     {
-        printf("%s",errorMessage);
+        printf("** %s\n\n",errorMessage);
         verificacion = 0;
     }
     else
@@ -999,7 +1187,7 @@ int getConditionedFloat(float* number, float refNumber,int condition,char* messa
         {
             if(auxNum < refNumber)
             {
-                printf("%s",errorMessage);
+                printf("** %s\n\n",errorMessage);
                 verificacion = 0;
             }
             else
@@ -1012,7 +1200,7 @@ int getConditionedFloat(float* number, float refNumber,int condition,char* messa
         {
             if(auxNum != refNumber)
             {
-                printf("%s",errorMessage);
+                printf("** %s\n\n",errorMessage);
                 verificacion = 0;
             }
             else
@@ -1025,7 +1213,7 @@ int getConditionedFloat(float* number, float refNumber,int condition,char* messa
         {
             if(auxNum > refNumber)
             {
-                printf("%s",errorMessage);
+                printf("** %s\n\n",errorMessage);
                 verificacion = 0;
             }
             else
@@ -1059,13 +1247,13 @@ int getConditionedLong(long* number, long refNumber,int condition,char* message,
     int verificacion = 1;
     char num[13];
 
-    printf("%s",message);
+    printf("* %s",message);
     scanf("%12s",num);
     while(getchar() != '\n');
 
     if(!validateIsNum(num)|| strNumCmp(num,"2147483647") > 0 || strNumCmp(num,"-2147483648") < 0 )
     {
-        printf("%s",errorMessage);
+        printf("** %s\n\n",errorMessage);
         verificacion = 0;
     }
     else
@@ -1075,7 +1263,7 @@ int getConditionedLong(long* number, long refNumber,int condition,char* message,
         {
             if( auxNum < refNumber)
             {
-                printf("%s",errorMessage);
+                printf("** %s\n\n",errorMessage);
                 verificacion = 0;
             }
             else
@@ -1087,7 +1275,7 @@ int getConditionedLong(long* number, long refNumber,int condition,char* message,
         {
             if(auxNum != refNumber )
             {
-                printf("%s",errorMessage);
+                printf("** %s\n\n",errorMessage);
                 verificacion = 0;
             }
             else
@@ -1100,7 +1288,7 @@ int getConditionedLong(long* number, long refNumber,int condition,char* message,
         {
             if( auxNum > refNumber)
             {
-                printf("%s",errorMessage);
+                printf("** %s\n\n",errorMessage);
                 verificacion = 0;
             }
             else
@@ -1127,16 +1315,16 @@ int getConditionedLong(long* number, long refNumber,int condition,char* message,
  *
  */
 
-int getGenre(char* character, char* text,char* errorText)
+int getPersonGender(char* character, char* text,char* errorText)
 {
     char letra;
     int verificacion = 1;
-    printf("%s",text);
+    printf("* %s",text);
     letra = getche();
     letra = tolower(letra);
     if( letra != 'm' && letra != 'f')
     {
-        printf("\n%s",errorText);
+        printf("** %s\n\n",errorText);
         verificacion = 0;
     }
     else

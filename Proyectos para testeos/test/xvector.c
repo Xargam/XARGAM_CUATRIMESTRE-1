@@ -3,7 +3,93 @@
 #include <string.h>
 
 
+
+//Funciones basicas:
+
+
+//XV0-1
+/** \brief Inicializa un vector de enteros con un numero a eleccion.
+ *
+ * \param vec: Vector a inicializar.
+ * \param elements: Cantidad de elementos del vector.
+ * \param initValue: Valor con el que inicializar el vector.
+ * \return
+ *
+ */
+
+void inicializarVectorI(int vec[],int elements, int initValue )
+{
+    int i;
+    for( i = 0 ; i < elements ; i++)
+    {
+        vec[i] = initValue;
+    }
+}
+
+
+//XV0-2
+/** \brief Inicializa un vector de LONGs con un numero a eleccion.
+ *
+ * \param vec: Vector a inicializar.
+ * \param elements: Cantidad de elementos del vector.
+ * \param initValue: Valor con el que inicializar el vector.
+ * \return
+ *
+ */
+
+void inicializarVectorL(long vec[],int elements, long initValue )
+{
+    int i;
+    for( i = 0 ; i < elements ; i++)
+    {
+        vec[i] = initValue;
+    }
+}
+
+
+//XV0-3
+/** \brief Inicializa un vector de LONG LONGs con un numero a eleccion.
+ *
+ * \param vec: Vector a inicializar.
+ * \param elements: Cantidad de elementos del vector.
+ * \param initValue: Valor con el que inicializar el vector.
+ * \return
+ *
+ */
+
+void inicializarVectorLL(long long vec[],int elements, long long initValue )
+{
+    int i;
+    for( i = 0 ; i < elements ; i++)
+    {
+        vec[i] = initValue;
+    }
+}
+
+
+//XV0-4
+/** \brief Inicializa un vector de FLOATs con un numero a eleccion.
+ *
+ * \param vec: Vector a inicializar.
+ * \param elements: Cantidad de elementos del vector.
+ * \param initValue: Valor con el que inicializar el vector.
+ * \return
+ *
+ */
+
+void inicializarVectorF(float vec[],int elements, float initValue )
+{
+    int i;
+    for( i = 0 ; i < elements ; i++)
+    {
+        vec[i] = initValue;
+    }
+}
+
+
+
 //Funciones de busqueda de numero maximo o minimo:
+
 
 
 //XV1-1
@@ -189,7 +275,7 @@ void xvecFSort(float vec[], int elements, int criterio)
 void xvecIShow(int vec[],int elements,char message[])
 {
     printf("%s",message);
-    for(int i = 0; i < elements;i++)
+    for(int i = 0; i < elements; i++)
     {
         printf("%d\n",vec[i]);
     }
@@ -209,7 +295,7 @@ void xvecIShow(int vec[],int elements,char message[])
 void xvecFShow(float vec[],int elements,char message[])
 {
     printf("%s",message);
-    for(int i = 0; i < elements;i++)
+    for(int i = 0; i < elements; i++)
     {
         printf("%.2f  ",vec[i]);
     }
@@ -231,15 +317,9 @@ void xvecFShow(float vec[],int elements,char message[])
 
 void xvecISwap(int* var1,int* var2)
 {
-    int aux;
-    int A = *var1;
-    int B = *var2;
-    aux = A;
-    A = B;
-    B = aux;
-
-    *var1 = A;
-    *var2 = B;
+    int aux = *var1;
+    *var1 = *var2;
+    *var2 = aux;
 }
 
 
@@ -253,14 +333,9 @@ void xvecISwap(int* var1,int* var2)
  */
 void xvecFSwap(float* var1,float* var2)
 {
-    float aux;
-    float A = *var1;
-    float B = *var2;
-    aux = A;
-    A = B;
-    B = aux;
-    *var1 = A;
-    *var2 = B;
+    float aux = *var1;
+    *var1 = *var2;
+    *var2 = aux;
 }
 
 

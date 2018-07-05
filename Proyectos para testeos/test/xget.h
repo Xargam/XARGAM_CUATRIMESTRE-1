@@ -54,14 +54,18 @@ long double	        80     10     1.7E-308 a 1.7E+308 o 3.4E-4932 a 1.1E+4932
 
 int validateIsNum(char* number);               //XG1-1
 int validateIsRealNum(char* number);           //XG1-2
-int validateIsAlphabetic(char* word);          //XG1-2.1
+int validateIsAlphabeticStr(char* word);          //XG1-2.1
+int validateIsAlphanumericStr(char* word);        //XG1-2.2
+int validateIsGraphicStr(char* word);           //XG1-2.3
 void zeroFixer(char* number);                       //XG1-3
 int strNumCmp(char* number1, char* number2);        //XG1-4
 
 //Pedir string:
 
-int getRangedStr(char* word ,int minChars,int maxChars,char *message,char *eMessage, int mode);           //XG1-5
-int getRangedAlphaStr(char *word,int minChars, int maxChars, char *message,char *eMessage,int mode);      //XG1-6
+int getRangedStr(char* word, int minChars,int maxChars,char *message,char *eMessage, int mode);           //XG1-5
+int getRangedAlphaStr(char* word ,int minChars, int maxChars, char *message,char *eMessage,int mode);      //XG1-6
+int getRangedAlphaNumStr(char* word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.1
+int getRangedGraphicStr(char* word ,int MinChars, int MaxChars, char* message , char* eMessage, int mode);  //XG1-6.2
 
 //Pedir numeros o caracteres sin validar:
 
@@ -69,6 +73,7 @@ int getInt(char* texto);              //XG1-7
 long getLong(char* texto);            //XG1-8
 float getFloat(char* texto);          //XG1-9
 char getChar(char* texto);            //XG2-1
+char* getString(char* text, int mode);  //XM2-1.1
 
 //Pedir numeros o caracteres y validarlos:
 
@@ -82,7 +87,7 @@ int getValidLongLong(long long* number,char* message, char* errorMessage);      
 int getRangedInt(int* number, int minimum,int maximum,char* message,char* errorMessage);                 //XG2-6
 int getRangedLong(long* number,long minimum,long maximum,char* message,char* errorMessage);              //XG2-7
 int getRangedFloat(float* number,float minimum,float maximum,char* message,char* errorMessage);          //XG2-8
-int getRangedChar(char* character,char minimum, char maximum ,char* message,char* eMessage, int mode );            //XG2-8.1
+int getRangedChar(char* character,char minimum, char maximum ,char* message,char* eMessage, int mode );  //XG2-8.1
 
 int getConditionedInt(int* number,int refNumber,int condition,char* message,char* errorMessage);         //XG2-9
 int getConditionedFloat(float* number,float refNumber,int condition,char* message,char* errorMessage);   //XG3-1
@@ -90,6 +95,6 @@ int getConditionedLong(long* number,long refNumber,int condition,char* message,c
 
 // Otras:
 
-int getGenre(char* character,char* text,char* errorText);       //XG3-3
+int getPersonGender(char* character,char* text,char* errorText);       //XG3-3
 
 #endif // XGET_H_INCLUDED

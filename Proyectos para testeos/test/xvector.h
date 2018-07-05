@@ -1,6 +1,12 @@
 #ifndef XVECTOR_H_INCLUDED
 #define XVECTOR_H_INCLUDED
 
+//Funciones basicas:
+
+void inicializarVectorI(int vec[],int elements , int initValue );   //XV0-1
+void inicializarVectorL(long vec[],int elements , long initValue );             //XV0-2
+void inicializarVectorLL(long long vec[],int elements , long long initValue );  //XV0-3
+void inicializarVectorF(float vec[],int elements , float initValue );          //XV0-4
 
 //Funciones de busqueda de numero maximo o minimo:
 
