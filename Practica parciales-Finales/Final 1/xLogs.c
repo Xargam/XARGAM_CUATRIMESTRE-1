@@ -162,6 +162,18 @@ char* log_getMsg( sLog* log )
 
 //ESTRUCTURA sServices
 
+//Muestra
+
+
+void service_show(sService* service)
+{
+    if( service != NULL )
+    {
+        xlkSortPrintf("%d,%s,%s",1,service->id,service->name,service->email);
+    }
+}
+
+
 //Constructor y destructor:
 
 sService* service_newService(void)

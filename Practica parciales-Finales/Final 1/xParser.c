@@ -78,7 +78,7 @@ int xPar_parseServices( arrayList* lista, char* filePath )
 
             while( !feof(file) )
             {
-                if( fscanf(file,"%[^;];%[^;];%[^;]\n",id,name,email) != 3 )
+                if( fscanf(file,"%[^;];%[^;];%[^\n]\n",id,name,email) != 3 )
                 {
                     if( feof(file) )
                     {
@@ -89,25 +89,24 @@ int xPar_parseServices( arrayList* lista, char* filePath )
                         verify = 0;
                         break;
                     }
-
-                    sService* service = service_newService();
-                    if( service == NULL )
-                    {
-                        verify = 0;
-                        break;
-                    }
-                    service_setId(service,atoi(id));
-                    service_setName(service,name);
-                    service_setEmail(service,email);
-
-                    lista->add(lista,service);
                 }
-                if( fclose(file))
+                sService* service = service_newService();
+
+                if( service == NULL )
                 {
                     verify = 0;
+                    break;
                 }
-            }
+                service_setId(service,atoi(id));
+                service_setName(service,name);
+                service_setEmail(service,email);
 
+                lista->add(lista,service);
+            }
+            if( fclose(file))
+            {
+                verify = 0;
+            }
         }
     }
     return verify ;

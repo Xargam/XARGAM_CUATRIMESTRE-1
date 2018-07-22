@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1532289724 source:c:\users\leo\desktop\xargam2\practica parciales-finales\final 1\main.c
+1532292083 source:c:\users\leo\desktop\xargam2\practica parciales-finales\final 1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -51,7 +51,7 @@
 	<conio.h>
 	<string.h>
 
-1532289988 source:c:\users\leo\desktop\xargam2\practica parciales-finales\final 1\xlogs.c
+1532292035 source:c:\users\leo\desktop\xargam2\practica parciales-finales\final 1\xlogs.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -87,9 +87,9 @@
 	<stdlib.h>
 	<string.h>
 
-1532237378 c:\users\leo\desktop\xargam2\practica parciales-finales\final 1\xlogs.h
+1532292110 c:\users\leo\desktop\xargam2\practica parciales-finales\final 1\xlogs.h
 
-1532278816 source:c:\users\leo\desktop\xargam2\practica parciales-finales\final 1\xparser.c
+1532292430 source:c:\users\leo\desktop\xargam2\practica parciales-finales\final 1\xparser.c
 	<stdio.h>
 	<stdlib.h>
 	"xParser.h"

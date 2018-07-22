@@ -35,16 +35,12 @@ int main()
             switch(selection)
             {
             case 1:
-                xPar_parseLog(log,"log.txt");
-                xlkCenterPrintf("Log Reg",2);
-                for(int i = 0 ; i < log->len(log) ; i++)
-                {
-                    log_show(log->get(log,i));
-                }
                 xPar_parseServices(services,"services.txt");
+                xPar_parseLog(log,"log.txt");
                 printf("* Informacion leida.");
                 break;
             case 2:
+
                 break;
             case 3:
                 break;
