@@ -3,6 +3,20 @@
 
 #include "xParser.h"
 #include "xLogs.h"
+#include "xArrayList.h"
+
+
+//Parsers:
+
+
+
+/** \brief Parsea un archivo separado por comas con datos del tipo sLog. Luego carga los datos leidos en un arrayList.
+ *
+ * \param lista : Puntero a arrayList donde se cargaran los datos.
+ * \param filePath : Ruta del archivo a parsear.
+ * \return Devuelve [1] si el parseo se completo correctamente o [0] si hubo algun error.
+ *
+ */
 
 int xPar_parseLog( arrayList* lista, char* filePath )
 {
@@ -61,6 +75,13 @@ int xPar_parseLog( arrayList* lista, char* filePath )
 }
 
 
+/** \brief Parsea un archivo separado por comas con datos del tipo sService. Luego carga los datos leidos en un arrayList.
+ S
+ * \param lista : Puntero a arrayList donde se cargaran los datos.
+ * \param filePath : Ruta del archivo a parsear.
+ * \return Devuelve [1] si el parseo se completo correctamente o [0] si hubo algun error.
+ *
+ */
 
 int xPar_parseServices( arrayList* lista, char* filePath )
 {
@@ -113,6 +134,16 @@ int xPar_parseServices( arrayList* lista, char* filePath )
 }
 
 
+//UnParsers:
+
+/** \brief Deparsea un archivo de registro de errores de servicios.
+ *
+ * \param services : Array List con punteros del tipo sService.
+ * \param log : Array List con punteros del tipo sLog.
+ * \param filePath : Ruta donde se escribira el archivo.
+ * \return Devuelve [1] si el parseo se completo correctamente o [0] si hubo algun error.
+ *
+ */
 
 int xPar_unParseErrors( arrayList* services , arrayList* log , char* filePath )
 {

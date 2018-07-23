@@ -1,1 +1,10 @@
 09072017;0939;Servcio7.exe;Error4;hugo@soporte.com.ar
+09072017;0952;Servcio2.exe;Error17;maria@soporte.com.ar
+09072017;1001;Servcio11.exe;Error26;marcos@soporte.com.ar
+09072017;1006;Servcio16.exe;Error31;nestor@soporte.com.ar
+09072017;1021;Servcio13.exe;Error46;zoe@soporte.com.ar
+09072017;1030;Servcio4.exe;Error55;pedro@soporte.com.ar
+09072017;1043;Servcio17.exe;Error68;diego@soporte.com.ar
+09072017;1044;Servcio18.exe;Error69;omar@soporte.com.ar
+09072017;1057;Servcio13.exe;Error82;zoe@soporte.com.ar
+09072017;1108;Servcio15.exe;Error93;danilo@soporte.com.ar

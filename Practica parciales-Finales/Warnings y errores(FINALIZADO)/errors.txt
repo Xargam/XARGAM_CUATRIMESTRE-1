@@ -1,3 +1,22 @@
 09072017;0934;Servcio2.exe;Out of memory;maria@soporte.com.ar
 09072017;0935;Servcio3.exe;Error0;jose@soporte.com.ar
 09072017;0944;Servcio12.exe;Error9;mateo@soporte.com.ar
+09072017;0945;Servcio13.exe;Error10;zoe@soporte.com.ar
+09072017;0950;Servcio18.exe;Error15;omar@soporte.com.ar
+09072017;0955;Servcio5.exe;Error20;ana@soporte.com.ar
+09072017;0956;Servcio6.exe;Error21;daniel@soporte.com.ar
+09072017;1009;Servcio1.exe;Error34;juan@soporte.com.ar
+09072017;1014;Servcio6.exe;Error39;daniel@soporte.com.ar
+09072017;1016;Servcio8.exe;Error41;lea@soporte.com.ar
+09072017;1018;Servcio10.exe;Error43;carlos@soporte.com.ar
+09072017;1025;Servcio17.exe;Error50;diego@soporte.com.ar
+09072017;1027;Servcio1.exe;Error52;juan@soporte.com.ar
+09072017;1037;Servcio11.exe;Error62;marcos@soporte.com.ar
+09072017;1038;Servcio12.exe;Error63;mateo@soporte.com.ar
+09072017;1039;Servcio13.exe;Error64;zoe@soporte.com.ar
+09072017;1040;Servcio14.exe;Error65;sandro@soporte.com.ar
+09072017;1059;Servcio15.exe;Error84;danilo@soporte.com.ar
+09072017;1100;Servcio16.exe;Error85;nestor@soporte.com.ar
+09072017;1104;Servcio2.exe;Error89;maria@soporte.com.ar
+09072017;1107;Servcio14.exe;Error92;sandro@soporte.com.ar
+09072017;1110;Servcio17.exe;Error95;diego@soporte.com.ar

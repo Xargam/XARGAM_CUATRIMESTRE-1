@@ -97,8 +97,6 @@ int al_add(arrayList* this, void* pElement)
 
 
 
-
-
 /** \brief  Delete arrayList
  * \param pList arrayList* Pointer to arrayList
  * \return int Return (-1) if Error [pList is NULL pointer] - (0) if Ok

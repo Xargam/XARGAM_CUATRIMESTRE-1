@@ -325,6 +325,27 @@ void xlkShowMessage(char* message, int startEnters,int endEnters, int adds )
  *
  */
 
+ /* Descripcion del funcionamiento [PARA EL USO EN EXAMENES]:
+ -Utilizo la librería nativa de C de argumentos variables, para podes enviar a la funcion un numero aleatorio de argumentos.
+ -Los ... indican cantidad de arguemtos de x tipo de dato indefinida.
+ -Valido que mis punteros no sean NULL, las lineas pueden ser 0 , 1 o 2. Solo modifica la decoracion al mostrar.
+ -Lines recibe 1000 y se carga como numero de argumentos a recibir, ya que este numero es el maximo tolerado por la funcion.
+ -Que se esperen 1000 argumentos no quiere decir que realmente vayan a estar.
+ -Copio lines a styleAux solamente para conservar el numero de lineas, ya que lines va a ser cambiado por mil.
+ -Creo una cadena del strlen de dataType (Cadena mediante la cual se reciben mascaras tal como un printf , que indican los tipos
+ de datos de los argumentos a mostrar, igual que un printf comun y corriente)
+ -Copio el dataType a una cadena para poder modificarlo.
+ Entro en un bucle Do While que se ejecutara e imprimira los datos.
+ ArgumentsToPrintt indica la cantidad de datos a leer.
+ Hay un bucle for que lee los formatos y va cortando la cadena para leer el siguiente. Sabiendo el tipo de dato de los argumentos
+ incrementa el contador de argumentos a imprimir y convierte los datos a una cadena de caracteres segun las mascaras con el fin
+ de unificar tipo de dato de argumentos y guardarlos en una matriz. Se leen hasta 6 y se muestran ordenados.
+ Si quedan argumentos el bucle iterara y los leera e imprimira. Segun la cantidad de arguemtnos a mostrar en pantalla se hace
+ el calculo de cuantos caracteres se pueden mostrar y si una cadena excede esa cantidad se corta y con una bandera se imprimen
+ los pedazos de texto que faltaron en otro renglon.
+
+ */
+
 void xlkSortPrintf(char* dataType,int lines,...)
 {
     if(dataType != NULL && lines > -1 && lines < 3 )

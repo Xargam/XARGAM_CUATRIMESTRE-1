@@ -11,17 +11,38 @@
 //Muestra
 
 
-void log_show(sLog* log, sService* service )
+
+/** \brief Muestra datos de un puntero a estructura del tipo sLog.
+ *
+ * \param log : Puntero a estructura del tipo log a mostrar.
+ * \param service : Servicio asociado al log a mostrar.
+ * \return Devuelve [1] si la estructura se mostró o [0] si hubo un error y no se pudo realizar la accion.
+ *
+ */
+
+int log_show(sLog* log, sService* service )
 {
-    if( log != NULL )
+    int verify = 0;
+    if( log != NULL && service != NULL )
     {
+        verify = 1;
         xlkSortPrintf("%s,%s,%s,%s,%d",1,log->date,log->time,service->name,log->msg,log->gravedad);
     }
+    return verify;
 }
 
 
 
 //Constructor
+
+
+
+/** \brief Reserva espacio para una estructura del tipo sLog*.
+ *
+ * \param
+ * \return Devuelve la estructura si la memoria fue reservada correctamente o NULL en caso de error.
+ *
+ */
 
 sLog* log_newLog(void)
 {

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1532355207 source:c:\users\leo\desktop\xargam\proyectos para testeos\punto 14 final prog 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

@@ -18,6 +18,13 @@ int main()
     arrayList* warnings = al_newArrayList();
     arrayList* errors = al_newArrayList();
 
+    if( services == NULL || log == NULL || warnings == NULL || errors == NULL )
+    {
+        printf("%s\n\n",XLK_MEM_ERROR);
+        system("pause");
+        exit(EXIT_FAILURE);
+    }
+
     int erroresMenos3 = 0;
     int errores3 = 0;
     int errores4a7 = 0;
@@ -26,13 +33,6 @@ int main()
     int contadorFallos = 0;
     int maxFallos = 0;
     void* servicioMasFallos;
-
-    if( services == NULL || log == NULL || warnings == NULL || errors == NULL )
-    {
-        printf("%s\n\n",XLK_MEM_ERROR);
-        system("pause");
-        exit(EXIT_FAILURE);
-    }
 
     int selection;
     int quit = 0;
@@ -49,7 +49,7 @@ int main()
             {
             case 1:
                 xPar_parseServices(services,"services.txt");
-                xPar_parseLog(log,"log2.txt");
+                xPar_parseLog(log,"log.txt");
                 printf("* Informacion leida.");
                 break;
             case 2:
@@ -118,10 +118,12 @@ int main()
         system("pause");
     }
     while(quit == 0);
+
     services->deleteArrayList(services);
     services->deleteArrayList(log);
     services->deleteArrayList(warnings);
     services->deleteArrayList(errors);
+
     return 0;
 }
 
