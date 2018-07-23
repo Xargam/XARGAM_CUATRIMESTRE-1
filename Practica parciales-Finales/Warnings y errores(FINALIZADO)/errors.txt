@@ -1,0 +1,3 @@
+09072017;0934;Servcio2.exe;Out of memory;maria@soporte.com.ar
+09072017;0935;Servcio3.exe;Error0;jose@soporte.com.ar
+09072017;0944;Servcio12.exe;Error9;mateo@soporte.com.ar
