@@ -315,6 +315,8 @@ void xlkShowMessage(char* message, int startEnters,int endEnters, int adds )
 //XL1-6
 /** \brief Imprime datos de manera encolumnada y ordenada.
  *
+ * \param acotado : En 0 esta desactivado. Si tiene un numero negativo o postivo, segun su valor encolumnara los datos.
+ * \param acotado : Si vale 5 será traducido a columnas con %5s separaciones.
  * \param dataType : Especificadores de formato separados o no por , : Ej: %d,%f,%ld.
  al igual que printf.
  * \param lines : [2] Se imprime una linea punteada superior e inferior a modo de decoracion.
