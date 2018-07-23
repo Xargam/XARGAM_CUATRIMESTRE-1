@@ -74,7 +74,7 @@ void xlkIndexBodyGenerator(int mode , int totalOptions,...); //XL1-3
 //Funciones para mostrar mensajes:
 
 void xlkShowMessage(char* message, int startEnters ,int endEnters, int adds ); //XL1-4
-void xlkSortPrintf(int acotado,char* dataType,int lines,...); //XL1-6
+void xlkSortPrintf(char* dataType,int lines,...); //XL1-6
 void xlkCenterPrintf( char* word, int lines );  //XL1-7
 void xlkEnterPrinter(int number);
 void xlkLinePrinter(int recta);
