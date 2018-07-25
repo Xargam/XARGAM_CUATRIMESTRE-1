@@ -1,14 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include "xLogs.h"
-#include "xvalidate.h"
-#include "xlook.h"
-
-//ESTRUCTURA sLog
-
-//Muestra
 
 
 void log_show(sLog* log)

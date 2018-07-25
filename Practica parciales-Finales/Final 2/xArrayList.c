@@ -97,11 +97,14 @@ int al_add(arrayList* this, void* pElement)
 
 
 
+
+
 /** \brief  Delete arrayList
  * \param pList arrayList* Pointer to arrayList
  * \return int Return (-1) if Error [pList is NULL pointer] - (0) if Ok
  *
  */
+
 int al_deleteArrayList(arrayList* this)
 {
     int verify = -1;
@@ -251,13 +254,13 @@ int al_clear(arrayList* this)
     if( this != NULL)
     {
         void** auxElements;
-        auxElements =(void**) realloc(this->pElements,sizeof(void*));
+        auxElements =(void**) realloc(this->pElements,sizeof(void*)*10);
         if(auxElements != NULL)
         {
             verify = 0;
             this->pElements = auxElements;
             this->size = 0;
-            this->reservedSize = 0;
+            this->reservedSize = 10;
         }
 
     }
@@ -637,8 +640,10 @@ int contract(arrayList* this,int index)
 arrayList* al_fileLoader( char* filePath, int dataSize)
 {
     arrayList* arrayList = NULL;
+    int reading;
+    int okFlag = 0;
 
-    if( filePath != NULL && dataSize > 0)
+    if( filePath != NULL )
     {
         FILE* file = fopen(filePath,"rb");
         if(file != NULL )
@@ -648,14 +653,14 @@ arrayList* al_fileLoader( char* filePath, int dataSize)
             {
                 while( !feof(file) )
                 {
-                    void* pointer =(void*) malloc(sizeof(dataSize));
+                    void* pointer = malloc(sizeof(dataSize));
                     if( pointer == NULL)
                     {
-                        arrayList->deleteArrayList(arrayList);
-                        arrayList = NULL;
+                        okFlag = 1;
                         break;
                     }
-                    if( fread(pointer,sizeof(dataSize),1,file) != 1)
+                    reading = fread(pointer,sizeof(dataSize),1,file);
+                    if(reading != 1)
                     {
                         if( feof(file) )
                         {
@@ -664,21 +669,32 @@ arrayList* al_fileLoader( char* filePath, int dataSize)
                         else
                         {
                             free(pointer);
-                            free(arrayList->deleteArrayList(arrayList));
-                            arrayList = NULL;
+                            okFlag = 1;
                             break;
                         }
                     }
+
                     arrayList->add(arrayList,pointer);
                 }
             }
             if( fclose(file) )
             {
-                arrayList = NULL;
+                okFlag = 1;
             }
         }
+        if( okFlag )
+        {
+            int i;
+            for(i = 0 ; i < arrayList->len(arrayList) ; i++ )
+            {
+                free( arrayList->get(arrayList,i) );
+            }
+            free(arrayList->pElements);
+            free(arrayList);
+            arrayList = NULL;
+        }
     }
-    return arrayList;
+    return  arrayList;
 }
 
 
@@ -720,3 +736,52 @@ int al_fileSaver( arrayList* this,  char* filePath, int dataSize)
     }
     return validation;
 }
+
+
+/*
+for( int i = 0 ; i < lista->len(lista) ; i++)
+    {
+        if( i == 0)
+        {
+            lista2->add(lista2, lista->get(lista,i));
+            continue;
+        }
+        for( int j = 0 ; j < lista2->len(lista2) ; j++)
+        {
+            if( enumeros_repeticion(lista->get(lista,i),lista2->get(lista2,j)) == 1  )
+            {
+                break;
+            }
+            if( j == lista2->len(lista2)-1)
+            {
+                lista2->add(lista2,lista->get(lista,i));
+            }
+        }
+    }
+*/
+
+
+/*
+ for( int i = 0 ; i < lista->len(lista) ; i++)
+    {
+        counter = 0;
+        repetidos->add(repetidos, lista->get(lista,i));
+        for( int j = 0 ; j < lista->len(lista) ; j++)
+        {
+            if( enumeros_repeticion(lista->get(lista,i),lista->get(lista,j)) == 1  )
+            {
+                if( counter > 1 && repetidos->contains(repetidos,lista->get(lista,i)) == 0 )
+                {
+                    repetidos->add(repetidos,lista->get(lista,i));
+                }
+                counter++;
+
+            }
+        }
+        if( counter == 1 )
+        {
+            repetidos->remove(repetidos, repetidos->indexOf(repetidos, lista->get(lista,i)) );
+            depurados->add(depurados,lista->get(lista,i));
+        }
+    }
+    */

@@ -49,6 +49,10 @@ char* log_getMsg( sLog* log );
 
 //Prototipos sServices:
 
+// muerestra
+
+void service_show(sService* service);
+
 //Constructor y destructor:
 
 sService* service_newService(void);

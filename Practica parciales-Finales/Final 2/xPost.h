@@ -1,39 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef XMENSAJES_H_INCLUDED
+#define XMENSAJES_H_INCLUDED
 
-#include "xLogs.h"
-#include "xvalidate.h"
-#include "xlook.h"
+//Estructura
 
-//ESTRUCTURA sLog
-
-//Muestra
-
-
-void log_show(sLog* log)
+typedef struct
 {
-    if( log != NULL )
+    int idMessage;
+    char message[300];
+    int popularidad;
+    int idUser;
+
+} sPost
+
+
+int post_show(sPost* post)
+{
+    int verify;
+    if( post != NULL )
     {
-        xlkSortPrintf("%s,%s,%d,%d,%s",1,log->date,log->time,log->serviceId,log->gravedad,log->msg);
+        xlkSortPrintf("%s,%s,%d,%d,%s",1,post->date,post->time,post->serviceId,post->gravedad,post->msg);
     }
 }
 
 
 //Constructor
 
-sLog* log_newLog(void)
+sPost* post_newPost(void)
 {
-    sLog* log = (sLog*) malloc(sizeof(sLog));
-    if(log != NULL)
+    sPost* post = (spost*) malloc(sizeof(spost));
+    if(post != NULL)
     {
-        strcpy( log->date, "" );
-        strcpy( log->time, "" );
-        strcpy( log->msg, "" );
-        log->gravedad = 0;
-        log->serviceId = 0;
+        strcpy( post->date, "" );
+        strcpy( post->time, "" );
+        strcpy( post->msg, "" );
+        post->gravedad = 0;
+        post->serviceId = 0;
     }
-    return log;
+    return post;
 }
 
 
@@ -42,14 +45,14 @@ sLog* log_newLog(void)
 
 
 
-int log_setDate( sLog* log, char* date )
+int post_setDate( sPost* post, char* date )
 {
     int verify = 0;
-    if( date != NULL && log != NULL)
+    if( date != NULL && post != NULL)
     {
         if( validateStringRange(date,6,10) )
         {
-            strcpy( log->date, date);
+            strcpy( post->date, date);
             verify = 1;
         }
     }
@@ -58,14 +61,14 @@ int log_setDate( sLog* log, char* date )
 
 
 
-int log_setTime( sLog* log, char* time )
+int post_setTime( sPost* post, char* time )
 {
     int verify = 0;
-    if( time != NULL && log != NULL)
+    if( time != NULL && post != NULL)
     {
         if( validateStringRange(time,4,5) && validateIsCorrectTime(time,0) )
         {
-            strcpy( log->time, time);
+            strcpy( post->time, time);
             verify = 1;
         }
     }
@@ -73,14 +76,14 @@ int log_setTime( sLog* log, char* time )
 }
 
 
-int log_setServiceId( sLog* log, int id )
+int post_setServiceId( sPost* post, int id )
 {
     int verify = 0;
-    if( log != NULL)
+    if( post != NULL)
     {
         if( validateIntCondition(id,1,1) )
         {
-            log->serviceId = id;
+            post->serviceId = id;
             verify = 1;
         }
     }
@@ -89,14 +92,14 @@ int log_setServiceId( sLog* log, int id )
 
 
 
-int log_setGravedad( sLog* log, int gravedad )
+int post_setGravedad( sPost* post, int gravedad )
 {
     int verify = 0;
-    if( log != NULL)
+    if( post != NULL)
     {
         if( validateIntRange(gravedad,0,9) )
         {
-            log->gravedad = gravedad;
+            post->gravedad = gravedad;
             verify = 1;
         }
     }
@@ -105,14 +108,14 @@ int log_setGravedad( sLog* log, int gravedad )
 
 
 
-int log_setMsg( sLog* log, char* message )
+int post_setMsg( sPost* post, char* message )
 {
     int verify = 0;
-    if( log != NULL && message != NULL)
+    if( post != NULL && message != NULL)
     {
         if( validateStringRange(message,1,64) )
         {
-            strcpy(log->msg, message);
+            strcpy(post->msg, message);
             verify = 1;
         }
     }
@@ -125,37 +128,37 @@ int log_setMsg( sLog* log, char* message )
 
 
 
-char* log_getDate( sLog* log )
+char* post_getDate( sPost* post )
 {
-    return log->date;
+    return post->date;
 }
 
 
 
-char* log_getTime( sLog* log )
+char* post_getTime( sPost* post )
 {
-    return log->time;
+    return post->time;
 }
 
 
 
-int log_getServiceId( sLog* log )
+int post_getServiceId( sPost* post )
 {
-    return log->serviceId;
+    return post->serviceId;
 }
 
 
 
-int log_getGravedad( sLog* log )
+int post_getGravedad( sPost* post )
 {
-    return log->gravedad;
+    return post->gravedad;
 }
 
 
 
-char* log_getMsg( sLog* log )
+char* post_getMsg( sPost* post )
 {
-    return log->msg;
+    return post->msg;
 }
 
 
@@ -260,3 +263,5 @@ char* service_getEmail( sService* service )
 {
     return service->email;
 }
+
+#endif // XMENSAJES_H_INCLUDED

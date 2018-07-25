@@ -277,7 +277,7 @@ int service_show(sService* service)
     if( service != NULL )
     {
         verify = 1;
-        xlkSortPrintf("%d,%s,%s",1,service->id,service->name,service->email);
+        xlkSortPrintf(0,"%d,%s,%s",1,service->id,service->name,service->email);
     }
     return verify;
 
@@ -313,13 +313,7 @@ sService* service_newService(void)
 
 
 
-/** \brief Setea el campo id de un puntero al tipo de dato sService.
- *
- * \param service : Puntero a sService donde setear el dato.
- * \param id : Entero con id a setear.
- * \return Devuelvo [1] si el dato fue seteado correctamente o [0] en caso contrario.
- *
- */
+
 
 int service_setId( sService* service, int id )
 {

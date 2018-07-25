@@ -24,7 +24,7 @@ typedef struct
 
 //Muestra
 
-void log_show(sLog* log, sService* service);
+int log_show(sLog* log, sService* service);
 
 //Constructor y destructor:
 
@@ -51,7 +51,7 @@ char* log_getMsg( sLog* log );
 
 // muerestra
 
-void service_show(sService* service);
+int service_show(sService* service);
 
 //Constructor y destructor:
 
