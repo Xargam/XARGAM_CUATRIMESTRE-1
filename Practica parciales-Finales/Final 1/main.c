@@ -10,7 +10,6 @@
 #include "xFiles.h"
 #include "xvalidate.h"
 
-
 int main()
 {
     arrayList* services = al_newArrayList();
@@ -40,7 +39,6 @@ int main()
                 printf("* Informacion leida.");
                 break;
             case 2:
-
                 break;
             case 3:
                 break;

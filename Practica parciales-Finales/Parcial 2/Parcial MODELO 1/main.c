@@ -10,7 +10,6 @@
 #include "xvalidate.h"
 #include "xEmail.h"
 
-
 /*
 Desarrollar en ANSI C:
 Una compañía de servicios de marketing por correo electrónico requiere una
