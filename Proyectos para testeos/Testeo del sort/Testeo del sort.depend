@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1532476748 source:c:\users\leo\desktop\xargam\proyectos para testeos\testeo del sort\xarraylist.c
+	<stdio.h>
+	<stdlib.h>
+	"xArrayList.h"
+
+1532466697 c:\users\leo\desktop\xargam\proyectos para testeos\testeo del sort\xarraylist.h
+
+1532480598 source:c:\users\leo\desktop\xargam\proyectos para testeos\testeo del sort\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xArrayList.h"
+
