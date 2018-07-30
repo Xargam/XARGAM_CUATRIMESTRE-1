@@ -11,16 +11,38 @@
 //Muestra
 
 
-void log_show(sLog* log)
+
+/** \brief Muestra datos de un puntero a estructura del tipo sLog.
+ *
+ * \param log : Puntero a estructura del tipo log a mostrar.
+ * \param service : Servicio asociado al log a mostrar.
+ * \return Devuelve [1] si la estructura se mostró o [0] si hubo un error y no se pudo realizar la accion.
+ *
+ */
+
+int log_show(sLog* log, sService* service )
 {
-    if( log != NULL )
+    int verify = 0;
+    if( log != NULL && service != NULL )
     {
-        xlkSortPrintf("%s,%s,%d,%d,%s",1,log->date,log->time,log->serviceId,log->gravedad,log->msg);
+        verify = 1;
+        xlkSortPrintf("%s,%s,%s,%s,%d",1,log->date,log->time,service->name,log->msg,log->gravedad);
     }
+    return verify;
 }
 
 
+
 //Constructor
+
+
+
+/** \brief Reserva espacio dinamico para una estructura del tipo sLog.
+ *
+ * \param
+ * \return Devuelve la estructura si la memoria fue reservada correctamente o NULL en caso de error.
+ *
+ */
 
 sLog* log_newLog(void)
 {
@@ -42,6 +64,14 @@ sLog* log_newLog(void)
 
 
 
+/** \brief Setea el campo date (fecha) de un puntero al tipo de dato sLog.
+ *
+ * \param log : Puntero a sLog donde setear el dato.
+ * \param date : Cadena con fecha a setear.
+ * \return Devuelvo [1] si el dato fue seteado correctamente o [0] en caso contrario.
+ *
+ */
+
 int log_setDate( sLog* log, char* date )
 {
     int verify = 0;
@@ -58,6 +88,14 @@ int log_setDate( sLog* log, char* date )
 
 
 
+/** \brief Setea el campo time (hora) de un puntero al tipo de dato sLog.
+ *
+ * \param log : Puntero a sLog donde setear el dato.
+ * \param time : Cadena con horario a setear.
+ * \return Devuelvo [1] si el dato fue seteado correctamente o [0] en caso contrario.
+ *
+ */
+
 int log_setTime( sLog* log, char* time )
 {
     int verify = 0;
@@ -72,6 +110,15 @@ int log_setTime( sLog* log, char* time )
     return verify;
 }
 
+
+
+/** \brief Setea el campo serviceId ( id de servicio ) de un puntero al tipo de dato sLog.
+ *
+ * \param log : Puntero a sLog donde setear el dato.
+ * \param id : Entero con id a setear.
+ * \return Devuelvo [1] si el dato fue seteado correctamente o [0] en caso contrario.
+ *
+ */
 
 int log_setServiceId( sLog* log, int id )
 {
@@ -89,6 +136,14 @@ int log_setServiceId( sLog* log, int id )
 
 
 
+/** \brief Setea el campo gravedad de un puntero al tipo de dato sLog.
+ *
+ * \param log : Puntero a sLog donde setear el dato.
+ * \param gravedad : Entero con gravedad a setear.
+ * \return Devuelvo [1] si el dato fue seteado correctamente o [0] en caso contrario.
+ *
+ */
+
 int log_setGravedad( sLog* log, int gravedad )
 {
     int verify = 0;
@@ -104,6 +159,14 @@ int log_setGravedad( sLog* log, int gravedad )
 }
 
 
+
+/** \brief Setea el campo msg de un puntero al tipo de dato sLog.
+ *
+ * \param log : Puntero a sLog donde setear el dato.
+ * \param message : Cadena con mensaje de error a setear.
+ * \return Devuelvo [1] si el dato fue seteado correctamente o [0] en caso contrario.
+ *
+ */
 
 int log_setMsg( sLog* log, char* message )
 {
@@ -125,12 +188,26 @@ int log_setMsg( sLog* log, char* message )
 
 
 
+/** \brief Obtiene la fecha de un puntero al tipo de dato sLog.
+ *
+ * \param Puntero a sLog de donde obtener el dato.
+ * \return Devuelve una cadena con el dato correspondiente.
+ *
+ */
+
 char* log_getDate( sLog* log )
 {
     return log->date;
 }
 
 
+
+/** \brief Obtiene la hora de un puntero al tipo de dato sLog.
+ *
+ * \param Puntero a sLog de donde obtener el dato.
+ * \return Devuelve una cadena con el dato correspondiente.
+ *
+ */
 
 char* log_getTime( sLog* log )
 {
@@ -139,6 +216,13 @@ char* log_getTime( sLog* log )
 
 
 
+/** \brief Obtiene el serviceId de un puntero al tipo de dato sLog.
+ *
+ * \param Puntero a sLog de donde obtener el dato.
+ * \return Devuelve un entero con el dato correspondiente.
+ *
+ */
+
 int log_getServiceId( sLog* log )
 {
     return log->serviceId;
@@ -146,12 +230,26 @@ int log_getServiceId( sLog* log )
 
 
 
+/** \brief Obtiene la gravedad de un puntero al tipo de dato sLog.
+ *
+ * \param Puntero a sLog de donde obtener el dato.
+ * \return Devuelve un entero con el dato correspondiente.
+ *
+ */
+
 int log_getGravedad( sLog* log )
 {
     return log->gravedad;
 }
 
 
+
+/** \brief Obtiene el msg (mensaje de error) de un puntero al tipo de dato sLog.
+ *
+ * \param Puntero a sLog de donde obtener el dato.
+ * \return Devuelve una cadena con el dato correspondiente.
+ *
+ */
 
 char* log_getMsg( sLog* log )
 {
@@ -165,16 +263,37 @@ char* log_getMsg( sLog* log )
 //Muestra
 
 
-void service_show(sService* service)
+
+/** \brief Muestra datos de un puntero a estructura del tipo sService.
+ *
+ * \param service : Puntero a estructura del tipo service a mostrar.
+ * \return Devuelve [1] si la estructura se mostró o [0] si hubo un error y no se pudo realizar la accion.
+ *
+ */
+
+int service_show(sService* service)
 {
+    int verify = 0;
     if( service != NULL )
     {
+        verify = 1;
         xlkSortPrintf("%d,%s,%s",1,service->id,service->name,service->email);
     }
+    return verify;
+
 }
 
 
 //Constructor y destructor:
+
+
+
+/** \brief Reserva espacio dinamico para una estructura del tipo sService.
+ *
+ * \param
+ * \return Devuelve la estructura si la memoria fue reservada correctamente o NULL en caso de error.
+ *
+ */
 
 sService* service_newService(void)
 {
@@ -188,7 +307,19 @@ sService* service_newService(void)
     return service;
 }
 
+
+
 //Setters:
+
+
+
+/** \brief Setea el campo id de un puntero al tipo de dato sService.
+ *
+ * \param service : Puntero a sService donde setear el dato.
+ * \param id : Entero con id a setear.
+ * \return Devuelvo [1] si el dato fue seteado correctamente o [0] en caso contrario.
+ *
+ */
 
 int service_setId( sService* service, int id )
 {
@@ -206,6 +337,14 @@ int service_setId( sService* service, int id )
 
 
 
+/** \brief Setea el campo name de un puntero al tipo de dato sService.
+ *
+ * \param service : Puntero a sService donde setear el dato.
+ * \param name : Cadena con nombre a setear.
+ * \return Devuelvo [1] si el dato fue seteado correctamente o [0] en caso contrario.
+ *
+ */
+
 int service_setName( sService* service, char* name )
 {
     int verify = 0;
@@ -221,6 +360,14 @@ int service_setName( sService* service, char* name )
 }
 
 
+
+/** \brief Setea el campo email de un puntero al tipo de dato sService.
+ *
+ * \param service : Puntero a sService donde setear el dato.
+ * \param email : Cadena con email a setear.
+ * \return Devuelvo [1] si el dato fue seteado correctamente o [0] en caso contrario.
+ *
+ */
 
 int service_setEmail( sService* service, char* email )
 {
@@ -242,6 +389,14 @@ int service_setEmail( sService* service, char* email )
 
 
 
+
+/** \brief Obtiene el id de un puntero al tipo de dato sService.
+ *
+ * \param Puntero a sLog de donde obtener el dato.
+ * \return Devuelve un entero con el dato correspondiente.
+ *
+ */
+
 int service_getId( sService* service)
 {
     return service->id;
@@ -249,12 +404,26 @@ int service_getId( sService* service)
 
 
 
+/** \brief Obtiene el nombre de un puntero al tipo de dato sService.
+ *
+ * \param Puntero a sService de donde obtener el dato.
+ * \return Devuelve una cadena con el dato correspondiente.
+ *
+ */
+
 char* service_getName( sService* service )
 {
     return service->name;
 }
 
 
+
+/** \brief Obtiene el email de un puntero al tipo de dato sService.
+ *
+ * \param Puntero a sService de donde obtener el dato.
+ * \return Devuelve una cadena con el dato correspondiente.
+ *
+ */
 
 char* service_getEmail( sService* service )
 {

@@ -34,10 +34,22 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="xPerson.c">
+		<Unit filename="xArrayList.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="xPerson.h" />
+		<Unit filename="xArrayList.h" />
+		<Unit filename="xArrayWork.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xArrayWork.h" />
+		<Unit filename="xFiles.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xFiles.h" />
+		<Unit filename="xParser.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xParser.h" />
 		<Unit filename="xget.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -1,0 +1,78 @@
+# depslib dependency file v1.0
+1532886905 source:c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xarraylist.c
+	<stdio.h>
+	<stdlib.h>
+	"xArrayList.h"
+
+1532961732 c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xarraylist.h
+
+1532963101 source:c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xarraywork.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xget.h"
+	"xvalidate.h"
+	"xArrayWork.h"
+	"xlook.h"
+
+1532886905 c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xget.h
+
+1532964199 c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xvalidate.h
+
+1532917121 c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xarraywork.h
+
+1532886905 c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xlook.h
+
+1532886907 source:c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xfiles.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1532886905 source:c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1532961477 source:c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1532886907 source:c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1532961623 source:c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xparser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xParser.h"
+
+1532919245 c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xparser.h
+	"xArrayList.h"
+
+1532962747 source:c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1532886907 source:c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+
+1532963892 source:c:\users\leo\desktop\xargam\proyectos para testeos\final rec\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xstring.h"
+
+1532963892 c:\users\leo\desktop\xargam\proyectos para testeos\final rec\xstring.h
+

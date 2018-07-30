@@ -4,7 +4,9 @@
 
 //Funciones de texto:
 
-void xstrCapsAdder(char* word);   //XS1-1
+void xstrNameCapsAdder(char* word);   //XS1-1
 void xstrSpaceFixer(char* word);  //XS1-2
+void xstrSentenceFixer(char* word);  //XS1-3
+void xstrStringToChar(char* word);
 
 #endif // XSTRING_H_INCLUDED

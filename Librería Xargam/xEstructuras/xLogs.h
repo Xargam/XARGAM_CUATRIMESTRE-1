@@ -24,7 +24,7 @@ typedef struct
 
 //Muestra
 
-void log_show(sLog* log);
+void log_show(sLog* log, sService* service);
 
 //Constructor y destructor:
 

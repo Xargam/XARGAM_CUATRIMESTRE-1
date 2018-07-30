@@ -16,11 +16,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-typedef struct
-{
-    char name[10];
-    char lastname[10];
-} testStruct ;
 
 #ifndef __ARRAYLIST
 #define __ARRAYLIST
@@ -238,12 +233,16 @@ int expand(arrayList* this,int index);
 int contract(arrayList* this,int index);
 
 
+/** \brief Recorre un archivo y carga los elementos en un arrayList.
+ *
+ * \param filePath: Ruta del archivo a leer.
+ * \param dataSize: Tamaño en bytes de cada puntero que se debe leer del archivo.
+ * \return Devuelve un arrayList con elementos cargados, en caso de error devuelve un puntero a NULL.
+ *
+ */
 
-/*
 arrayList* al_fileLoader(char* filePath, int dataSize);
 int al_fileSaver( arrayList* this , char* filePath, int dataSize);
-int al_parser( char* filePath , arrayList* this  );
-*/
 
 // Private function
 int resizeUp(arrayList* this);

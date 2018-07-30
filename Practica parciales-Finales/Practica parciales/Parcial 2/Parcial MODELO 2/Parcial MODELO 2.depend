@@ -1,0 +1,89 @@
+# depslib dependency file v1.0
+1530044089 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xarraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xArrayList.h"
+	"xFiles.h"
+
+1529953024 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xarraylist.h
+
+1529911875 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xfiles.h
+
+1529916594 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xfiles.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1529911345 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1530038561 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1529787035 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xmath.c
+	<stdio.h>
+	<stdlib.h>
+
+1529787035 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1529944575 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+
+1529787035 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xvector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1530044089 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xclientes.c
+	<stdio.h>
+	<stdlib.h>
+	"xget.h"
+	"xlook.h"
+	"xvalidate.h"
+	"xClientes.h"
+
+1529910644 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xget.h
+
+1530038495 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xlook.h
+
+1530044089 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xgenericstruct.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xget.h"
+	"xvalidate.h"
+	"xGenericStruct.h"
+	"xlook.h"
+
+1529787035 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xvalidate.h
+
+1530024969 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xgenericstruct.h
+
+1530035344 source:c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xget.h"
+	"xlook.h"
+	"xArrayList.h"
+	"xClientes.h"
+
+1530044089 c:\users\leo\desktop\xargam\practica parciales\parcial 2\parcial modelo 2\xclientes.h
+

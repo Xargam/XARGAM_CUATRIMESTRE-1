@@ -1,0 +1,73 @@
+# depslib dependency file v1.0
+1532886905 source:c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xarraylist.c
+	<stdio.h>
+	<stdlib.h>
+	"xArrayList.h"
+
+1532961732 c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xarraylist.h
+
+1532964254 source:c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xarraywork.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xget.h"
+	"xvalidate.h"
+	"xArrayWork.h"
+	"xlook.h"
+
+1532886905 c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xget.h
+
+1532980232 c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xvalidate.h
+
+1532917121 c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xarraywork.h
+
+1532886905 c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xlook.h
+
+1532973092 source:c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1532961477 source:c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1532970771 source:c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xparser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xParser.h"
+
+1532919245 c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xparser.h
+	"xArrayList.h"
+
+1532965179 source:c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1532980156 source:c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+
+1532973410 source:c:\users\leo\desktop\xargam\proyectos para testeos\final testre\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xstring.h"
+	"xlook.h"
+	"xParser.h"
+	"xvalidate.h"
+	"xArrayList.h"
+	"xArrayWork.h"
+
+1532963892 c:\users\leo\desktop\xargam\proyectos para testeos\final testre\xstring.h
+

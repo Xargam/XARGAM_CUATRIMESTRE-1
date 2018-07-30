@@ -4,7 +4,7 @@
 #include <string.h>
 
 
-//INFORMACION IMPORTANTE: En la consola CMD entran 90 caracteres o digitos.
+//INFORMACION IMPORTANTE: En la consola CMD entran 90 caracteres o digitos por linea.
 
 
 //Funciones complemento - Trabajo con cadenas de caracteres:
@@ -315,30 +315,32 @@ void xlkShowMessage(char* message, int startEnters,int endEnters, int adds )
 //XL1-6
 /** \brief Imprime datos de manera encolumnada y ordenada.
  *
+ * \param acotado : En 0 esta desactivado. Si tiene un numero negativo o postivo, segun su valor encolumnara los datos.
+ * \param acotado : Si vale 5 será traducido a columnas con %5s separaciones.
  * \param dataType : Especificadores de formato separados o no por , : Ej: %d,%f,%ld.
  al igual que printf.
- * \param style : [2] Se imprime una linea punteada superior e inferior a modo de decoracion.
- * \param style : [1] Se imprime una linea inferior a modo de decoracion.
- * \param style : [0] Los datosn se imprimen sin decoracion.
- * \param ... : Argumentos con datos a imprimir. Se rel
+ * \param lines : [2] Se imprime una linea punteada superior e inferior a modo de decoracion.
+ * \param lines : [1] Se imprime una linea inferior a modo de decoracion.
+ * \param lines : [0] Los datosn se imprimen sin decoracion.
+ * \param ... : Argumentos con datos a imprimir.
  * \return
  *
  */
-
-void xlkSortPrintf(char* dataType,int style,...)
+void xlkSortPrintf(int acotado,char* dataType,int lines,...)
 {
-    if(dataType != NULL)
+    if(dataType != NULL && lines > -1 && lines < 3 && acotado <= 74 && acotado >= -74)
     {
         va_list arguments; //DECLARACION LISTA DE ARGUMENTOS VARIABLES
-        int styleAux = style; //COPIO LA ESTETICA SOLICITADA POR EL USUARIO A OTRA VARIABLE
+        int styleAux = lines; //COPIO LA ESTETICA SOLICITADA POR EL USUARIO A OTRA VARIABLE
         int i,j; //VARIABLES DE ITERACION
-        int flag; //UTILIZADA PARA SABER SI LAS PALABRAS O DATOS SON MAS LARGOS Y DEBE HACERSE UNA BAJADA DE LINEA.
-        int format; //NUMERO ENTERO QUE SE RELACIONA CON  EL FORMATO DEL DATO A LEER COMO ARGUMENTO.
+        int flag = 0; //UTILIZADA PARA SABER SI LAS PALABRAS O DATOS SON MAS LARGOS Y DEBE HACERSE UNA BAJADA DE LINEA.
+        int format = 0; //NUMERO ENTERO QUE SE RELACIONA CON  EL FORMATO DEL DATO A LEER COMO ARGUMENTO.
         int argumentsToPrint; //CUENTA LA CANTIDAD DE ARGUMENTOS VARIABLES QUE SE DETECTAN
         int argumentsReg = 0; //REGISTRA LOS ARGUMENTOS QUE SE IMPRIMEN, LA FUNCION NO DEJA QUE ESTE REGISTRO SUPERE LOS 1000
 
-        style = 1000; //A STYLE LE ASIGNO EL NUMERO DE ARGUMENTOS MAXIMO QUE PODRA IMPRIMIR LA FUNCION
-        va_start(arguments,style); //INICIALIZO LISTA DE ARGUMENTOS VARIABLES
+
+        lines = 1000; //A LINES LE ASIGNO EL NUMERO DE ARGUMENTOS MAXIMO QUE PODRA IMPRIMIR LA FUNCION
+        va_start(arguments,lines); //INICIALIZO LISTA DE ARGUMENTOS VARIABLES
 
         char formatSpecifiers[strlen(dataType)+1]; //SE REALIZA UNA COPIA DE LA CADENA DE FORMATO PARA PODER MODIFICARLA
         strcpy(formatSpecifiers, dataType);
@@ -347,14 +349,23 @@ void xlkSortPrintf(char* dataType,int style,...)
         char dataToPrint[6][1000]; //MATRIZ QUE VA GUARDANDO LOS ARGUMENTOS LEIDOS PARA LUEGO IMPRIMIRLOS.
         char dataToPrintAux[1000]; //AUXILIAR UTILIZADO PARA COPIAS.
 
+        char formatoAcotado[10]= {"  %"};
+        int lenSuma = 0;
+
+        if( acotado )
+        {
+            sprintf(dataToPrintAux,"%d",acotado);
+            strcat(formatoAcotado,dataToPrintAux);
+            strcat(formatoAcotado,"s  ");
+        }
 
         if( styleAux == 2) //SI EL ESTILO ES TRUE, SE IMPRIME DECORACION
         {
             printf("--------------------------------------------------------------------------------");
         }
+
         do
         {
-            printf(" "); //ESPACIO INICIAL PARA SEPARAR DATOS DEL BORDE DE LA PANTALLA
             argumentsToPrint = 0;
             for(i = 0,j = 0 ; i < 6 && format != -1 ; i++ )
             {
@@ -374,7 +385,7 @@ void xlkSortPrintf(char* dataType,int style,...)
                         xlkStringCutter(formatSpecifiers,1);
                     }
 
-                    argumentsToPrint++; //CONTADOR DE ARGUMENTOS DETECTADO
+                    argumentsToPrint++; //CONTADOR DE ARGUMENTOS DETECTADOS
 
                     //SE GUARDA EL DATO DETECTADO COMO CADENA
 
@@ -385,6 +396,7 @@ void xlkSortPrintf(char* dataType,int style,...)
                         break;
                     case 2:
                         sprintf(dataToPrint[j],"%s",va_arg(arguments, char*));
+
                         break;
                     case 3:
                         sprintf(dataToPrint[j],"%d",va_arg(arguments, int));
@@ -402,114 +414,151 @@ void xlkSortPrintf(char* dataType,int style,...)
                         sprintf(dataToPrint[j],"%lld",va_arg(arguments, long long ));
                         break;
                     }
+                    lenSuma += strlen(dataToPrint[j]);
                     j++;
+
                 }
             }
+
             argumentsReg += argumentsToPrint;
             if( argumentsReg <= 1000 && argumentsToPrint > 0 )
             {
+                printf(" "); //ESPACIO INICIAL PARA SEPARAR DATOS DEL BORDE DE LA PANTALLA
+
                 for(i = 0 ; i < argumentsToPrint ; i++ )
                 {
                     switch(argumentsToPrint)
                     {
                     case 1:
-                        if( strlen(dataToPrint[i]) > 76)
+                        if( acotado )
+                        {
+                            printf(formatoAcotado,dataToPrint[i]);
+                        }
+                        else if( strlen(dataToPrint[i]) > 77)
                         {
                             //SI LA PALABRA ES DEMASIADO LARGA, LA CORTO Y EL RESTO LA IMPRIMO EN OTRA VUELTA DE ITERACION DEL FOR.
 
-                            xlkStringSeparator(76,dataToPrint[i],dataToPrintAux);
-                            printf("%-76s  ", dataToPrint[i]);
+                            xlkStringSeparator(77,dataToPrint[i],dataToPrintAux);
+                            printf("%-77s ", dataToPrint[i]);
                             strcpy( dataToPrint[i], dataToPrintAux);
                             flag = 1; //INDICA QUE EL FOR DEBE VOLVER A DAR LA VUELTA POR QUE UNA PALABRA ES LARGA.
                         }
                         else
                         {
-                            printf("%-76s  ", dataToPrint[i]);
+                            printf("%-77s ", dataToPrint[i]);
                             dataToPrint[i][0] = '\0';
                         }
                         break;
                     case 2:
-                        if( strlen(dataToPrint[i]) > 37)
+                        if( acotado )
                         {
-                            xlkStringSeparator(37,dataToPrint[i],dataToPrintAux);
-                            printf("%-37s  ", dataToPrint[i]);
+                            printf(formatoAcotado,dataToPrint[i]);
+                        }
+                        else if( strlen(dataToPrint[i]) > 38)
+                        {
+                            xlkStringSeparator(38,dataToPrint[i],dataToPrintAux);
+                            printf("%-38s ", dataToPrint[i]);
                             strcpy( dataToPrint[i], dataToPrintAux);
                             flag = 1;
                         }
                         else
                         {
-                            printf("%-37s  ", dataToPrint[i]);
+                            printf("%-38s ", dataToPrint[i]);
                             dataToPrint[i][0] = '\0';
                         }
                         break;
                     case 3:
-                        if( strlen(dataToPrint[i]) > 23)
+                        if( acotado )
                         {
-                            xlkStringSeparator(23,dataToPrint[i],dataToPrintAux);
-                            printf("%-23s  ", dataToPrint[i]);
+                            printf(formatoAcotado,dataToPrint[i]);
+                        }
+                        else if( strlen(dataToPrint[i]) > 25)
+                        {
+                            xlkStringSeparator(25,dataToPrint[i],dataToPrintAux);
+                            printf("%-25s ", dataToPrint[i]);
                             strcpy( dataToPrint[i], dataToPrintAux);
                             flag=1;
                         }
                         else
                         {
-                            printf("%-23s  ", dataToPrint[i]);
+                            printf("%-25s ", dataToPrint[i]);
                             dataToPrint[i][0] = '\0';
                         }
                         break;
                     case 4:
-                        if( strlen(dataToPrint[i]) > 17)
+                        if( acotado )
                         {
-                            xlkStringSeparator(17,dataToPrint[i],dataToPrintAux);
-                            printf("%-17s  ", dataToPrint[i]);
+                            printf(formatoAcotado,dataToPrint[i]);
+                        }
+                        else if( strlen(dataToPrint[i]) > 18)
+                        {
+                            xlkStringSeparator(18,dataToPrint[i],dataToPrintAux);
+                            printf("%-18s ", dataToPrint[i]);
                             strcpy( dataToPrint[i], dataToPrintAux);
                             flag=1;
                         }
                         else
                         {
-                            printf("%-17s  ", dataToPrint[i]);
+                            printf("%-18s ", dataToPrint[i]);
                             dataToPrint[i][0] = '\0';
                         }
                         break;
                     case 5:
-                        if( strlen(dataToPrint[i]) > 13)
+                        if( acotado )
                         {
-                            xlkStringSeparator(13,dataToPrint[i],dataToPrintAux);
-                            printf("%-13s  ",dataToPrint[i]);
+                            printf(formatoAcotado,dataToPrint[i]);
+                        }
+                        else if( strlen(dataToPrint[i]) > 14)
+                        {
+                            xlkStringSeparator(14,dataToPrint[i],dataToPrintAux);
+                            printf("%-14s ",dataToPrint[i]);
                             strcpy( dataToPrint[i], dataToPrintAux);
                             flag=1;
                         }
                         else
                         {
-                            printf("%-13s  ", dataToPrint[i]);
+                            printf("%-14s ", dataToPrint[i]);
                             dataToPrint[i][0] = '\0';
                         }
                         break;
                     case 6:
-                        if( strlen(dataToPrint[i]) > 11)
+                        if( acotado )
                         {
-                            xlkStringSeparator(11,dataToPrint[i],dataToPrintAux);
-                            printf("%-11s  ",dataToPrint[i]);
+                            printf(formatoAcotado,dataToPrint[i]);
+                        }
+                        else if( strlen(dataToPrint[i]) > 12)
+                        {
+                            xlkStringSeparator(12,dataToPrint[i],dataToPrintAux);
+                            printf("%-12s ",dataToPrint[i]);
                             strcpy( dataToPrint[i], dataToPrintAux);
                             flag=1;
                         }
                         else
                         {
-                            printf("%-11s  ", dataToPrint[i]);
+                            printf("%-12s ", dataToPrint[i]);
                             dataToPrint[i][0] = '\0';
                         }
                         break;
                     }
                     if( flag && i == argumentsToPrint-1 )
                     {
-                        printf("\n ");
+                        printf("\n");
                         i = -1; //REINICIA EL FOR
                         flag = 0;
                     }
 
                 }
+
                 if( styleAux == 1 || styleAux == 2 )
                 {
+
                     printf("\n--------------------------------------------------------------------------------");
+
+
+                }
+                if( styleAux == 0)
+                {
+                    printf("\n");
                 }
 
             }
@@ -523,24 +572,24 @@ void xlkSortPrintf(char* dataType,int style,...)
 //XL1-7
 /** \brief Imprime un string en el centro de la pantalla.
  *
- * \param mode[2]: Centra el texto y lo imprime con decoracion.
- * \param mode[1]: Centra el texto y lo imprime solo con la decoracion inferior.
- * \param mode[0]: Centra el texto y lo imprime.
+ * \param lines[2]: Centra el texto y lo imprime con dos lineas.
+ * \param lines[1]: Centra el texto y lo imprime solo con una linea inferior.
+ * \param lines[0]: Centra el texto y lo imprime.
 * \param word: String a imprimir centrado.
  * \return
  *
  */
 
-void xlkCenterPrintf( char* word, int mode)
+void xlkCenterPrintf( char* word, int lines)
 {
     int screenCenter = 30;
     int wordRef = ((strlen(word) / 2) - 1) ;
     int start = screenCenter - (wordRef - 3);
     int i;
 
-    if(mode)
+    if(lines == 2 || lines == 1)
     {
-        if( mode == 2 )
+        if( lines == 2 )
         {
             printf("--------------------------------------------------------------------------------");
         }
@@ -549,12 +598,12 @@ void xlkCenterPrintf( char* word, int mode)
             printf(" ");
         }
         printf("<<< %s >>>\n",word);
-        if(mode == 2 || mode == 1)
+        if(lines == 2 || lines == 1)
         {
             printf("--------------------------------------------------------------------------------");
         }
     }
-    else
+    else if( lines == 0)
     {
         for( i = 0 ; i < start+5 ; i++)
         {
@@ -585,52 +634,17 @@ void xlkEnterPrinter(int number)
 
 
 
-/** \brief Imprime un mensaje segun un numero entero. Se puede proponer multiples posibles mensajes.
- *
- * \param switchNumber : Es un numero entero que usara para ver si existe algun "caso" para dicho numero.
- * \param arguments : Cantidad de argumentos que se pasaran a la funcion.
- * \param ... : Se coloca un numero entero como parametro seguido de otro parametro con un string, si switchNumber coincide,
- * \param ... : con ese numero se imprimira el string que siga. Un switch de printfs de nº de casos variable y automatico.
- * \return
- *
- */
-
-void xlkMessageAutoSwitch(int switchNumber, int arguments, ...)
-{
-    if( arguments > 1)
-    {
-        va_list cases;
-        va_start(cases, arguments);
-        int i;
-        for(i = 0 ; i < arguments ; i++)
-        {
-            if(switchNumber == va_arg(cases, int) )
-            {
-                printf("* %s\n", va_arg(cases, char*));
-            }
-            else
-            {
-                va_arg(cases, char*);
-            }
-        }
-        va_end(cases);
-    }
-
-}
-
-
-
 /** \brief Imprime una linea decorativa punteada o recta.
  *
- * \param mode : [0] Imprime una linea punteada. [distinto de cero] Imprime una linea recta.
- * \param mode : [distinto de cero] Imprime una linea recta.
+ * \param recta : [0] Imprime una linea punteada. [distinto de cero] Imprime una linea recta.
+ * \param recta : [distinto de cero] Imprime una linea recta.
  * \return
  *
  */
 
-void xlkLinePrinter(int mode)
+void xlkLinePrinter(int recta)
 {
-    if( !mode )
+    if( !recta )
     {
         printf("--------------------------------------------------------------------------------");
     }
