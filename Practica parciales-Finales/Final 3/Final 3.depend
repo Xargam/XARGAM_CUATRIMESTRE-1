@@ -1,0 +1,96 @@
+# depslib dependency file v1.0
+1533075040 source:c:\users\leo\desktop\xargam\practica parciales-finales\final 3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"xlook.h"
+	"xArrayList.h"
+	"xMessage.h"
+	"parser.h"
+
+1532886905 source:c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xarraylist.c
+	<stdio.h>
+	<stdlib.h>
+	"xArrayList.h"
+
+1532961732 c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xarraylist.h
+
+1532973092 source:c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xget.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1533074739 source:c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xlook.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+
+1533073091 source:c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xmessage.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xMessage.h"
+	"xvalidate.h"
+
+1532970771 source:c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xparser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xParser.h"
+
+1533070001 c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xparser.h
+	"xArrayList.h"
+
+1532965179 source:c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xstring.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1532980232 source:c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xvalidate.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+
+1533068165 source:c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xarraywork.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xget.h"
+	"xvalidate.h"
+	"xArrayWork.h"
+	"xlook.h"
+
+1532886905 c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xget.h
+
+1532980232 c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xvalidate.h
+
+1533068230 c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xarraywork.h
+
+1533074600 c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xlook.h
+
+1533069004 source:c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xuser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xUser.h"
+	"xvalidate.h"
+
+1533068915 c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xuser.h
+
+1533071779 c:\users\leo\desktop\xargam\practica parciales-finales\final 3\xmessage.h
+
+1533070159 c:\users\leo\desktop\xargam\practica parciales-finales\final 3\parser.h
+
+1533073057 source:c:\users\leo\desktop\xargam\practica parciales-finales\final 3\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"xArrayList.h"
+	"xMessage.h"
+
