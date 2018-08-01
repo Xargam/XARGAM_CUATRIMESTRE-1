@@ -4,8 +4,9 @@
 
 #include "xArrayList.h"
 #include "xMessage.h"
+#include "xUser.h"
 
-int xpar_parseMessages( arrayList* lista , char* filePath )
+int xpar_parseMessages( arrayList* lista, char* filePath )
 {
     int verify = 0;
 
@@ -17,7 +18,7 @@ int xpar_parseMessages( arrayList* lista , char* filePath )
             char message[3501];
             char msgId[10];
             char userId[10];
-            char popularidad[10];
+            char popularidad[15];
 
             verify = 1;
 
@@ -46,7 +47,7 @@ int xpar_parseMessages( arrayList* lista , char* filePath )
                 message_setId(msg,atoi(msgId));
                 message_setMessage(msg,message);
                 message_setUserId(msg,atoi(userId));
-                message_setPopularidad(msg,atoi(popularidad));
+                message_setPopularidad(msg,atol(popularidad));
 
                 lista->add(lista,msg);
             }
@@ -61,7 +62,7 @@ int xpar_parseMessages( arrayList* lista , char* filePath )
 
 
 
-int xpar_parseUsers( arrayList* lista , char* filePath )
+int xpar_parseUsers( arrayList* lista, char* filePath )
 {
     int verify = 0;
 
@@ -72,13 +73,13 @@ int xpar_parseUsers( arrayList* lista , char* filePath )
         {
             char userId[10];
             char nick[51];
-            char popularidad[10];
+            char popularidad[15];
 
             verify = 1;
 
             while( !feof(file) )
             {
-                if( fscanf(file,"%[^;];%[^;];%[^\n]\n",campo1,campo15,campo3) != 3)
+                if( fscanf(file,"%[^,],%[^,],%[^\n]\n",userId,nick,popularidad) != 3)
                 {
                     if( feof(file))
                     {
@@ -91,17 +92,18 @@ int xpar_parseUsers( arrayList* lista , char* filePath )
                     }
                 }
 
-                eGenerica* gen = generica_newGenerica();
+                sUser* user = user_newUser();
 
-                if( gen == NULL)
+                if( user == NULL)
                 {
                     verify = 0;
                     break;
                 }
-                generica_setCampo1(gen,atoi(campo1));
-                generica_setCampo15(gen,atol(campo15));
-                generica_setCampo3(gen,campo3);
-                lista->add(lista,gen);
+                user_setId(user, atoi(userId) );
+                user_setNick(user,nick);
+                user_setPopularidad(user,atol(popularidad));
+
+                lista->add(lista,user);
             }
             if( fclose(file) )
             {
@@ -113,23 +115,29 @@ int xpar_parseUsers( arrayList* lista , char* filePath )
 }
 
 
-/*
-int xpar_unparseGenerica( arrayList* lista, char* filePath )
+
+int xpar_unparseFeed( arrayList* usuarios, arrayList* mensajes, char* filePath )
 {
     int verify = 0;
-    if( lista != NULL && filePath != NULL )
+    if( usuarios != NULL && mensajes != NULL &&filePath != NULL )
     {
         FILE* file = fopen(filePath,"w");
         if( file != NULL )
         {
             verify = 1;
-            int i;
-            for( i = 0 ; i < lista->len(lista) ; i++)
+            int i, j;
+            for( i = 0 ; i < usuarios->len(usuarios) && verify == 1 ; i++)
             {
-                if( fprintf(file,"%d;%ld;%s\n", generica_getCampo1( lista->get(lista,i) ), generica_getCampo15( lista->get(lista,i) ), generica_getCampo3( lista->get(lista,i)) ) < 0 )
+                for(j = 0 ; j < mensajes->len(mensajes) ; j++)
                 {
-                    verify = 0;
-                    break;
+                    if( message_getUserId( mensajes->get(mensajes,j) ) == user_getId( usuarios->get(usuarios,i) ) )
+                    {
+                        if( fprintf(file,"%d,%s,%ld,%d,%s,%ld\n", message_getId( mensajes->get(mensajes,j) ) , message_getMessage( mensajes->get(mensajes,j) ) , message_getPopularidad(mensajes->get(mensajes,j)), message_getUserId( mensajes->get(mensajes,j) ) , user_getNick( usuarios->get(usuarios,i) ) , user_getPopularidad( usuarios->get(usuarios,i))) < 0 )
+                        {
+                            verify = 0;
+                            break;
+                        }
+                    }
                 }
             }
             if( fclose(file))
@@ -139,4 +147,4 @@ int xpar_unparseGenerica( arrayList* lista, char* filePath )
         }
     }
     return verify ;
-}*/
+}

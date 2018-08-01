@@ -5,7 +5,7 @@ typedef struct
 {
     int messageId;
     char message[3501];
-    int popularidad;
+    long popularidad;
     int userId;
 
 } sMessage;
@@ -22,8 +22,8 @@ char* message_getMessage( sMessage* message );
 int message_setUserId( sMessage* message , int userId );
 int message_getUserId( sMessage* message );
 
-int message_setPopularidad( sMessage* message , int popularidad );
-int message_getPopularidad( sMessage* message );
+int message_setPopularidad( sMessage* message , long popularidad );
+long message_getPopularidad( sMessage* message );
 
 
 #endif // XMESSAGE_H_INCLUDED

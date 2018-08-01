@@ -5,6 +5,7 @@
 #include "xArrayList.h"
 #include "xMessage.h"
 #include "parser.h"
+#include "xUser.h"
 
 int main()
 {
@@ -17,15 +18,13 @@ int main()
     }
 
     xpar_parseMessages(mensajes,"mensajes.csv");
+    xpar_parseUsers(usuarios,"usuarios.csv");
 
     xlkLinePrinter(0);
-    for(int i = 0 ; i < mensajes->len(mensajes) ; i++)
+    for(int i = 0 ; i < usuarios->len(usuarios) ; i++)
     {
-        xlkSortPrintf(0,100,"%s,%s,%s",1,"Id de mensaje:","Id de usuario:","Popularidad:");
-        xlkSortPrintf(0,1000,"%d%d%d",1,message_getId( mensajes->get(mensajes,i) ),message_getUserId(mensajes->get(mensajes,i)), message_getPopularidad(mensajes->get(mensajes,i)));
-        xlkSortPrintf(0,100,"%s",1,"Mensaje:" );
-        xlkSortPrintf(0,5000,"%s",1, message_getMessage( mensajes->get(mensajes,i)));
-
+        xlkSortPrintf(0,100,"%d,%s,%ld",1, user_getId( usuarios->get(usuarios,i)) , user_getNick(usuarios->get(usuarios,i)) , user_getPopularidad(usuarios->get(usuarios,i)) );
     }
+    printf("UNPARSER: %d ", xpar_unparseFeed(usuarios,mensajes,"feed.csv"));
     return 0;
 }

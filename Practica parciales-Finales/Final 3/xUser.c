@@ -110,7 +110,7 @@ char* user_getNick( sUser* user )
  *
  */
 
-int user_setPopularidad( sUser* user , int popularidad )
+int user_setPopularidad( sUser* user , long popularidad )
 {
     int verify = 0;
     if( user != NULL )
@@ -133,7 +133,7 @@ int user_setPopularidad( sUser* user , int popularidad )
  *
  */
 
-int user_getPopularidad( sUser* user )
+long user_getPopularidad( sUser* user )
 {
     return user->popularidad;
 }

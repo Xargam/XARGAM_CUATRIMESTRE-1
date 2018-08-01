@@ -5,7 +5,7 @@ typedef struct
 {
     int userId;
     char nick[51];
-    int popularidad;
+    long popularidad;
 
 } sUser;
 
@@ -17,8 +17,8 @@ int user_getId( sUser* user );
 int user_setNick(sUser* user, char* nick);
 char* user_getNick(sUser* user);
 
-int user_setPopularidad(sUser* user, int popularidad);
-int user_getPopularidad(sUser* user);
+int user_setPopularidad(sUser* user, long popularidad);
+long user_getPopularidad(sUser* user);
 
 
 #endif // XUSER_H_INCLUDED

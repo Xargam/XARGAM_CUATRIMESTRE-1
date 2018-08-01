@@ -150,7 +150,7 @@ int message_getUserId( sMessage* message )
  *
  */
 
-int message_setPopularidad( sMessage* message , int popularidad )
+int message_setPopularidad( sMessage* message , long popularidad )
 {
     int verify = 0;
     if( message != NULL )
@@ -173,7 +173,7 @@ int message_setPopularidad( sMessage* message , int popularidad )
  *
  */
 
-int message_getPopularidad( sMessage* message )
+long message_getPopularidad( sMessage* message )
 {
     return message->popularidad;
 }
